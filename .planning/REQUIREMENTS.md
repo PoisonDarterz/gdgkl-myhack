@@ -49,7 +49,9 @@
 |-------------|-------|--------|
 | SETUP-01 | Phase 1 | Pending |
 | SETUP-02 | Phase 1 | Pending |
+| STYLE-01 | Phase 1 | Pending |
 | SECT-01 | Phase 2 | Pending |
+| STYLE-02 | Phase 2 | Pending |
 | SECT-02 | Phase 3 | Pending |
 | SECT-03 | Phase 3 | Pending |
 | SECT-04 | Phase 3 | Pending |
@@ -58,8 +60,6 @@
 | SECT-07 | Phase 4 | Pending |
 | SECT-08 | Phase 5 | Pending |
 | SECT-09 | Phase 5 | Pending |
-| STYLE-01 | Phase 1 | Pending |
-| STYLE-02 | Phase 2 | Pending |
 
 **Coverage:**
 - v1 requirements: 13 total
@@ -68,4 +68,4 @@
 
 ---
 *Requirements defined: 2026-03-08*
-*Last updated: 2026-03-08 after initial definition*
+*Last updated: 2026-03-08 after roadmap creation*
