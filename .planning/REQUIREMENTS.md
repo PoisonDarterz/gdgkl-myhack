@@ -7,7 +7,7 @@
 
 ### Foundation Setup
 
-- [ ] **SETUP-01**: Layout updated to load Courier Prime, Instrument Serif, and Workbench fonts via next/font/google, replacing existing Geist fonts
+- [x] **SETUP-01**: Layout updated to load Courier Prime, Instrument Serif, and Workbench fonts via next/font/google, replacing existing Geist fonts
 - [ ] **SETUP-02**: page.tsx replaced with landing page root component that renders all sections in Figma order
 
 ### Page Sections
@@ -24,7 +24,7 @@
 
 ### Visual Fidelity
 
-- [ ] **STYLE-01**: Global color palette applied — background #F5F5F5, primary text #282828, muted text #5C5C5C
+- [x] **STYLE-01**: Global color palette applied — background #F5F5F5, primary text #282828, muted text #5C5C5C
 - [ ] **STYLE-02**: Noise texture overlay applied as full-page background effect matching Figma design
 
 ## v2 Requirements
@@ -47,9 +47,9 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SETUP-01 | Phase 1 | Pending |
+| SETUP-01 | Phase 1 | Complete |
 | SETUP-02 | Phase 1 | Pending |
-| STYLE-01 | Phase 1 | Pending |
+| STYLE-01 | Phase 1 | Complete |
 | SECT-01 | Phase 2 | Pending |
 | STYLE-02 | Phase 2 | Pending |
 | SECT-02 | Phase 3 | Pending |
