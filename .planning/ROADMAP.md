@@ -44,7 +44,11 @@ Plans:
   2. "KUALA LUMPUR" renders in Workbench retro display font
   3. Signal received badge, tagline, description, and CTA button are present and styled
   4. Noise texture is visible as a subtle grain overlay across the entire page background
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Full-page noise texture overlay CSS class and layout div
+- [ ] 02-02-PLAN.md — Hero section content: badge, headings, description, CTA button, and SVG illustrations
 
 ### Phase 3: Mid Sections
 **Goal**: The Benefits, "What is Build With AI?", and Stats sections are fully implemented and match the Figma layout
@@ -85,7 +89,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-03-08 |
-| 2. Hero + Noise | 0/? | Not started | - |
+| 2. Hero + Noise | 0/2 | Not started | - |
 | 3. Mid Sections | 0/? | Not started | - |
 | 4. Event Sections | 0/? | Not started | - |
 | 5. CTA + Footer | 0/? | Not started | - |
