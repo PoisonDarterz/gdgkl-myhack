@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 export function HeroSection() {
   // Glitch text animation state
   const TARGET_TEXT = "start building the future today.";
-  const GLITCH_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&";
+  const GLITCH_CHARS =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&";
   const TOTAL_FRAMES = 18;
   const [glitchText, setGlitchText] = useState(TARGET_TEXT);
 
@@ -37,7 +38,8 @@ export function HeroSection() {
           if (TARGET_TEXT[i] === " " || TARGET_TEXT[i] === ".") {
             displayText += TARGET_TEXT[i];
           } else {
-            displayText += GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
+            displayText +=
+              GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
           }
         }
       }
@@ -51,7 +53,7 @@ export function HeroSection() {
   // Signal bracket swap effect
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsDouble(prev => !prev);
+      setIsDouble((prev) => !prev);
     }, 600);
 
     return () => clearInterval(interval);
@@ -82,9 +84,7 @@ export function HeroSection() {
         <p className="font-mono text-sm text-brand-muted max-w-xl">
           Gain real-world experience with Google&apos;s latest AI tools &amp;
           models and{" "}
-          <span className="bg-brand-text text-white px-1">
-            {glitchText}
-          </span>
+          <span className="bg-brand-text text-white px-1">{glitchText}</span>
         </p>
       </div>
 
@@ -93,16 +93,15 @@ export function HeroSection() {
         {/* Card */}
         <div className="border border-brand-text flex">
           {/* Twin Towers illustration */}
-          <Image
+          <img
             src="/images/twin-towers.svg"
             alt="Petronas Twin Towers"
-            width={100}
-            height={160}
+            className="h-full w-auto block shrink-0"
           />
 
           {/* CTA content */}
-          <div className="flex flex-col gap-3 p-5 justify-between min-w-[200px]">
-            <span className="font-mono text-white bg-brand-text px-3 py-1 text-xs tracking-widest uppercase self-start">
+          <div className="flex flex-col gap-2 p-3 w-[240px]">
+            <span className="font-mono text-white bg-brand-text px-3 py-1 text-xs tracking-widest uppercase text-center">
               {isDouble ? "[[ SIGNAL RECEIVED ]]" : "[ SIGNAL RECEIVED ]"}
             </span>
             <p className="font-mono text-brand-text text-xs tracking-widest uppercase font-bold italic">
@@ -113,7 +112,7 @@ export function HeroSection() {
             </p>
             <a
               href="#"
-              className="inline-block bg-green-700 text-white font-mono text-sm tracking-widest uppercase px-6 py-3 text-center hover:bg-green-800 transition-colors duration-200"
+              className="w-full inline-block bg-green-700 text-white font-mono text-sm tracking-widest uppercase px-6 py-3 text-center hover:bg-green-800 transition-colors duration-200"
             >
               REGISTER NOW
             </a>

@@ -17,7 +17,8 @@ affects: [hero-animations, ui-polish]
 # Tech tracking
 tech-stack:
   added: []
-  patterns: [client-component-animations, useEffect-cleanup, setInterval-animations]
+  patterns:
+    [client-component-animations, useEffect-cleanup, setInterval-animations]
 
 key-files:
   created: []
@@ -52,6 +53,7 @@ completed: 2026-03-08
 - **Files modified:** 1
 
 ## Accomplishments
+
 - Glitch-text animation on "start building the future today." phrase with randomized character cycling that resolves left-to-right
 - Signal badge animation alternating between `[[ SIGNAL RECEIVED ]]` and `[ SIGNAL RECEIVED ]` every 600ms
 - Converted HeroSection to client component with proper hydration handling (SSR shows final text, animation runs only after mount)
@@ -64,9 +66,11 @@ Each task was committed atomically:
 1. **Task 1: Add glitch-text and signal-received animations to HeroSection** - `a709450` (feat)
 
 ## Files Created/Modified
+
 - `src/components/sections/HeroSection.tsx` - Converted to client component with two animations: glitch-text effect using frame-based character resolution (18 frames @ 40ms intervals), and signal badge bracket swap using boolean state toggle (600ms intervals). Both useEffect hooks include clearInterval cleanup.
 
 ## Decisions Made
+
 - Initialized glitch text state to target string (not empty) to avoid hydration mismatch - SSR renders correct text, animation only runs client-side after mount
 - Glitch characters limited to `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&` for hacker aesthetic
 - Spaces and punctuation preserved during glitch animation (only alpha-numeric characters randomize)
@@ -89,11 +93,13 @@ None - no external service configuration required.
 Hero section animations complete. Ready for further UI polish or next section development.
 
 ---
-*Phase: quick-3*
-*Completed: 2026-03-08*
+
+_Phase: quick-3_
+_Completed: 2026-03-08_
 
 ## Self-Check: PASSED
 
 Verified:
+
 - File exists: src/components/sections/HeroSection.tsx ✓
 - Commit exists: a709450 ✓

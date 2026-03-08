@@ -60,6 +60,7 @@ Target string (including trailing period): `start building the future today.`
 Characters that are spaces must stay as spaces throughout (no randomization on space/punctuation — only alpha chars).
 
 Implementation approach:
+
 - Define a constant `GLITCH_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&'`
 - On mount, run a `setInterval` at 40ms. Track a `frame` counter (starts at 0). Each character in the target string settles at frame `Math.floor((i / target.length) * TOTAL_FRAMES)` where `TOTAL_FRAMES = 18`.
 - On each tick: build the displayed string — for each index `i`, if `frame >= settleFrame[i]`, use the real character, else use a random char from GLITCH_CHARS (preserve spaces as spaces).
@@ -72,20 +73,21 @@ Implementation approach:
 - Use `useState<boolean>` (`isDouble`, initialized to `true`) toggled by `setInterval` every 600ms on mount.
 - When `isDouble` is true: render `[[ SIGNAL RECEIVED ]]`; when false: render `[ SIGNAL RECEIVED ]`
 - Clear the interval on component unmount (return cleanup from useEffect).
-- Replace the hardcoded `{`[[ SIGNAL RECEIVED ]]`}` span content with the toggled state variable.
+- Replace the hardcoded `{`[[SIGNAL RECEIVED]]`}` span content with the toggled state variable.
 
 Both useEffects must return cleanup functions that call `clearInterval`. Keep all existing className/layout untouched.
-  </action>
-  <verify>
+</action>
+<verify>
 Run `npm run dev` and open the page in a browser. Observe:
+
 1. On load, the "start building the future today." text briefly shows scrambled characters that resolve left-to-right into the real phrase.
-2. The "[[ SIGNAL RECEIVED ]]" badge visibly alternates between `[[` and `[` bracket forms every ~600ms.
-Run `npm run build` to confirm no TypeScript or build errors.
-  </verify>
-  <done>
-Both animations are visible in the browser. Build completes without errors. Existing layout, fonts, and colors are unchanged.
-  </done>
-</task>
+2. The "[[SIGNAL RECEIVED]]" badge visibly alternates between `[[` and `[` bracket forms every ~600ms.
+   Run `npm run build` to confirm no TypeScript or build errors.
+   </verify>
+   <done>
+   Both animations are visible in the browser. Build completes without errors. Existing layout, fonts, and colors are unchanged.
+   </done>
+   </task>
 
 </tasks>
 

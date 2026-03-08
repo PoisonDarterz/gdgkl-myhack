@@ -72,10 +72,10 @@ None yet.
 
 ### Quick Tasks Completed
 
-| #   | Description                                                  | Date       | Commit  | Directory                                                                                         |
-| --- | ------------------------------------------------------------ | ---------- | ------- | ------------------------------------------------------------------------------------------------- |
-| 1   | adjust hero section according to image layout                | 2026-03-08 | a751983 | [1-adjust-hero-section-according-to-image-l](./quick/1-adjust-hero-section-according-to-image-l/) |
-| 2   | fix hero section proportions and text styling to match Figma | 2026-03-08 | fa175b1 | [2-check-the-actual-and-figma-image-change-](./quick/2-check-the-actual-and-figma-image-change-/) |
+| #   | Description                                                   | Date       | Commit  | Directory                                                                                         |
+| --- | ------------------------------------------------------------- | ---------- | ------- | ------------------------------------------------------------------------------------------------- |
+| 1   | adjust hero section according to image layout                 | 2026-03-08 | a751983 | [1-adjust-hero-section-according-to-image-l](./quick/1-adjust-hero-section-according-to-image-l/) |
+| 2   | fix hero section proportions and text styling to match Figma  | 2026-03-08 | fa175b1 | [2-check-the-actual-and-figma-image-change-](./quick/2-check-the-actual-and-figma-image-change-/) |
 | 3   | add glitch text and signal received animations to HeroSection | 2026-03-08 | a709450 | [3-herosection-animations-glitch-text-and-s](./quick/3-herosection-animations-glitch-text-and-s/) |
 
 ## Session Continuity
