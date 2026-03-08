@@ -34,6 +34,7 @@ Progress: [██░░░░░░░░] 20%
 - Trend: -
 
 *Updated after each plan completion*
+| Phase 02-hero-noise P01 | 2 | 1 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -50,6 +51,10 @@ Recent decisions affecting current work:
 - [01-01]: --background set to #F5F5F5 hex so bg-background renders brand off-white system-wide
 - [Phase 01-foundation]: Import path @/src/components/sections is correct because tsconfig @/* maps to project root — sections at src/ must include the src/ segment
 - [Phase 01-foundation]: Figma scroll order canonically established in page.tsx: Hero, Benefits, WhatIsBAI, Stats, Timeline, Partners, FAQ, RegisterCTA, Footer
+- [Phase 02-hero-noise]: CSS background-image used for noise texture (not next/image) — repeating decorative pattern not a content image
+- [Phase 02-hero-noise]: Noise overlay uses position: fixed with inset: 0 and pointer-events: none — covers full viewport at all scroll positions without blocking interaction
+- [Phase 02-hero-noise]: Outlined CTA button uses border border-brand-text with hover:bg-brand-text hover:text-white — CSS transition only, no JS
+- [Phase 02-hero-noise]: Three-column flex layout with items-end so flanking illustrations bottom-align with center text column
 
 ### Pending Todos
 

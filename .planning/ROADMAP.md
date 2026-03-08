@@ -13,7 +13,7 @@ Starting from an existing Next.js 15 scaffold, this milestone implements the ful
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Fonts, page shell, and global color palette ready (completed 2026-03-08)
-- [ ] **Phase 2: Hero + Noise** - Hero section visible with noise texture background
+- [x] **Phase 2: Hero + Noise** - Hero section visible with noise texture background (completed 2026-03-08)
 - [ ] **Phase 3: Mid Sections** - Benefits, What is BAI, and Stats sections complete
 - [ ] **Phase 4: Event Sections** - Timeline, Partners, and FAQ sections complete
 - [ ] **Phase 5: CTA + Footer** - Register marquee and footer complete — page ships
@@ -89,7 +89,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-03-08 |
-| 2. Hero + Noise | 0/2 | Not started | - |
+| 2. Hero + Noise | 2/2 | Complete   | 2026-03-08 |
 | 3. Mid Sections | 0/? | Not started | - |
 | 4. Event Sections | 0/? | Not started | - |
 | 5. CTA + Footer | 0/? | Not started | - |

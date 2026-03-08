@@ -12,7 +12,7 @@
 
 ### Page Sections
 
-- [ ] **SECT-01**: Hero section implemented — "Build With AI" heading (Instrument Serif), "KUALA LUMPUR" (Workbench), signal received badge, tagline, description, CTA button
+- [x] **SECT-01**: Hero section implemented — "Build With AI" heading (Instrument Serif), "KUALA LUMPUR" (Workbench), signal received badge, tagline, description, CTA button
 - [ ] **SECT-02**: Benefits section implemented — three feature cards with `#` prefix headings and dot separator lines
 - [ ] **SECT-03**: "What is Build With AI?" section implemented — terminal-style system log block with monospace content
 - [ ] **SECT-04**: Stats section implemented — 2,258 events and 178,000 developers trained figures displayed
@@ -25,7 +25,7 @@
 ### Visual Fidelity
 
 - [x] **STYLE-01**: Global color palette applied — background #F5F5F5, primary text #282828, muted text #5C5C5C
-- [ ] **STYLE-02**: Noise texture overlay applied as full-page background effect matching Figma design
+- [x] **STYLE-02**: Noise texture overlay applied as full-page background effect matching Figma design
 
 ## v2 Requirements
 
@@ -50,8 +50,8 @@
 | SETUP-01 | Phase 1 | Complete |
 | SETUP-02 | Phase 1 | Complete |
 | STYLE-01 | Phase 1 | Complete |
-| SECT-01 | Phase 2 | Pending |
-| STYLE-02 | Phase 2 | Pending |
+| SECT-01 | Phase 2 | Complete |
+| STYLE-02 | Phase 2 | Complete |
 | SECT-02 | Phase 3 | Pending |
 | SECT-03 | Phase 3 | Pending |
 | SECT-04 | Phase 3 | Pending |
