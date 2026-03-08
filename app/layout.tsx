@@ -45,6 +45,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className={`${courierPrime.variable} ${instrumentSerif.variable} ${workbench.variable} font-mono min-h-screen`}>
+          <div className="noise-overlay" aria-hidden="true" />
           {children}
         </div>
       </body>
