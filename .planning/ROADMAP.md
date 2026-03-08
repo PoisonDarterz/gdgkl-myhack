@@ -29,7 +29,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Courier Prime renders in the page — visible as the primary monospace typeface
   3. Instrument Serif and Workbench fonts are loaded and available (no fallback sans-serif flash)
   4. page.tsx renders all section placeholders in Figma scroll order with no layout errors
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Font loading in layout.tsx and Tailwind v4 color/font tokens in globals.css
+- [ ] 01-02-PLAN.md — Section placeholder components, barrel export, and landing page root in page.tsx
 
 ### Phase 2: Hero + Noise
 **Goal**: The top of the page matches the Figma hero — correct typography hierarchy, badge, CTA button, and noise texture visible across the full viewport
@@ -80,7 +84,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/? | Not started | - |
+| 1. Foundation | 0/2 | Not started | - |
 | 2. Hero + Noise | 0/? | Not started | - |
 | 3. Mid Sections | 0/? | Not started | - |
 | 4. Event Sections | 0/? | Not started | - |
