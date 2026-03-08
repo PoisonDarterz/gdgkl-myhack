@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 Phase: 1 of 5 (Foundation)
 Plan: 2 of 2 in current phase
 Status: In progress
-Last activity: 2026-03-08 - Completed quick task 3: add glitch text and signal received animations to HeroSection
+Last activity: 2026-03-08 - Completed quick task 4: fix HeroSection right card layout and tower image sizing to match Figma
 
 Progress: [██░░░░░░░░] 20%
 
@@ -72,14 +72,15 @@ None yet.
 
 ### Quick Tasks Completed
 
-| #   | Description                                                   | Date       | Commit  | Directory                                                                                         |
-| --- | ------------------------------------------------------------- | ---------- | ------- | ------------------------------------------------------------------------------------------------- |
-| 1   | adjust hero section according to image layout                 | 2026-03-08 | a751983 | [1-adjust-hero-section-according-to-image-l](./quick/1-adjust-hero-section-according-to-image-l/) |
-| 2   | fix hero section proportions and text styling to match Figma  | 2026-03-08 | fa175b1 | [2-check-the-actual-and-figma-image-change-](./quick/2-check-the-actual-and-figma-image-change-/) |
-| 3   | add glitch text and signal received animations to HeroSection | 2026-03-08 | a709450 | [3-herosection-animations-glitch-text-and-s](./quick/3-herosection-animations-glitch-text-and-s/) |
+| #   | Description                                                               | Date       | Commit  | Directory                                                                                                           |
+| --- | ------------------------------------------------------------------------- | ---------- | ------- | ------------------------------------------------------------------------------------------------------------------- |
+| 1   | adjust hero section according to image layout                             | 2026-03-08 | a751983 | [1-adjust-hero-section-according-to-image-l](./quick/1-adjust-hero-section-according-to-image-l/)                   |
+| 2   | fix hero section proportions and text styling to match Figma              | 2026-03-08 | fa175b1 | [2-check-the-actual-and-figma-image-change-](./quick/2-check-the-actual-and-figma-image-change-/)                   |
+| 3   | add glitch text and signal received animations to HeroSection             | 2026-03-08 | a709450 | [3-herosection-animations-glitch-text-and-s](./quick/3-herosection-animations-glitch-text-and-s/)                   |
+| 4   | fix herosection right card layout and tower image sizing to match figma  | 2026-03-08 | e032b7a | [4-fix-herosection-right-card-layout-and-to](./quick/4-fix-herosection-right-card-layout-and-to/)                   |
 
 ## Session Continuity
 
 Last session: 2026-03-08
-Stopped at: Completed quick-3 — HeroSection animations (glitch text and signal badge)
+Stopped at: Completed quick-4 — HeroSection card layout fix (compact design, full-width badge/button)
 Resume file: None
