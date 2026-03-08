@@ -62,5 +62,21 @@ The landing page must look exactly like the Figma design — pixel-faithful typo
 | Register CTA uses href="#" placeholder | User confirmed placeholder for now | — Pending |
 | Fonts loaded via next/font/google | Next.js best practice, avoids FOUT | — Pending |
 
+## Current Milestone: v1.0 Landing Page
+
+**Goal:** Implement the full pixel-faithful landing page matching the Figma design
+
+**Target features:**
+- Font setup (Courier Prime, Instrument Serif, Workbench)
+- Hero section
+- Benefits section
+- "What is Build With AI?" section with terminal log block
+- Stats section
+- Timeline section
+- Partners section
+- FAQ section
+- Register CTA section
+- Footer
+
 ---
-*Last updated: 2026-03-07 after initialization*
+*Last updated: 2026-03-08 after milestone v1.0 started*
