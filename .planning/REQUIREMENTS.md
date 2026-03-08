@@ -8,7 +8,7 @@
 ### Foundation Setup
 
 - [x] **SETUP-01**: Layout updated to load Courier Prime, Instrument Serif, and Workbench fonts via next/font/google, replacing existing Geist fonts
-- [ ] **SETUP-02**: page.tsx replaced with landing page root component that renders all sections in Figma order
+- [x] **SETUP-02**: page.tsx replaced with landing page root component that renders all sections in Figma order
 
 ### Page Sections
 
@@ -48,7 +48,7 @@
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | SETUP-01 | Phase 1 | Complete |
-| SETUP-02 | Phase 1 | Pending |
+| SETUP-02 | Phase 1 | Complete |
 | STYLE-01 | Phase 1 | Complete |
 | SECT-01 | Phase 2 | Pending |
 | STYLE-02 | Phase 2 | Pending |
