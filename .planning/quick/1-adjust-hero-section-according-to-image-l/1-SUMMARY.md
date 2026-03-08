@@ -9,7 +9,8 @@ dependency_graph:
   affects: [src/components/sections/HeroSection.tsx]
 tech_stack:
   added: []
-  patterns: [flex two-column layout, inline heading row, inverted text highlight]
+  patterns:
+    [flex two-column layout, inline heading row, inverted text highlight]
 key_files:
   created: []
   modified:
@@ -58,12 +59,12 @@ metrics:
 
 ## Decisions Made
 
-| Decision | Rationale |
-|---|---|
-| `bg-green-700` for REGISTER NOW | Closest standard Tailwind green to design intent; `hover:bg-green-800` for subtle feedback |
-| `self-end pb-2` on KUALA LUMPUR | Keeps the text visually baseline-aligned with the bottom of the h1 in the flex row |
-| `min-w-[200px]` on CTA column | Prevents the card's right side from collapsing too narrow on smaller viewports |
-| `width={160} height={260}` for twin-towers | Maintains portrait aspect ratio without being overly tall |
+| Decision                                   | Rationale                                                                                  |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `bg-green-700` for REGISTER NOW            | Closest standard Tailwind green to design intent; `hover:bg-green-800` for subtle feedback |
+| `self-end pb-2` on KUALA LUMPUR            | Keeps the text visually baseline-aligned with the bottom of the h1 in the flex row         |
+| `min-w-[200px]` on CTA column              | Prevents the card's right side from collapsing too narrow on smaller viewports             |
+| `width={160} height={260}` for twin-towers | Maintains portrait aspect ratio without being overly tall                                  |
 
 ## Final File
 

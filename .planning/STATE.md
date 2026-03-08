@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 Phase: 1 of 5 (Foundation)
 Plan: 2 of 2 in current phase
 Status: In progress
-Last activity: 2026-03-08 — Completed plan 01-02 (section placeholder scaffold)
+Last activity: 2026-03-08 - Completed quick task 1: adjust hero section according to image layout
 
 Progress: [██░░░░░░░░] 20%
 
@@ -55,6 +55,7 @@ Recent decisions affecting current work:
 - [Phase 02-hero-noise]: Noise overlay uses position: fixed with inset: 0 and pointer-events: none — covers full viewport at all scroll positions without blocking interaction
 - [Phase 02-hero-noise]: Outlined CTA button uses border border-brand-text with hover:bg-brand-text hover:text-white — CSS transition only, no JS
 - [Phase 02-hero-noise]: Three-column flex layout with items-end so flanking illustrations bottom-align with center text column
+- [quick-1]: Hero rebuilt to two-column layout — left: signal icon + heading + description, right: bordered card with twin-towers + CTA (filled green button), system log below card; KL Tower removed from hero
 
 ### Pending Todos
 
@@ -63,6 +64,12 @@ None yet.
 ### Blockers/Concerns
 
 None yet.
+
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 1 | adjust hero section according to image layout | 2026-03-08 | a751983 | [1-adjust-hero-section-according-to-image-l](./quick/1-adjust-hero-section-according-to-image-l/) |
 
 ## Session Continuity
 
