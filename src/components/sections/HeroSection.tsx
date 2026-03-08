@@ -2,13 +2,13 @@ import Image from "next/image";
 
 export function HeroSection() {
   return (
-    <section className="flex gap-12 items-start py-20 w-full overflow-hidden">
+    <section className="flex gap-12 items-start py-8 w-full overflow-hidden">
       {/* Left column: heading row + description */}
       <div className="flex-1 flex flex-col gap-6">
         {/* Heading row: signal icon + h1 + KUALA LUMPUR inline */}
         <div className="flex items-end gap-4">
           <Image
-            src="/images/signal-icon.svg"
+            src="/images/bai_icon.svg"
             alt=""
             width={56}
             height={56}
@@ -24,8 +24,11 @@ export function HeroSection() {
 
         {/* Description with inverted highlight on last phrase */}
         <p className="font-mono text-sm text-brand-muted max-w-xl">
-          Gain real-world experience with Google&apos;s latest AI tools &amp; models and{" "}
-          <span className="bg-brand-text text-white px-1">start building the future today.</span>
+          Gain real-world experience with Google&apos;s latest AI tools &amp;
+          models and{" "}
+          <span className="bg-brand-text text-white px-1">
+            start building the future today.
+          </span>
         </p>
       </div>
 
@@ -37,8 +40,8 @@ export function HeroSection() {
           <Image
             src="/images/twin-towers.svg"
             alt="Petronas Twin Towers"
-            width={160}
-            height={260}
+            width={100}
+            height={160}
           />
 
           {/* CTA content */}
@@ -46,7 +49,7 @@ export function HeroSection() {
             <span className="font-mono text-white bg-brand-text px-3 py-1 text-xs tracking-widest uppercase self-start">
               {`[[ SIGNAL RECEIVED ]]`}
             </span>
-            <p className="font-mono text-brand-text text-xs tracking-widest uppercase">
+            <p className="font-mono text-brand-text text-xs tracking-widest uppercase font-bold italic">
               HANDS-ON AI TRAINING NEAR YOU.
             </p>
             <p className="font-mono text-brand-text text-sm tracking-wider">
