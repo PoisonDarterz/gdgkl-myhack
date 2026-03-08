@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 Phase: 1 of 5 (Foundation)
 Plan: 2 of 2 in current phase
 Status: In progress
-Last activity: 2026-03-08 - Completed quick task 2: fix hero section proportions and text styling to match Figma
+Last activity: 2026-03-08 - Completed quick task 3: add glitch text and signal received animations to HeroSection
 
 Progress: [██░░░░░░░░] 20%
 
@@ -58,6 +58,9 @@ Recent decisions affecting current work:
 - [Phase 02-hero-noise]: Outlined CTA button uses border border-brand-text with hover:bg-brand-text hover:text-white — CSS transition only, no JS
 - [Phase 02-hero-noise]: Three-column flex layout with items-end so flanking illustrations bottom-align with center text column
 - [quick-1]: Hero rebuilt to two-column layout — left: signal icon + heading + description, right: bordered card with twin-towers + CTA (filled green button), system log below card; KL Tower removed from hero
+- [quick-3]: Glitch text initialized to target string to avoid hydration mismatch — SSR shows real text, animation runs only after mount
+- [quick-3]: Both hero animations use setInterval with proper cleanup via useEffect return function
+- [quick-3]: Glitch text preserves spaces and punctuation, only randomizes alphanumeric characters
 
 ### Pending Todos
 
@@ -69,13 +72,14 @@ None yet.
 
 ### Quick Tasks Completed
 
-| #   | Description                                                                | Date       | Commit  | Directory                                                                                         |
-| --- | -------------------------------------------------------------------------- | ---------- | ------- | ------------------------------------------------------------------------------------------------- |
-| 1   | adjust hero section according to image layout                              | 2026-03-08 | a751983 | [1-adjust-hero-section-according-to-image-l](./quick/1-adjust-hero-section-according-to-image-l/) |
-| 2   | fix hero section proportions and text styling to match Figma              | 2026-03-08 | fa175b1 | [2-check-the-actual-and-figma-image-change-](./quick/2-check-the-actual-and-figma-image-change-/) |
+| #   | Description                                                  | Date       | Commit  | Directory                                                                                         |
+| --- | ------------------------------------------------------------ | ---------- | ------- | ------------------------------------------------------------------------------------------------- |
+| 1   | adjust hero section according to image layout                | 2026-03-08 | a751983 | [1-adjust-hero-section-according-to-image-l](./quick/1-adjust-hero-section-according-to-image-l/) |
+| 2   | fix hero section proportions and text styling to match Figma | 2026-03-08 | fa175b1 | [2-check-the-actual-and-figma-image-change-](./quick/2-check-the-actual-and-figma-image-change-/) |
+| 3   | add glitch text and signal received animations to HeroSection | 2026-03-08 | a709450 | [3-herosection-animations-glitch-text-and-s](./quick/3-herosection-animations-glitch-text-and-s/) |
 
 ## Session Continuity
 
 Last session: 2026-03-08
-Stopped at: Completed 01-02-PLAN.md — section placeholder scaffold
+Stopped at: Completed quick-3 — HeroSection animations (glitch text and signal badge)
 Resume file: None
