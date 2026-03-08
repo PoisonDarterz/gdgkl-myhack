@@ -1,0 +1,9 @@
+export { HeroSection } from "./HeroSection";
+export { BenefitsSection } from "./BenefitsSection";
+export { WhatIsBAISection } from "./WhatIsBAISection";
+export { StatsSection } from "./StatsSection";
+export { TimelineSection } from "./TimelineSection";
+export { PartnersSection } from "./PartnersSection";
+export { FAQSection } from "./FAQSection";
+export { RegisterCTASection } from "./RegisterCTASection";
+export { FooterSection } from "./FooterSection";
