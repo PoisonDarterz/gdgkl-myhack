@@ -1,6 +1,62 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export function HeroSection() {
+  // Glitch text animation state
+  const TARGET_TEXT = "start building the future today.";
+  const GLITCH_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&";
+  const TOTAL_FRAMES = 18;
+  const [glitchText, setGlitchText] = useState(TARGET_TEXT);
+
+  // Signal bracket swap animation state
+  const [isDouble, setIsDouble] = useState(true);
+
+  // Glitch text animation effect
+  useEffect(() => {
+    let frame = 0;
+
+    const interval = setInterval(() => {
+      frame++;
+
+      if (frame >= TOTAL_FRAMES) {
+        setGlitchText(TARGET_TEXT);
+        clearInterval(interval);
+        return;
+      }
+
+      let displayText = "";
+      for (let i = 0; i < TARGET_TEXT.length; i++) {
+        const settleFrame = Math.floor((i / TARGET_TEXT.length) * TOTAL_FRAMES);
+
+        if (frame >= settleFrame) {
+          displayText += TARGET_TEXT[i];
+        } else {
+          // Preserve spaces and punctuation
+          if (TARGET_TEXT[i] === " " || TARGET_TEXT[i] === ".") {
+            displayText += TARGET_TEXT[i];
+          } else {
+            displayText += GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
+          }
+        }
+      }
+
+      setGlitchText(displayText);
+    }, 40);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Signal bracket swap effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsDouble(prev => !prev);
+    }, 600);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="flex gap-12 items-start py-8 w-full overflow-hidden">
       {/* Left column: heading row + description */}
@@ -27,7 +83,7 @@ export function HeroSection() {
           Gain real-world experience with Google&apos;s latest AI tools &amp;
           models and{" "}
           <span className="bg-brand-text text-white px-1">
-            start building the future today.
+            {glitchText}
           </span>
         </p>
       </div>
@@ -47,7 +103,7 @@ export function HeroSection() {
           {/* CTA content */}
           <div className="flex flex-col gap-3 p-5 justify-between min-w-[200px]">
             <span className="font-mono text-white bg-brand-text px-3 py-1 text-xs tracking-widest uppercase self-start">
-              {`[[ SIGNAL RECEIVED ]]`}
+              {isDouble ? "[[ SIGNAL RECEIVED ]]" : "[ SIGNAL RECEIVED ]"}
             </span>
             <p className="font-mono text-brand-text text-xs tracking-widest uppercase font-bold italic">
               HANDS-ON AI TRAINING NEAR YOU.
