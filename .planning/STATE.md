@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 Phase: 3 of 5 (Mid Sections)
 Plan: 2 of 3 in current phase
 Status: Completed
-Last activity: 2026-03-09 - Completed quick task 7: fix hero layout — inline KL, WhatIsBAI in hero left column, stats/recap outside card
+Last activity: 2026-03-09 - Completed quick task 8: add earth/people SVG icons to hero stats and equalize column heights
 
 Progress: [███░░░░░░░] 30%
 
@@ -83,6 +83,9 @@ Recent decisions affecting current work:
 - [quick-7]: KUALA LUMPUR moved inline into heading flex row (self-end pb-2) — no longer on own line below h1
 - [quick-7]: WhatIsBAI typewriter animation state and effects inlined directly into HeroSection — WhatIsBAISection no longer rendered in page.tsx
 - [quick-7]: Stats and recap video rendered as border-t sibling divs below the bordered card, not nested inside it
+- [quick-8]: Stats count-up animation inlined into HeroSection — StatsSection no longer used in hero but preserved for standalone use
+- [quick-8]: Stats observer reuses sectionRef (WhatIsBAI box) — hero above fold so threshold triggers on load
+- [quick-8]: Section B border changed to border-t/l/r to connect flush with Section A bottom edge without double border
 
 ### Pending Todos
 
@@ -103,9 +106,10 @@ None yet.
 | 5   | fix hero card proportions and CTA row; remove icons from benefits       | 2026-03-09 | 8b6e3a2 | [5-fix-hero-and-benefits-section-layout-to-](./quick/5-fix-hero-and-benefits-section-layout-to-/) |
 | 6   | redo HeroSection and BenefitsSection to match Figma (stats, recap, icons, landmarks) | 2026-03-09 | 43aab09 | [6-redo-hero-and-benefits-section-code-to-m](./quick/6-redo-hero-and-benefits-section-code-to-m/) |
 | 7   | fix hero layout — inline KL, WhatIsBAI in hero left column, stats/recap outside card | 2026-03-09 | 995de00 | [7-fix-hero-and-benefits-layout-differences](./quick/7-fix-hero-and-benefits-layout-differences/) |
+| 8   | add earth/people SVG icons to hero stats and equalize column heights | 2026-03-09 | fdd3eea | [8-add-globe-and-people-svg-icons-to-hero-s](./quick/8-add-globe-and-people-svg-icons-to-hero-s/) |
 
 ## Session Continuity
 
 Last session: 2026-03-09
-Stopped at: Completed quick-7 — Fix hero layout: inline KL, WhatIsBAI in left column, stats/recap outside card
+Stopped at: Completed quick-8 — Add earth/people SVG icons to hero stats, equal-height columns, inline count-up animation
 Resume file: None
