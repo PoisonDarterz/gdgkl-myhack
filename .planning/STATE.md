@@ -111,9 +111,10 @@ None yet.
 | 7   | fix hero layout — inline KL, WhatIsBAI in hero left column, stats/recap outside card | 2026-03-09 | 995de00 | [7-fix-hero-and-benefits-layout-differences](./quick/7-fix-hero-and-benefits-layout-differences/) |
 | 8   | add earth/people SVG icons to hero stats and equalize column heights | 2026-03-09 | fdd3eea | [8-add-globe-and-people-svg-icons-to-hero-s](./quick/8-add-globe-and-people-svg-icons-to-hero-s/) |
 | 9   | add RECAP VIDEO card to right side of BenefitsSection as 2-column layout | 2026-03-09 | 12839b8 | [9-add-recap-video-card-to-right-side-of-be](./quick/9-add-recap-video-card-to-right-side-of-be/) |
+| 10  | move city landmarks row to full-width below benefits+video two-column layout | 2026-03-09 | 6191eea | [10-fix-benefits-section-layout-benefits-lef](./quick/10-fix-benefits-section-layout-benefits-lef/) |
 
 ## Session Continuity
 
 Last session: 2026-03-09
-Stopped at: Completed quick-9 — Add RecapVideoCard and 2-column layout to BenefitsSection
+Stopped at: Completed quick-10 — Move city landmarks to full-width row in BenefitsSection
 Resume file: None
