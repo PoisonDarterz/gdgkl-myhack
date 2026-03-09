@@ -5,38 +5,44 @@
 See: .planning/PROJECT.md (updated 2026-03-08)
 
 **Core value:** The landing page must look exactly like the Figma design — pixel-faithful typography, colors, layout structure, and section order.
-**Current focus:** Phase 1 — Foundation
+**Current focus:** Phase 3 — Mid Sections
 
 ## Current Position
 
-Phase: 1 of 5 (Foundation)
-Plan: 2 of 2 in current phase
-Status: In progress
-Last activity: 2026-03-08 - Completed quick task 4: fix HeroSection right card layout and tower image sizing to match Figma
+Phase: 3 of 5 (Mid Sections)
+Plan: 1 of 3 in current phase
+Status: Completed
+Last activity: 2026-03-09 - Completed 03-01: Benefits and Stats sections with scroll animations
 
-Progress: [██░░░░░░░░] 20%
+Progress: [███░░░░░░░] 30%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 2
-- Average duration: 1.5 min
-- Total execution time: 3 min
+- Total plans completed: 3
+- Average duration: 5.3 min
+- Total execution time: 15 min
 
 **By Phase:**
 
-| Phase         | Plans | Total | Avg/Plan |
-| ------------- | ----- | ----- | -------- |
-| 01-foundation | 2     | 3 min | 1.5 min  |
+| Phase             | Plans | Total  | Avg/Plan |
+| ----------------- | ----- | ------ | -------- |
+| 01-foundation     | 2     | 3 min  | 1.5 min  |
+| 03-mid-sections   | 1     | 12 min | 12 min   |
 
 **Recent Trend:**
 
-- Last 5 plans: 01-01 (1 min), 01-02 (2 min)
+- Last 5 plans: 01-01 (1 min), 01-02 (2 min), 03-01 (12 min)
 - Trend: -
 
 _Updated after each plan completion_
-| Phase 02-hero-noise P01 | 2 | 1 tasks | 2 files |
+
+| Phase/Plan            | Duration | Tasks | Files |
+| --------------------- | -------- | ----- | ----- |
+| 02-hero-noise P01     | 2 min    | 1     | 2     |
+| 03-mid-sections P01   | 12 min   | 2     | 2     |
+| Phase 03-mid-sections P02 | 3min | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -61,6 +67,11 @@ Recent decisions affecting current work:
 - [quick-3]: Glitch text initialized to target string to avoid hydration mismatch — SSR shows real text, animation runs only after mount
 - [quick-3]: Both hero animations use setInterval with proper cleanup via useEffect return function
 - [quick-3]: Glitch text preserves spaces and punctuation, only randomizes alphanumeric characters
+- [03-01]: Dashed border separators (border-brand-muted/40) between benefit cards match Figma design
+- [03-01]: Count-up animation uses hasAnimated ref flag to ensure single execution on scroll-into-view
+- [03-01]: StatsSection uses IntersectionObserver with 0.3 threshold to trigger animation when meaningfully visible
+- [03-01]: BenefitsSection is server-side (no "use client") since hover is pure CSS
+- [Phase 03-mid-sections]: Count-up animation runs once on scroll using hasAnimated ref flag and observer.disconnect()
 
 ### Pending Todos
 
@@ -81,6 +92,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-08
-Stopped at: Completed quick-4 — HeroSection card layout fix (compact design, full-width badge/button)
+Last session: 2026-03-09
+Stopped at: Completed 03-01-PLAN.md — Benefits and Stats sections with scroll animations
 Resume file: None

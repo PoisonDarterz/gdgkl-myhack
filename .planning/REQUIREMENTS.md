@@ -13,9 +13,9 @@
 ### Page Sections
 
 - [x] **SECT-01**: Hero section implemented — "Build With AI" heading (Instrument Serif), "KUALA LUMPUR" (Workbench), signal received badge, tagline, description, CTA button
-- [ ] **SECT-02**: Benefits section implemented — three feature cards with `#` prefix headings and dot separator lines
+- [x] **SECT-02**: Benefits section implemented — three feature cards with `#` prefix headings and dot separator lines
 - [ ] **SECT-03**: "What is Build With AI?" section implemented — terminal-style system log block with monospace content
-- [ ] **SECT-04**: Stats section implemented — 2,258 events and 178,000 developers trained figures displayed
+- [x] **SECT-04**: Stats section implemented — 2,258 events and 178,000 developers trained figures displayed
 - [ ] **SECT-05**: Timeline section implemented — event cards with date, name, description, and type badge
 - [ ] **SECT-06**: Partners section implemented — Google diamond sponsor display
 - [ ] **SECT-07**: FAQ section implemented — Q&A entries matching Figma layout
@@ -52,9 +52,9 @@
 | STYLE-01 | Phase 1 | Complete |
 | SECT-01 | Phase 2 | Complete |
 | STYLE-02 | Phase 2 | Complete |
-| SECT-02 | Phase 3 | Pending |
+| SECT-02 | Phase 3 | Complete |
 | SECT-03 | Phase 3 | Pending |
-| SECT-04 | Phase 3 | Pending |
+| SECT-04 | Phase 3 | Complete |
 | SECT-05 | Phase 4 | Pending |
 | SECT-06 | Phase 4 | Pending |
 | SECT-07 | Phase 4 | Pending |
