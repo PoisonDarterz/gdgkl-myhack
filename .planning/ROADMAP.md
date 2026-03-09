@@ -58,7 +58,12 @@ Plans:
   1. Benefits section shows three feature cards with `#` prefix headings and dot separator lines between them
   2. "What is Build With AI?" section contains a terminal-style system log block with monospace content
   3. Stats section displays the two figures: 2,258 events and 178,000 developers trained
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — BenefitsSection (3 cards, '#' headings, dot separators, hover) + StatsSection (count-up animation on scroll)
+- [ ] 03-02-PLAN.md — WhatIsBAISection terminal block (off-white, window chrome, typewriter animation on scroll)
+- [ ] 03-03-PLAN.md — Final lint/build check + visual verification checkpoint for all three sections
 
 ### Phase 4: Event Sections
 **Goal**: The Timeline, Partners, and FAQ sections are fully implemented and match the Figma layout
@@ -90,6 +95,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-03-08 |
 | 2. Hero + Noise | 2/2 | Complete   | 2026-03-08 |
-| 3. Mid Sections | 0/? | Not started | - |
+| 3. Mid Sections | 0/3 | Not started | - |
 | 4. Event Sections | 0/? | Not started | - |
 | 5. CTA + Footer | 0/? | Not started | - |
