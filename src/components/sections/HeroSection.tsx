@@ -68,11 +68,11 @@ export function HeroSection() {
           <Image
             src="/images/bai_icon.svg"
             alt=""
-            width={56}
-            height={56}
+            width={120}
+            height={80}
             aria-hidden="true"
           />
-          <h1 className="font-display text-7xl lg:text-8xl leading-none text-brand-text">
+          <h1 className="font-display text-7xl lg:text-9xl leading-none text-brand-text">
             Build With AI
           </h1>
           <span className="font-retro text-2xl lg:text-3xl tracking-widest text-brand-text self-end pb-2">
@@ -81,10 +81,12 @@ export function HeroSection() {
         </div>
 
         {/* Description with inverted highlight on last phrase */}
-        <p className="font-mono text-sm text-brand-muted max-w-xl">
+        <p className="font-mono text-lg text-brand-muted max-w-xl">
           Gain real-world experience with Google&apos;s latest AI tools &amp;
           models and{" "}
-          <span className="bg-brand-text text-white px-1">{glitchText}</span>
+          <span className="bg-brand-text text-white px-2 py-1.5">
+            {glitchText}
+          </span>
         </p>
       </div>
 
@@ -92,30 +94,39 @@ export function HeroSection() {
       <div className="shrink-0 flex flex-col gap-4">
         {/* Card */}
         <div className="border border-brand-text flex">
-          {/* Twin Towers illustration */}
-          <img
+          {/* Twin Towers illustration: narrow left column, fills card height */}
+          <Image
             src="/images/twin-towers.svg"
             alt="Petronas Twin Towers"
-            className="h-full w-auto block shrink-0"
+            className="self-stretch object-contain shrink-0 w-27.5"
+            width={93}
+            height={150}
           />
 
-          {/* CTA content */}
-          <div className="flex flex-col gap-2 p-3 w-[240px]">
-            <span className="font-mono text-white bg-brand-text px-3 py-1 text-xs tracking-widest uppercase text-center">
+          {/* CTA content: flex-1 fills remaining width */}
+          <div className="flex-1 flex flex-col">
+            {/* Signal received header - full width bar */}
+            <span className="font-mono text-white bg-brand-text px-3 py-2.5 text-sm tracking-widest uppercase text-center block">
               {isDouble ? "[[ SIGNAL RECEIVED ]]" : "[ SIGNAL RECEIVED ]"}
             </span>
-            <p className="font-mono text-brand-text text-xs tracking-widest uppercase font-bold italic">
+
+            {/* HANDS-ON text */}
+            <p className="font-mono text-brand-text text-xs tracking-widest uppercase font-bold italic text-center px-3 pt-3 pb-1">
               HANDS-ON AI TRAINING NEAR YOU.
             </p>
-            <p className="font-mono text-brand-text text-sm tracking-wider">
-              → → →
-            </p>
-            <a
-              href="#"
-              className="w-full inline-block bg-green-700 text-white font-mono text-sm tracking-widest uppercase px-6 py-3 text-center hover:bg-green-800 transition-colors duration-200"
-            >
-              REGISTER NOW
-            </a>
+
+            {/* CTA row: arrows LEFT, button RIGHT */}
+            <div className="flex flex-row items-center justify-between px-3 pb-3">
+              <p className="font-mono text-brand-text text-sm tracking-wider">
+                → → →
+              </p>
+              <a
+                href="#"
+                className="inline-block bg-[#8CFF81] text-black font-bold font-mono text-sm tracking-widest uppercase px-6 py-3 hover:bg-green-800 transition-colors duration-200"
+              >
+                REGISTER NOW
+              </a>
+            </div>
           </div>
         </div>
 
