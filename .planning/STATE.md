@@ -26,10 +26,10 @@ Progress: [███░░░░░░░] 30%
 
 **By Phase:**
 
-| Phase             | Plans | Total  | Avg/Plan |
-| ----------------- | ----- | ------ | -------- |
-| 01-foundation     | 2     | 3 min  | 1.5 min  |
-| 03-mid-sections   | 2     | 15 min | 7.5 min  |
+| Phase           | Plans | Total  | Avg/Plan |
+| --------------- | ----- | ------ | -------- |
+| 01-foundation   | 2     | 3 min  | 1.5 min  |
+| 03-mid-sections | 2     | 15 min | 7.5 min  |
 
 **Recent Trend:**
 
@@ -38,11 +38,11 @@ Progress: [███░░░░░░░] 30%
 
 _Updated after each plan completion_
 
-| Phase/Plan            | Duration | Tasks | Files |
-| --------------------- | -------- | ----- | ----- |
-| 02-hero-noise P01     | 2 min    | 1     | 2     |
-| 03-mid-sections P01   | 12 min   | 2     | 2     |
-| Phase 03-mid-sections P02 | 3min | 2 tasks | 1 files |
+| Phase/Plan                | Duration | Tasks   | Files   |
+| ------------------------- | -------- | ------- | ------- |
+| 02-hero-noise P01         | 2 min    | 1       | 2       |
+| 03-mid-sections P01       | 12 min   | 2       | 2       |
+| Phase 03-mid-sections P02 | 3min     | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -87,15 +87,16 @@ None yet.
 
 ### Quick Tasks Completed
 
-| #   | Description                                                               | Date       | Commit  | Directory                                                                                                           |
-| --- | ------------------------------------------------------------------------- | ---------- | ------- | ------------------------------------------------------------------------------------------------------------------- |
-| 1   | adjust hero section according to image layout                             | 2026-03-08 | a751983 | [1-adjust-hero-section-according-to-image-l](./quick/1-adjust-hero-section-according-to-image-l/)                   |
-| 2   | fix hero section proportions and text styling to match Figma              | 2026-03-08 | fa175b1 | [2-check-the-actual-and-figma-image-change-](./quick/2-check-the-actual-and-figma-image-change-/)                   |
-| 3   | add glitch text and signal received animations to HeroSection             | 2026-03-08 | a709450 | [3-herosection-animations-glitch-text-and-s](./quick/3-herosection-animations-glitch-text-and-s/)                   |
-| 4   | fix herosection right card layout and tower image sizing to match figma  | 2026-03-08 | e032b7a | [4-fix-herosection-right-card-layout-and-to](./quick/4-fix-herosection-right-card-layout-and-to/)                   |
+| #   | Description                                                             | Date       | Commit  | Directory                                                                                         |
+| --- | ----------------------------------------------------------------------- | ---------- | ------- | ------------------------------------------------------------------------------------------------- |
+| 1   | adjust hero section according to image layout                           | 2026-03-08 | a751983 | [1-adjust-hero-section-according-to-image-l](./quick/1-adjust-hero-section-according-to-image-l/) |
+| 2   | fix hero section proportions and text styling to match Figma            | 2026-03-08 | fa175b1 | [2-check-the-actual-and-figma-image-change-](./quick/2-check-the-actual-and-figma-image-change-/) |
+| 3   | add glitch text and signal received animations to HeroSection           | 2026-03-08 | a709450 | [3-herosection-animations-glitch-text-and-s](./quick/3-herosection-animations-glitch-text-and-s/) |
+| 4   | fix herosection right card layout and tower image sizing to match figma | 2026-03-08 | e032b7a | [4-fix-herosection-right-card-layout-and-to](./quick/4-fix-herosection-right-card-layout-and-to/) |
+| 5   | fix hero card proportions and CTA row; remove icons from benefits       | 2026-03-09 | 8b6e3a2 | [5-fix-hero-and-benefits-section-layout-to-](./quick/5-fix-hero-and-benefits-section-layout-to-/) |
 
 ## Session Continuity
 
 Last session: 2026-03-09
-Stopped at: Completed 03-02-PLAN.md — WhatIsBAI terminal section with typewriter animation
+Stopped at: Completed quick-5 — Hero card layout and Benefits icon removal
 Resume file: None
