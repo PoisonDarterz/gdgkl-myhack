@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 Phase: 3 of 5 (Mid Sections)
 Plan: 2 of 3 in current phase
 Status: Completed
-Last activity: 2026-03-09 - Completed quick task 8: add earth/people SVG icons to hero stats and equalize column heights
+Last activity: 2026-03-09 - Completed quick task 9: add RECAP VIDEO card to right side of BenefitsSection
 
 Progress: [███░░░░░░░] 30%
 
@@ -86,6 +86,9 @@ Recent decisions affecting current work:
 - [quick-8]: Stats count-up animation inlined into HeroSection — StatsSection no longer used in hero but preserved for standalone use
 - [quick-8]: Stats observer reuses sectionRef (WhatIsBAI box) — hero above fold so threshold triggers on load
 - [quick-8]: Section B border changed to border-t/l/r to connect flush with Section A bottom edge without double border
+- [quick-9]: RecapVideoCard defined inline in BenefitsSection.tsx — no separate file needed for a single-use card component
+- [quick-9]: Right column uses w-75 (Tailwind canonical) instead of w-[300px] per IDE suggestion
+- [quick-9]: self-stretch on right column wrapper ensures RecapVideoCard fills full left-column height via h-full
 
 ### Pending Todos
 
@@ -107,9 +110,10 @@ None yet.
 | 6   | redo HeroSection and BenefitsSection to match Figma (stats, recap, icons, landmarks) | 2026-03-09 | 43aab09 | [6-redo-hero-and-benefits-section-code-to-m](./quick/6-redo-hero-and-benefits-section-code-to-m/) |
 | 7   | fix hero layout — inline KL, WhatIsBAI in hero left column, stats/recap outside card | 2026-03-09 | 995de00 | [7-fix-hero-and-benefits-layout-differences](./quick/7-fix-hero-and-benefits-layout-differences/) |
 | 8   | add earth/people SVG icons to hero stats and equalize column heights | 2026-03-09 | fdd3eea | [8-add-globe-and-people-svg-icons-to-hero-s](./quick/8-add-globe-and-people-svg-icons-to-hero-s/) |
+| 9   | add RECAP VIDEO card to right side of BenefitsSection as 2-column layout | 2026-03-09 | 12839b8 | [9-add-recap-video-card-to-right-side-of-be](./quick/9-add-recap-video-card-to-right-side-of-be/) |
 
 ## Session Continuity
 
 Last session: 2026-03-09
-Stopped at: Completed quick-8 — Add earth/people SVG icons to hero stats, equal-height columns, inline count-up animation
+Stopped at: Completed quick-9 — Add RecapVideoCard and 2-column layout to BenefitsSection
 Resume file: None
