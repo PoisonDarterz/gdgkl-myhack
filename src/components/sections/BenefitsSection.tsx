@@ -171,9 +171,9 @@ function RecapVideoCard() {
 export function BenefitsSection() {
   return (
     <section className="px-6 lg:px-8 py-6">
-      <div className="flex flex-row gap-6 items-stretch">
+      <div className="flex flex-row justify-between">
         {/* Left: existing content */}
-        <div className="flex-1 min-w-0 flex flex-col">
+        <div className="min-w-0 flex flex-col">
           {/* Header row */}
           <div className="flex items-center gap-3 mb-4">
             <span className="font-mono text-xs font-bold border border-brand-text px-2 py-0.5 tracking-wider">
@@ -210,39 +210,40 @@ export function BenefitsSection() {
             ))}
           </div>
 
-          {/* City landmarks row */}
-          <div className="flex items-end justify-center gap-4 border-t border-dashed border-brand-muted/40 mt-2 pt-4 pb-2">
-            <Image
-              src="/images/kl-tower.svg"
-              alt="KL Tower"
-              width={32}
-              height={60}
-              className="object-contain opacity-60"
-            />
-            <span className="font-mono text-brand-muted/50 text-sm mb-2">+</span>
-            <Image
-              src="/images/twin-towers.svg"
-              alt="Petronas Twin Towers"
-              width={40}
-              height={60}
-              className="object-contain opacity-60"
-            />
-            <span className="font-mono text-brand-muted/50 text-sm mb-2">+</span>
-            <Image
-              src="/images/kl-tower.svg"
-              alt=""
-              aria-hidden
-              width={32}
-              height={60}
-              className="object-contain opacity-60"
-            />
-          </div>
         </div>
 
         {/* Right: Recap video card */}
         <div className="w-75 shrink-0 self-stretch">
           <RecapVideoCard />
         </div>
+      </div>
+
+      {/* City landmarks row — full width */}
+      <div className="flex items-end justify-center gap-4 border-t border-dashed border-brand-muted/40 mt-2 pt-4 pb-2">
+        <Image
+          src="/images/kl-tower.svg"
+          alt="KL Tower"
+          width={32}
+          height={60}
+          className="object-contain opacity-60"
+        />
+        <span className="font-mono text-brand-muted/50 text-sm mb-2">+</span>
+        <Image
+          src="/images/twin-towers.svg"
+          alt="Petronas Twin Towers"
+          width={40}
+          height={60}
+          className="object-contain opacity-60"
+        />
+        <span className="font-mono text-brand-muted/50 text-sm mb-2">+</span>
+        <Image
+          src="/images/kl-tower.svg"
+          alt=""
+          aria-hidden
+          width={32}
+          height={60}
+          className="object-contain opacity-60"
+        />
       </div>
     </section>
   );
