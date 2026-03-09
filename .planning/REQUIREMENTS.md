@@ -14,7 +14,7 @@
 
 - [x] **SECT-01**: Hero section implemented — "Build With AI" heading (Instrument Serif), "KUALA LUMPUR" (Workbench), signal received badge, tagline, description, CTA button
 - [x] **SECT-02**: Benefits section implemented — three feature cards with `#` prefix headings and dot separator lines
-- [ ] **SECT-03**: "What is Build With AI?" section implemented — terminal-style system log block with monospace content
+- [x] **SECT-03**: "What is Build With AI?" section implemented — terminal-style system log block with monospace content
 - [x] **SECT-04**: Stats section implemented — 2,258 events and 178,000 developers trained figures displayed
 - [ ] **SECT-05**: Timeline section implemented — event cards with date, name, description, and type badge
 - [ ] **SECT-06**: Partners section implemented — Google diamond sponsor display
@@ -53,7 +53,7 @@
 | SECT-01 | Phase 2 | Complete |
 | STYLE-02 | Phase 2 | Complete |
 | SECT-02 | Phase 3 | Complete |
-| SECT-03 | Phase 3 | Pending |
+| SECT-03 | Phase 3 | Complete |
 | SECT-04 | Phase 3 | Complete |
 | SECT-05 | Phase 4 | Pending |
 | SECT-06 | Phase 4 | Pending |

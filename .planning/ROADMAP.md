@@ -95,6 +95,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-03-08 |
 | 2. Hero + Noise | 2/2 | Complete   | 2026-03-08 |
-| 3. Mid Sections | 0/3 | Not started | - |
+| 3. Mid Sections | 2/3 | In Progress|  |
 | 4. Event Sections | 0/? | Not started | - |
 | 5. CTA + Footer | 0/? | Not started | - |
