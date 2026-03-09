@@ -76,6 +76,10 @@ Recent decisions affecting current work:
 - [03-02]: Typewriter animation fires once only using hasAnimated state flag - no replay on subsequent scrolls
 - [03-02]: Character-by-character typing at 30ms intervals with 150ms pause between lines for natural reading rhythm
 - [03-02]: Blinking cursor implemented via Tailwind animate-pulse class during active typing
+- [quick-6]: Right card uses single outer border with border-t internal dividers for sections A/B/C/D
+- [quick-6]: KUALA LUMPUR moved to its own line below the heading row (not inline with h1)
+- [quick-6]: Benefit icons implemented as inline SVG components — no external icon library dependency
+- [quick-6]: City landmarks row uses kl-tower.svg + twin-towers.svg + kl-tower.svg with + separators
 
 ### Pending Todos
 
@@ -94,9 +98,10 @@ None yet.
 | 3   | add glitch text and signal received animations to HeroSection           | 2026-03-08 | a709450 | [3-herosection-animations-glitch-text-and-s](./quick/3-herosection-animations-glitch-text-and-s/) |
 | 4   | fix herosection right card layout and tower image sizing to match figma | 2026-03-08 | e032b7a | [4-fix-herosection-right-card-layout-and-to](./quick/4-fix-herosection-right-card-layout-and-to/) |
 | 5   | fix hero card proportions and CTA row; remove icons from benefits       | 2026-03-09 | 8b6e3a2 | [5-fix-hero-and-benefits-section-layout-to-](./quick/5-fix-hero-and-benefits-section-layout-to-/) |
+| 6   | redo HeroSection and BenefitsSection to match Figma (stats, recap, icons, landmarks) | 2026-03-09 | 43aab09 | [6-redo-hero-and-benefits-section-code-to-m](./quick/6-redo-hero-and-benefits-section-code-to-m/) |
 
 ## Session Continuity
 
 Last session: 2026-03-09
-Stopped at: Completed quick-5 — Hero card layout and Benefits icon removal
+Stopped at: Completed quick-6 — Redo HeroSection and BenefitsSection to match Figma
 Resume file: None
