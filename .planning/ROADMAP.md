@@ -73,7 +73,12 @@ Plans:
   1. Timeline section shows event cards each with a date, event name, description, and type badge
   2. Partners section shows Google as the diamond sponsor in the correct visual treatment
   3. FAQ section displays Q&A entries in the layout matching the Figma design
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — TimelineSection (6 event entries, date columns, type badge colors) + PartnersSection (Google Diamond + tier rows)
+- [ ] 04-02-PLAN.md — FAQSection accordion (multi-open, smooth height animation, chevron rotation)
+- [ ] 04-03-PLAN.md — Production build check + visual verification checkpoint for all three sections
 
 ### Phase 5: CTA + Footer
 **Goal**: The page is complete — register marquee animates, footer is present, and the full landing page matches the Figma design end-to-end
