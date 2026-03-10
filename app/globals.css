@@ -10,7 +10,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: 'Google Sans', sans-serif;
   --font-mono: var(--font-courier-prime), ui-monospace, monospace;
   --font-display: var(--font-instrument-serif), Georgia, serif;
   --font-retro: var(--font-workbench), monospace;
