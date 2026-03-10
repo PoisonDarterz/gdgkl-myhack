@@ -34,11 +34,9 @@ export function PartnersSection() {
     <section className="px-6 lg:px-8 py-6">
       {/* header row */}
       <div className="flex items-center gap-4 mb-6">
-        <span className="bg-brand-text text-white font-[family-name:var(--font-instrument-serif)] text-5xl font-black tracking-widest uppercase px-4 py-2 shrink-0">
+        <span className="bg-brand-text text-white font-[family-name:var(--font-instrument-serif)] text-3xl sm:text-5xl font-black tracking-widest uppercase px-4 py-2 shrink-0">
           PARTNERS
         </span>
-        <span className="font-mono text-sm text-brand-muted tracking-widest shrink-0">{`>>>`}</span>
-        <div className="flex-1 border-t border-dashed border-brand-muted/60" />
       </div>
 
       {/* Marquee carousel strip */}
@@ -64,7 +62,7 @@ export function PartnersSection() {
       </div>
 
       {/* Sponsor grid — 3 columns */}
-      <div className="grid grid-cols-3 border-l border-t border-brand-text">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-l border-t border-brand-text">
         {gridSponsors.map((sponsor, i) => (
           <div key={i} className="border-r border-b border-brand-text flex flex-col min-h-40">
             {sponsor.tier && (

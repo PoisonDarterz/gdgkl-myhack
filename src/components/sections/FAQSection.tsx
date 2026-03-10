@@ -44,7 +44,7 @@ export function FAQSection() {
     <section className="px-6 lg:px-8 py-6">
       {/* header row */}
       <div className="flex items-center gap-4 mb-6">
-        <span className="bg-brand-text text-white font-[family-name:var(--font-instrument-serif)] text-5xl font-black tracking-widest uppercase px-4 py-2 shrink-0">
+        <span className="bg-brand-text text-white font-[family-name:var(--font-instrument-serif)] text-3xl sm:text-5xl font-black tracking-widest uppercase px-4 py-2 shrink-0">
           FAQ
         </span>
       </div>

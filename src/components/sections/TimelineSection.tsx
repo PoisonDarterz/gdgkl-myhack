@@ -23,15 +23,13 @@ export function TimelineSection() {
     <section className="px-6 lg:px-8 py-6">
       {/* header row */}
       <div className="flex items-center gap-4 mb-6">
-        <span className="bg-brand-text text-white font-[family-name:var(--font-instrument-serif)] text-5xl font-black tracking-widest uppercase px-4 py-2 shrink-0">
+        <span className="bg-brand-text text-white font-[family-name:var(--font-instrument-serif)] text-3xl sm:text-5xl font-black tracking-widest uppercase px-4 py-2 shrink-0">
           TIMELINE
         </span>
-        <span className="font-mono text-sm text-brand-muted tracking-widest shrink-0">{`>>>`}</span>
-        <div className="flex-1 border-t border-dashed border-brand-muted/60" />
       </div>
 
       {/* 2×4 grid */}
-      <div className="grid grid-cols-4 border-l border-t border-brand-text">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-l border-t border-brand-text">
         {Array.from({ length: GRID_SIZE }).map((_, i) => {
           const event = i < events.length ? events[i] : undefined;
           return event ? (

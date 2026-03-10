@@ -41,11 +41,11 @@ export function LandmarksRow() {
   }, []);
 
   return (
-    <div className="flex items-end justify-around w-full py-4 mt-6 border-t border-brand-muted/40">
+    <div className="min-h-32 sm:min-h-50 flex items-center justify-around w-full mt-6 border-brand-muted/40">
       <UnionIcon />
 
       <div
-        className="transition-opacity duration-150 h-17.5 w-12.5 flex items-end justify-center overflow-hidden"
+        className="transition-opacity duration-150 w-12.5 flex items-end justify-center overflow-hidden"
         style={{ opacity: visible ? 1 : 0 }}
       >
         <Image
@@ -60,7 +60,7 @@ export function LandmarksRow() {
       <UnionIcon />
 
       <div
-        className="transition-opacity duration-150 h-17.5 w-12.5 flex items-end justify-center overflow-hidden"
+        className="transition-opacity duration-150 w-12.5 flex items-end justify-center overflow-hidden"
         style={{ opacity: visible ? 1 : 0 }}
       >
         <Image
@@ -75,7 +75,7 @@ export function LandmarksRow() {
       <UnionIcon />
 
       <div
-        className="transition-opacity duration-150 h-17.5 w-12.5 flex items-end justify-center overflow-hidden"
+        className="transition-opacity duration-150 w-12.5 flex items-end justify-center overflow-hidden"
         style={{ opacity: visible ? 1 : 0 }}
       >
         <Image

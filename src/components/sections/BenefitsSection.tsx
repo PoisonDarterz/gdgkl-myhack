@@ -172,16 +172,14 @@ function RecapVideoCard() {
 export function BenefitsSection() {
   return (
     <section className="px-6 lg:px-8 py-6">
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-col lg:flex-row justify-between">
         {/* Left: existing content */}
-        <div className="w-[70%] flex flex-col">
+        <div className="w-full lg:w-[70%] flex flex-col">
           {/* Header row */}
           <div className="flex items-center gap-4 mb-6">
-            <span className="bg-brand-text text-white font-[family-name:var(--font-instrument-serif)] text-5xl font-black tracking-widest uppercase px-4 py-2 shrink-0">
+            <span className="bg-brand-text text-white font-[family-name:var(--font-instrument-serif)] text-3xl sm:text-5xl font-black tracking-widest uppercase px-4 py-2 shrink-0">
               BENEFITS
             </span>
-            <span className="font-mono text-sm text-brand-muted tracking-widest shrink-0">{`>>>`}</span>
-            <div className="flex-1 border-t border-dashed border-brand-muted/60" />
           </div>
 
           {/* Benefits list */}
@@ -212,7 +210,7 @@ export function BenefitsSection() {
         </div>
 
         {/* Right: Recap video card */}
-        <div className="shrink-0 self-stretch">
+        <div className="shrink-0 w-full lg:w-auto mt-4 lg:mt-0 min-h-70 lg:min-h-0 lg:self-stretch">
           <RecapVideoCard />
         </div>
       </div>
