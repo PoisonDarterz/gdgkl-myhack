@@ -57,9 +57,9 @@ function HeartIcon() {
 }
 
 function BenefitIcon({ icon }: { icon: string }) {
-  if (icon === "braces") return <Image src={"/images/braces.svg"} alt={""} width={100} height={100} />;
-  if (icon === "sparkle") return <Image src={"/images/gemini.svg"} alt={""} width={100} height={100} />;
-  if (icon === "heart") return <Image src={"/images/heart.svg"} alt={""} width={100} height={100} />;
+  if (icon === "braces") return <Image src={"/images/braces.svg"} alt={""} width={100} height={100} className="w-14 h-14 sm:w-[100px] sm:h-[100px]" />;
+  if (icon === "sparkle") return <Image src={"/images/gemini.svg"} alt={""} width={100} height={100} className="w-14 h-14 sm:w-[100px] sm:h-[100px]" />;
+  if (icon === "heart") return <Image src={"/images/heart.svg"} alt={""} width={100} height={100} className="w-14 h-14 sm:w-[100px] sm:h-[100px]" />;
   return null;
 }
 
