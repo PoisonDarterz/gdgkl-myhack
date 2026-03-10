@@ -195,7 +195,7 @@ export function HeroSection() {
         </div>
 
         {/* WhatIsBAI bordered box — grows to fill remaining left column height */}
-        <div ref={sectionRef} className="border border-brand-text relative flex-1">
+        <div ref={sectionRef} className="border border-brand-text relative flex-1 lg:min-h-[280px]">
           {/* Title overlapping the top border */}
           <span className="absolute top-0 left-4 -translate-y-1/2 bg-background px-1 font-mono text-xs font-bold tracking-wider uppercase">
             // WHAT IS BUILD WITH AI?
@@ -204,8 +204,8 @@ export function HeroSection() {
           {/* Content row: text + hatched pattern */}
           <div className="flex h-full">
             {/* Left: paragraph */}
-            <div className="flex-1 p-5 pt-6">
-              <p className="font-mono text-sm leading-relaxed text-brand-text">
+            <div className="flex-1 p-5 pt-6 lg:p-7 lg:pt-8">
+              <p className="font-mono text-sm lg:text-base leading-relaxed text-brand-text">
                 {displayedText}
                 {animating && (
                   <span className="animate-pulse ml-0.5">|</span>
@@ -215,7 +215,7 @@ export function HeroSection() {
 
             {/* Right: diagonal hatch block */}
             <div
-              className="w-24 lg:w-32 shrink-0 border-l border-brand-text"
+              className="w-24 lg:w-36 shrink-0 border-l border-brand-text"
               style={{
                 backgroundImage:
                   "repeating-linear-gradient(45deg, #282828 0px, #282828 2px, transparent 2px, transparent 10px)",
