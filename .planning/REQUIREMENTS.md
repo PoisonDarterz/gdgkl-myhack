@@ -16,8 +16,8 @@
 - [x] **SECT-02**: Benefits section implemented — three feature cards with `#` prefix headings and dot separator lines
 - [x] **SECT-03**: "What is Build With AI?" section implemented — terminal-style system log block with monospace content
 - [x] **SECT-04**: Stats section implemented — 2,258 events and 178,000 developers trained figures displayed
-- [ ] **SECT-05**: Timeline section implemented — event cards with date, name, description, and type badge
-- [ ] **SECT-06**: Partners section implemented — Google diamond sponsor display
+- [x] **SECT-05**: Timeline section implemented — event cards with date, name, description, and type badge
+- [x] **SECT-06**: Partners section implemented — Google diamond sponsor display
 - [ ] **SECT-07**: FAQ section implemented — Q&A entries matching Figma layout
 - [ ] **SECT-08**: Register CTA section implemented — marquee "REGISTER NOW" text animation, all CTA links use href="#"
 - [ ] **SECT-09**: Footer implemented — GDG KL branding, Privacy Policy and Code of Conduct links
@@ -55,8 +55,8 @@
 | SECT-02 | Phase 3 | Complete |
 | SECT-03 | Phase 3 | Complete |
 | SECT-04 | Phase 3 | Complete |
-| SECT-05 | Phase 4 | Pending |
-| SECT-06 | Phase 4 | Pending |
+| SECT-05 | Phase 4 | Complete |
+| SECT-06 | Phase 4 | Complete |
 | SECT-07 | Phase 4 | Pending |
 | SECT-08 | Phase 5 | Pending |
 | SECT-09 | Phase 5 | Pending |

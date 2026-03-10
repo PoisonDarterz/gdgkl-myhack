@@ -5,24 +5,24 @@
 See: .planning/PROJECT.md (updated 2026-03-08)
 
 **Core value:** The landing page must look exactly like the Figma design — pixel-faithful typography, colors, layout structure, and section order.
-**Current focus:** Phase 3 — Mid Sections
+**Current focus:** Phase 4 — Event Sections
 
 ## Current Position
 
-Phase: 3 of 5 (Mid Sections)
-Plan: 2 of 3 in current phase
+Phase: 4 of 5 (Event Sections)
+Plan: 1 of 3 in current phase
 Status: Completed
-Last activity: 2026-03-10 - Completed quick task 12: fix LandmarksRow overlap and update icon sequence with union separators
+Last activity: 2026-03-10 - Completed 04-01: TimelineSection + PartnersSection implementation
 
-Progress: [███░░░░░░░] 30%
+Progress: [████░░░░░░] 40%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 4
-- Average duration: 4.5 min
-- Total execution time: 18 min
+- Total plans completed: 5
+- Average duration: 3.8 min
+- Total execution time: 20 min
 
 **By Phase:**
 
@@ -30,10 +30,11 @@ Progress: [███░░░░░░░] 30%
 | --------------- | ----- | ------ | -------- |
 | 01-foundation   | 2     | 3 min  | 1.5 min  |
 | 03-mid-sections | 2     | 15 min | 7.5 min  |
+| 04-event-sections | 1   | 2 min  | 2 min    |
 
 **Recent Trend:**
 
-- Last 5 plans: 01-01 (1 min), 01-02 (2 min), 03-01 (12 min), 03-02 (3 min)
+- Last 5 plans: 01-01 (1 min), 01-02 (2 min), 03-01 (12 min), 03-02 (3 min), 04-01 (2 min)
 - Trend: -
 
 _Updated after each plan completion_
@@ -43,6 +44,8 @@ _Updated after each plan completion_
 | 02-hero-noise P01         | 2 min    | 1       | 2       |
 | 03-mid-sections P01       | 12 min   | 2       | 2       |
 | Phase 03-mid-sections P02 | 3min     | 2 tasks | 1 files |
+| Phase 04-event-sections P02 | 1     | 1 tasks | 1 files |
+| 04-event-sections P01     | 2 min    | 2       | 2       |
 
 ## Accumulated Context
 
@@ -89,6 +92,12 @@ Recent decisions affecting current work:
 - [quick-9]: RecapVideoCard defined inline in BenefitsSection.tsx — no separate file needed for a single-use card component
 - [quick-9]: Right column uses w-75 (Tailwind canonical) instead of w-[300px] per IDE suggestion
 - [quick-9]: self-stretch on right column wrapper ensures RecapVideoCard fills full left-column height via h-full
+- [04-01]: TimelineSection hardcodes 6 events as const array — no CMS or dynamic data source needed at this stage
+- [04-01]: Type badge colors use fill (not outline) with distinct hues per event type — workshop=green, talk=blue, keynote=yellow, hackathon=orange, showcase=purple
+- [04-01]: Google Diamond tier uses letter-by-letter colored spans matching official Google brand palette — no image import needed
+- [04-01]: Tier rows decrease visually in box size: Gold w-32 h-16 → Silver w-24 h-12 → Bronze w-20 h-10
+- [Phase 04-event-sections]: FAQSection uses useState<Set<number>> for multi-open accordion — no auto-close behavior
+- [Phase 04-event-sections]: FAQSection height animation via max-h-0/max-h-48 Tailwind transition — no external accordion library
 
 ### Pending Todos
 
@@ -118,5 +127,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-10
-Stopped at: Completed quick-12 — Fix LandmarksRow overlap and update icon sequence with union separators
+Stopped at: Completed 04-01 — TimelineSection + PartnersSection implementation
 Resume file: None
