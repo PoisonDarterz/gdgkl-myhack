@@ -143,9 +143,10 @@ None yet.
 | 20  | load Google Sans from CDN to unlock weight 900 | 2026-03-10 | dd7b350 | [20-use-google-sans-font-from-fonts-google-c](./quick/20-use-google-sans-font-from-fonts-google-c/) |
 | 21  | fix --font-google-sans is not defined — replace with literal font name in FooterSection | 2026-03-10 | 6ce6750 | [21-fix-font-google-sans-is-not-defined-by-l](./quick/21-fix-font-google-sans-is-not-defined-by-l/) |
 | 22  | fix REGISTER NOW depth effect — solid fill copy1 so ghost copies don't bleed through letters | 2026-03-10 | 2c9ead5 | [22-fix-register-now-depth-effect-letters-ov](./quick/22-fix-register-now-depth-effect-letters-ov/) |
+| 23  | make footer REGISTER NOW depth effect outline-only on all three copies | 2026-03-10 | 7f83689 | [23-footer-register-now-instead-of-transpare](./quick/23-footer-register-now-instead-of-transpare/) |
 
 ## Session Continuity
 
 Last session: 2026-03-10
-Stopped at: Completed quick-20 — Google Sans CDN font with full weight range
+Stopped at: Completed quick-23 — footer REGISTER NOW all copies outline-only with color transparent
 Resume file: None
