@@ -50,41 +50,50 @@ export function FooterSection() {
       <div className="px-0 pt-4 pb-2 overflow-hidden">
         <a href="#" className="block">
           <div className="flex flex-col">
-            {/* Copy 1: full brightness */}
-            <p
-              style={{
-                WebkitTextStroke: "3px white",
-                color: "transparent",
-                fontFamily: "'Google Sans', sans-serif",
-              }}
-              className="text-[12vw] font-bold tracking-tighter leading-none uppercase text-center opacity-100"
-            >
-              REGISTER NOW
-            </p>
-            {/* Copy 2: medium opacity, slightly offset */}
-            <p
-              style={{
-                WebkitTextStroke: "3px white",
-                color: "transparent",
-                fontFamily: "'Google Sans', sans-serif",
-                marginTop: "-0.65em",
-              }}
-              className="text-[12vw] font-bold tracking-tighter leading-none uppercase text-center opacity-40"
-            >
-              REGISTER NOW
-            </p>
-            {/* Copy 3: low opacity, further offset for depth */}
-            <p
-              style={{
-                WebkitTextStroke: "3px white",
-                color: "transparent",
-                fontFamily: "'Google Sans', sans-serif",
-                marginTop: "-0.65em",
-              }}
-              className="text-[12vw] font-bold tracking-tighter leading-none uppercase text-center opacity-20"
-            >
-              REGISTER NOW
-            </p>
+            <div>
+              <div>
+                {/* Copy 1: full brightness */}
+                <p
+                  style={{
+                    WebkitTextStroke: "8px white",
+                    color: "#282828",
+                    paintOrder: "stroke fill",
+                    fontFamily: "'Google Sans', sans-serif",
+                  }}
+                  className="text-[14vw] font-black tracking-tighter leading-none uppercase text-center opacity-100 relative z-[3]!"
+                >
+                  REGISTER NOW
+                </p>
+
+                {/* Copy 2: medium opacity, slightly offset */}
+                <p
+                  style={{
+                    WebkitTextStroke: "8px white",
+                    color: "#282828",
+                    paintOrder: "stroke fill",
+                    fontFamily: "'Google Sans', sans-serif",
+                    marginTop: "-0.75em",
+                  }}
+                  className="text-[14vw] font-black tracking-tighter leading-none uppercase text-center opacity-40 relative z-[-2]!"
+                >
+                  REGISTER NOW
+                </p>
+
+                {/* Copy 3: low opacity, further offset for depth */}
+                <p
+                  style={{
+                    WebkitTextStroke: "8px white",
+                    color: "#282828",
+                    paintOrder: "stroke fill",
+                    fontFamily: "'Google Sans', sans-serif",
+                    marginTop: "-0.75em",
+                  }}
+                  className="text-[14vw] font-black tracking-tighter leading-none uppercase text-center opacity-20 relative z-[-3]!"
+                >
+                  REGISTER NOW
+                </p>
+              </div>
+            </div>
           </div>
         </a>
       </div>
