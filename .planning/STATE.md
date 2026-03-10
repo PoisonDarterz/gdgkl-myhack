@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 Phase: 4 of 5 (Event Sections)
 Plan: 3 of 3 in current phase
 Status: Checkpoint — awaiting human visual verification (04-03 Task 2)
-Last activity: 2026-03-10 - Completed quick task 26: make website responsive on mobile viewport
+Last activity: 2026-03-10 - Completed quick task 27: make LandmarksRow animation row compact on mobile
 
 Progress: [██████░░░░] 60%
 
@@ -146,9 +146,10 @@ None yet.
 | 23  | make footer REGISTER NOW depth effect outline-only on all three copies | 2026-03-10 | 7f83689 | [23-footer-register-now-instead-of-transpare](./quick/23-footer-register-now-instead-of-transpare/) |
 | 25  | fix REGISTER NOW z-index not working — add relative to all three depth effect paragraphs | 2026-03-10 | a62e100 | [25-fix-register-now-z-index-not-working-cha](./quick/25-fix-register-now-z-index-not-working-cha/) |
 | 26  | make website responsive on mobile viewport | 2026-03-10 | 6bcb762 | [26-make-website-responsive-on-mobile-viewpo](./quick/26-make-website-responsive-on-mobile-viewpo/) |
+| 27  | make KL Tower / TM Tower animation row compact on mobile | 2026-03-10 | 7e56419 | [27-the-kltower-tmtower-animation-row-make-i](./quick/27-the-kltower-tmtower-animation-row-make-i/) |
 
 ## Session Continuity
 
 Last session: 2026-03-10
-Stopped at: quick-26 complete
+Stopped at: quick-27 complete
 Resume file: None
