@@ -101,6 +101,8 @@ Recent decisions affecting current work:
 - [Phase 04-event-sections]: FAQSection height animation via max-h-0/max-h-48 Tailwind transition — no external accordion library
 - [quick-15]: FAQ chevron repositioned to left via SVG-before-span flex order; justify-start + flex-1 on span fills remaining width
 - [quick-15]: FAQ question text increased from text-sm to text-base for larger, more readable titles
+- [quick-16]: Header is a server component imported in layout.tsx — renders on all pages without client JS
+- [quick-16]: Footer REGISTER NOW font-family set via inline style to avoid Tailwind font-black + font-[var()] CSS conflict
 
 ### Pending Todos
 
@@ -129,9 +131,10 @@ None yet.
 | 13  | replace small pill section titles with dark bg large bold white text across BENEFITS, TIMELINE, PARTNERS, FAQ | 2026-03-10 | d9d9b51 | [13-for-the-title-refer-to-image-need-to-use](./quick/13-for-the-title-refer-to-image-need-to-use/) |
 | 14  | increase section title size to text-5xl and switch to Instrument Serif font | 2026-03-10 | 335e0e1 | [14-section-titles-make-bigger-and-use-font-](./quick/14-section-titles-make-bigger-and-use-font-/) |
 | 15  | move FAQ accordion chevron to left side and increase question title to text-base | 2026-03-10 | 09e838a | [15-faq-accordion-move-arrow-icon-to-left-si](./quick/15-faq-accordion-move-arrow-icon-to-left-si/) |
+| 16  | create Header navbar and Footer with GDG logo box, policy links, outlined REGISTER NOW | 2026-03-10 | 87d19d8 | [16-create-header-and-footer-components-from](./quick/16-create-header-and-footer-components-from/) |
 
 ## Session Continuity
 
 Last session: 2026-03-10
-Stopped at: Completed quick-15 — FAQ chevron moved to left, question text increased to text-base
+Stopped at: Completed quick-16 — Header navbar and FooterSection with outlined REGISTER NOW built
 Resume file: None
