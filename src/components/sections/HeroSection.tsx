@@ -234,7 +234,7 @@ export function HeroSection() {
           <Image
             src="/images/twin-towers.svg"
             alt="Petronas Twin Towers"
-            className="self-stretch object-contain shrink-0 w-[93px]"
+            className="self-stretch object-contain shrink-0 w-23.25 p-4"
             width={93}
             height={200}
           />

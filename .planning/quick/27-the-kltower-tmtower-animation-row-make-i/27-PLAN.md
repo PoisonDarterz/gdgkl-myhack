@@ -62,13 +62,14 @@ Edit `src/components/LandmarksRow.tsx` to apply mobile-first responsive sizing:
    Note: Since this Image drives both breakpoints from one prop, set it to the smaller size and let CSS contain it — the `object-contain` CSS already handles upscaling in the larger sm: container. Alternatively keep at 36/36 to preserve desktop sharpness. Prefer keeping 36/36 and relying on CSS container shrinking.
 
 Summary of class changes:
+
 - Container: `min-h-16 sm:min-h-32 flex items-center justify-around w-full mt-6 border-brand-muted/40`
 - Building slots: `transition-opacity duration-150 w-7 sm:w-12.5 flex items-end justify-center overflow-hidden`
 - UnionIcon wrapper: `flex items-center justify-center w-5 h-5 sm:w-10 sm:h-10`
   </action>
   <verify>Run `npm run build` (or open dev server) and inspect on a mobile viewport (375px width). The landmarks row should be noticeably shorter — approximately half the height — with smaller icon slots and separator icons.</verify>
   <done>On mobile (375px), the LandmarksRow row height is ~64px and icon slots are 28px wide. On desktop (640px+), the row is 128px tall with 50px-wide slots. No layout overflow or clipped icons.</done>
-</task>
+  </task>
 
 </tasks>
 

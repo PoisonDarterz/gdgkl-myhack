@@ -9,7 +9,8 @@ dependency_graph:
   affects: [src/components/sections/HeroSection.tsx]
 tech_stack:
   added: []
-  patterns: [responsive-Tailwind-min-h, responsive-padding, responsive-font-size]
+  patterns:
+    [responsive-Tailwind-min-h, responsive-padding, responsive-font-size]
 key_files:
   created: []
   modified:

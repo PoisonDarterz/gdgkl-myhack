@@ -28,9 +28,9 @@ metrics:
 
 ## Tasks Completed
 
-| # | Name | Commit | Files |
-|---|------|--------|-------|
-| 1 | Add responsive size classes to benefit icons | d6826bc | src/components/sections/BenefitsSection.tsx |
+| #   | Name                                         | Commit  | Files                                       |
+| --- | -------------------------------------------- | ------- | ------------------------------------------- |
+| 1   | Add responsive size classes to benefit icons | d6826bc | src/components/sections/BenefitsSection.tsx |
 
 ## What Was Built
 

@@ -9,7 +9,8 @@ dependency_graph:
   affects: [BenefitsSection]
 tech_stack:
   added: []
-  patterns: [mobile-first responsive Tailwind prefixes, sm: breakpoint overrides]
+  patterns:
+    [mobile-first responsive Tailwind prefixes, sm: breakpoint overrides]
 key_files:
   created: []
   modified:
@@ -30,12 +31,12 @@ Reduce LandmarksRow row height and icon sizes on mobile so the animation strip i
 
 Applied mobile-first responsive Tailwind classes to three elements in `src/components/LandmarksRow.tsx`:
 
-| Element | Before | After |
-|---|---|---|
-| Container min-height | `min-h-32 sm:min-h-50` | `min-h-16 sm:min-h-32` |
-| Building slot width | `w-12.5` (×3) | `w-7 sm:w-12.5` (×3) |
-| UnionIcon wrapper | `w-10 h-10` | `w-5 h-5 sm:w-10 sm:h-10` |
-| Image intrinsic size | `width={36} height={36}` | unchanged |
+| Element              | Before                   | After                     |
+| -------------------- | ------------------------ | ------------------------- |
+| Container min-height | `min-h-32 sm:min-h-50`   | `min-h-16 sm:min-h-32`    |
+| Building slot width  | `w-12.5` (×3)            | `w-7 sm:w-12.5` (×3)      |
+| UnionIcon wrapper    | `w-10 h-10`              | `w-5 h-5 sm:w-10 sm:h-10` |
+| Image intrinsic size | `width={36} height={36}` | unchanged                 |
 
 ## Result
 

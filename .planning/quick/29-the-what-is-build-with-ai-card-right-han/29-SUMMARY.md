@@ -33,12 +33,10 @@ The WHAT IS BUILD WITH AI card's right-hand diagonal hatch stripe was not stretc
 Two targeted changes made to `src/components/sections/HeroSection.tsx`:
 
 1. **Outer bordered div (line 198):** Added `flex flex-col` to the className so the div becomes a flex column container that intrinsically defines height for its children.
-
    - Before: `className="border border-brand-text relative flex-1 lg:min-h-[280px]"`
    - After: `className="border border-brand-text relative flex-1 lg:min-h-[280px] flex flex-col"`
 
 2. **Inner content row div (line 205):** Replaced `h-full` with `flex-1` so the row fills available height from the flex column parent.
-
    - Before: `className="flex h-full"`
    - After: `className="flex flex-1"`
 
@@ -46,9 +44,9 @@ The hatch block itself (`w-24 lg:w-36 shrink-0 border-l border-brand-text`) inhe
 
 ## Tasks Completed
 
-| Task | Name | Commit | Files Modified |
-|------|------|--------|----------------|
-| 1 | Fix hatch stripe full-height in WhatIsBAI card | 2b78c1d | src/components/sections/HeroSection.tsx |
+| Task | Name                                           | Commit  | Files Modified                          |
+| ---- | ---------------------------------------------- | ------- | --------------------------------------- |
+| 1    | Fix hatch stripe full-height in WhatIsBAI card | 2b78c1d | src/components/sections/HeroSection.tsx |
 
 ## Verification
 
