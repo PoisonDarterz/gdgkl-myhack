@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 Phase: 4 of 5 (Event Sections)
 Plan: 3 of 3 in current phase
 Status: Checkpoint — awaiting human visual verification (04-03 Task 2)
-Last activity: 2026-03-10 - Completed quick task 17: fix invalid font-[var()] Tailwind class causing CSS parse error
+Last activity: 2026-03-10 - Completed quick task 21: fix --font-google-sans is not defined
 
 Progress: [██████░░░░] 60%
 
@@ -141,6 +141,7 @@ None yet.
 | 18  | fix header logo and footer layout with Google Sans depth effect | 2026-03-10 | 8acfd03 | [18-fix-header-logo-and-footer-layout-with-g](./quick/18-fix-header-logo-and-footer-layout-with-g/) |
 | 19  | make footer REGISTER NOW solid white fill and full-width | 2026-03-10 | 6055570 | [19-the-footer-register-now-to-be-bold-and-t](./quick/19-the-footer-register-now-to-be-bold-and-t/) |
 | 20  | load Google Sans from CDN to unlock weight 900 | 2026-03-10 | dd7b350 | [20-use-google-sans-font-from-fonts-google-c](./quick/20-use-google-sans-font-from-fonts-google-c/) |
+| 21  | fix --font-google-sans is not defined — replace with literal font name in FooterSection | 2026-03-10 | 6ce6750 | [21-fix-font-google-sans-is-not-defined-by-l](./quick/21-fix-font-google-sans-is-not-defined-by-l/) |
 
 ## Session Continuity
 
