@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 Phase: 4 of 5 (Event Sections)
 Plan: 3 of 3 in current phase
 Status: Checkpoint — awaiting human visual verification (04-03 Task 2)
-Last activity: 2026-03-10 - Task 1 complete in 04-03: production build exits 0; waiting for user visual approval
+Last activity: 2026-03-10 - Completed quick task 17: fix invalid font-[var()] Tailwind class causing CSS parse error
 
 Progress: [██████░░░░] 60%
 
@@ -132,6 +132,7 @@ None yet.
 | 14  | increase section title size to text-5xl and switch to Instrument Serif font | 2026-03-10 | 335e0e1 | [14-section-titles-make-bigger-and-use-font-](./quick/14-section-titles-make-bigger-and-use-font-/) |
 | 15  | move FAQ accordion chevron to left side and increase question title to text-base | 2026-03-10 | 09e838a | [15-faq-accordion-move-arrow-icon-to-left-si](./quick/15-faq-accordion-move-arrow-icon-to-left-si/) |
 | 16  | create Header navbar and Footer with GDG logo box, policy links, outlined REGISTER NOW | 2026-03-10 | 87d19d8 | [16-create-header-and-footer-components-from](./quick/16-create-header-and-footer-components-from/) |
+| 17  | fix invalid font-[var()] Tailwind class causing CSS parse error | 2026-03-10 | bae300b | [17-fix-invalid-font-var-tailwind-class-caus](./quick/17-fix-invalid-font-var-tailwind-class-caus/) |
 
 ## Session Continuity
 
