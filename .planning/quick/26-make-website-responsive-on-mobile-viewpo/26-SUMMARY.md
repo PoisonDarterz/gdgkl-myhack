@@ -46,9 +46,9 @@ metrics:
 | 1 | Make HeroSection and Header responsive | ba8b716 | Header.tsx, HeroSection.tsx |
 | 2 | Make BenefitsSection, TimelineSection, PartnersSection, FAQSection, FooterSection, LandmarksRow responsive | bb4d4f4 | 6 files |
 
-## Checkpoint Pending
+## Human Verification
 
-Task 3 is a `checkpoint:human-verify` — awaiting visual verification at 375px viewport in browser before this plan is fully complete.
+Task 3 was a `checkpoint:human-verify`. The human reviewed the layout at 375px viewport in the browser and approved — all sections stack correctly with no horizontal overflow. Plan is fully complete.
 
 ## Changes by File
 
