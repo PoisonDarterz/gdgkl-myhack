@@ -112,9 +112,10 @@ None yet.
 | 8   | add earth/people SVG icons to hero stats and equalize column heights | 2026-03-09 | fdd3eea | [8-add-globe-and-people-svg-icons-to-hero-s](./quick/8-add-globe-and-people-svg-icons-to-hero-s/) |
 | 9   | add RECAP VIDEO card to right side of BenefitsSection as 2-column layout | 2026-03-09 | 12839b8 | [9-add-recap-video-card-to-right-side-of-be](./quick/9-add-recap-video-card-to-right-side-of-be/) |
 | 10  | move city landmarks row to full-width below benefits+video two-column layout | 2026-03-09 | 6191eea | [10-fix-benefits-section-layout-benefits-lef](./quick/10-fix-benefits-section-layout-benefits-lef/) |
+| 11  | replace static landmarks row with animated LandmarksRow cycling 3 KL building SVGs | 2026-03-10 | 8d111e1 | [11-add-animated-city-landmark-icons-row-bel](./quick/11-add-animated-city-landmark-icons-row-bel/) |
 
 ## Session Continuity
 
-Last session: 2026-03-09
-Stopped at: Completed quick-10 — Move city landmarks to full-width row in BenefitsSection
+Last session: 2026-03-10
+Stopped at: Completed quick-11 — Replace static landmarks row with animated LandmarksRow component
 Resume file: None
