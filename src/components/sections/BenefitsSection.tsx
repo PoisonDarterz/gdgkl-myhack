@@ -177,7 +177,7 @@ export function BenefitsSection() {
         <div className="w-[70%] flex flex-col">
           {/* Header row */}
           <div className="flex items-center gap-4 mb-6">
-            <span className="bg-brand-text text-white font-mono text-2xl font-black tracking-widest uppercase px-4 py-2 shrink-0">
+            <span className="bg-brand-text text-white font-[family-name:var(--font-instrument-serif)] text-5xl font-black tracking-widest uppercase px-4 py-2 shrink-0">
               BENEFITS
             </span>
             <span className="font-mono text-sm text-brand-muted tracking-widest shrink-0">{`>>>`}</span>
