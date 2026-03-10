@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Courier_Prime, Instrument_Serif, Workbench } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/src/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,6 +47,7 @@ export default function RootLayout({
       >
         <div className={`${courierPrime.variable} ${instrumentSerif.variable} ${workbench.variable} font-mono min-h-screen`}>
           <div className="noise-overlay" aria-hidden="true" />
+          <Header />
           {children}
         </div>
       </body>
