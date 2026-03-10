@@ -33,21 +33,21 @@ export function PartnersSection() {
   return (
     <section className="px-6 lg:px-8 py-6">
       {/* header row */}
-      <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs font-bold border border-brand-text px-2 py-0.5 tracking-wider">
-          [ PARTNERS ]
+      <div className="flex items-center gap-4 mb-6">
+        <span className="bg-brand-text text-white font-mono text-2xl font-black tracking-widest uppercase px-4 py-2 shrink-0">
+          PARTNERS
         </span>
-        <span className="font-mono text-xs text-brand-muted tracking-widest">{`>>>`}</span>
+        <span className="font-mono text-sm text-brand-muted tracking-widest shrink-0">{`>>>`}</span>
         <div className="flex-1 border-t border-dashed border-brand-muted/60" />
       </div>
 
       {/* Marquee carousel strip */}
-      <div className="overflow-hidden bg-brand-text mb-6">
+      <div className="overflow-hidden bg-brand-text">
         <div className="flex animate-marquee" style={{ width: "max-content" }}>
           {marqueeItems.map((item, i) => (
             <div
               key={i}
-              className="flex items-center gap-4 px-8 py-4 border-r border-white/10 shrink-0"
+              className="flex items-center gap-4 px-8 py-4 shrink-0"
             >
               {/* pixelated icon placeholder */}
               <div className="grid grid-cols-2 gap-0.5 shrink-0">

@@ -22,11 +22,11 @@ export function TimelineSection() {
   return (
     <section className="px-6 lg:px-8 py-6">
       {/* header row */}
-      <div className="flex items-center gap-3 mb-6">
-        <span className="font-mono text-xs font-bold border border-brand-text px-2 py-0.5 tracking-wider">
-          [ TIMELINE ]
+      <div className="flex items-center gap-4 mb-6">
+        <span className="bg-brand-text text-white font-mono text-2xl font-black tracking-widest uppercase px-4 py-2 shrink-0">
+          TIMELINE
         </span>
-        <span className="font-mono text-xs text-brand-muted tracking-widest">{`>>>`}</span>
+        <span className="font-mono text-sm text-brand-muted tracking-widest shrink-0">{`>>>`}</span>
         <div className="flex-1 border-t border-dashed border-brand-muted/60" />
       </div>
 
