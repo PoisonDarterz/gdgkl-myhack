@@ -1,3 +1,34 @@
+import React from "react";
+
+const marqueeSponsors = [
+  { label: "DIAMOND SPONSOR", name: "GOOGLE" },
+  { label: "GOLD SPONSOR",    name: "SPONSOR" },
+  { label: "SILVER SPONSOR",  name: "SPONSOR" },
+  { label: "DIAMOND SPONSOR", name: "GOOGLE" },
+];
+
+// Doubled for seamless infinite loop
+const marqueeItems = [...marqueeSponsors, ...marqueeSponsors];
+
+const gridSponsors: { tier: string; tierColor: string; logo: React.ReactNode }[] = [
+  {
+    tier: "GOOGLE",
+    tierColor: "bg-[#34A853]",
+    logo: (
+      <p className="font-sans text-5xl font-black tracking-tight select-none">
+        <span className="text-[#4285F4]">G</span>
+        <span className="text-[#EA4335]">o</span>
+        <span className="text-[#FBBC05]">o</span>
+        <span className="text-[#34A853]">g</span>
+        <span className="text-[#EA4335]">l</span>
+        <span className="text-[#4285F4]">e</span>
+      </p>
+    ),
+  },
+  { tier: "", tierColor: "", logo: null },
+  { tier: "", tierColor: "", logo: null },
+];
+
 export function PartnersSection() {
   return (
     <section className="px-6 lg:px-8 py-6">
@@ -10,53 +41,44 @@ export function PartnersSection() {
         <div className="flex-1 border-t border-dashed border-brand-muted/60" />
       </div>
 
-      {/* Diamond tier — Google, oversized, centered, bordered */}
-      <div className="flex flex-col items-center border border-brand-text p-8 mb-8 mx-auto max-w-xs">
-        <p className="font-sans text-5xl font-black tracking-tight mb-2">
-          <span className="text-[#4285F4]">G</span>
-          <span className="text-[#EA4335]">o</span>
-          <span className="text-[#FBBC05]">o</span>
-          <span className="text-[#34A853]">g</span>
-          <span className="text-[#EA4335]">l</span>
-          <span className="text-[#4285F4]">e</span>
-        </p>
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-brand-muted">DIAMOND SPONSOR</span>
-      </div>
-
-      {/* Gold tier — 2 placeholder boxes */}
-      <div className="flex items-center justify-center gap-6 mb-6">
-        <span className="font-mono text-xs uppercase tracking-widest text-brand-muted w-16 text-right shrink-0">GOLD</span>
-        <div className="flex gap-4">
-          {[1, 2].map(n => (
-            <div key={n} className="w-32 h-16 border border-dashed border-brand-muted/60 flex items-center justify-center">
-              <span className="font-mono text-[9px] uppercase tracking-wider text-brand-muted/60">SPONSOR</span>
+      {/* Marquee carousel strip */}
+      <div className="overflow-hidden bg-brand-text mb-6">
+        <div className="flex animate-marquee" style={{ width: "max-content" }}>
+          {marqueeItems.map((item, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-4 px-8 py-4 border-r border-white/10 shrink-0"
+            >
+              {/* pixelated icon placeholder */}
+              <div className="grid grid-cols-2 gap-0.5 shrink-0">
+                {[...Array(4)].map((_, j) => (
+                  <div key={j} className="w-3 h-3 bg-white/70" />
+                ))}
+              </div>
+              <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-white whitespace-nowrap">
+                {item.label}
+              </span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Silver tier — 3 placeholder boxes */}
-      <div className="flex items-center justify-center gap-6 mb-4">
-        <span className="font-mono text-xs uppercase tracking-widest text-brand-muted w-16 text-right shrink-0">SILVER</span>
-        <div className="flex gap-3">
-          {[1, 2, 3].map(n => (
-            <div key={n} className="w-24 h-12 border border-dashed border-brand-muted/60 flex items-center justify-center">
-              <span className="font-mono text-[9px] uppercase tracking-wider text-brand-muted/60">SPONSOR</span>
+      {/* Sponsor grid — 3 columns */}
+      <div className="grid grid-cols-3 border-l border-t border-brand-text">
+        {gridSponsors.map((sponsor, i) => (
+          <div key={i} className="border-r border-b border-brand-text flex flex-col min-h-40">
+            {sponsor.tier && (
+              <div className={`px-3 py-1 ${sponsor.tierColor}`}>
+                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-white">
+                  {sponsor.tier}
+                </span>
+              </div>
+            )}
+            <div className="flex-1 flex items-center justify-center p-6">
+              {sponsor.logo}
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Bronze tier — 4 placeholder boxes */}
-      <div className="flex items-center justify-center gap-6 mb-4">
-        <span className="font-mono text-xs uppercase tracking-widest text-brand-muted w-16 text-right shrink-0">BRONZE</span>
-        <div className="flex gap-2">
-          {[1, 2, 3, 4].map(n => (
-            <div key={n} className="w-20 h-10 border border-dashed border-brand-muted/60 flex items-center justify-center">
-              <span className="font-mono text-[9px] uppercase tracking-wider text-brand-muted/60">SPONSOR</span>
-            </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );
