@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 Phase: 4 of 5 (Event Sections)
 Plan: 3 of 3 in current phase
 Status: Checkpoint — awaiting human visual verification (04-03 Task 2)
-Last activity: 2026-03-10 - Completed quick task 29: make WhatIsBAI card right hatch stripe fill full card height
+Last activity: 2026-03-10 - Completed quick task 30: make benefit section icons smaller on mobile viewport
 
 Progress: [██████░░░░] 60%
 
@@ -150,8 +150,10 @@ None yet.
 | 28  | enlarge WHAT IS BUILD WITH AI card on desktop viewport                                                        | 2026-03-10 | f4011f3 | [28-what-is-build-with-ai-card-need-to-be-la](./quick/28-what-is-build-with-ai-card-need-to-be-la/) |
 | 29  | make WhatIsBAI card right hatch stripe fill full card height                                                  | 2026-03-10 | 2b78c1d | [29-the-what-is-build-with-ai-card-right-han](./quick/29-the-what-is-build-with-ai-card-right-han/) |
 
+| 30  | make benefit section icons smaller on mobile viewport                                                         | 2026-03-10 | d6826bc | [30-for-the-benefits-section-make-the-image-](./quick/30-for-the-benefits-section-make-the-image-/) |
+
 ## Session Continuity
 
 Last session: 2026-03-10
-Stopped at: quick-29 complete
+Stopped at: quick-30 complete
 Resume file: None
