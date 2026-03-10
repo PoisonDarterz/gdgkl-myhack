@@ -195,14 +195,14 @@ export function HeroSection() {
         </div>
 
         {/* WhatIsBAI bordered box — grows to fill remaining left column height */}
-        <div ref={sectionRef} className="border border-brand-text relative flex-1 lg:min-h-[280px]">
+        <div ref={sectionRef} className="border border-brand-text relative flex-1 lg:min-h-[280px] flex flex-col">
           {/* Title overlapping the top border */}
           <span className="absolute top-0 left-4 -translate-y-1/2 bg-background px-1 font-mono text-xs font-bold tracking-wider uppercase">
             // WHAT IS BUILD WITH AI?
           </span>
 
           {/* Content row: text + hatched pattern */}
-          <div className="flex h-full">
+          <div className="flex flex-1">
             {/* Left: paragraph */}
             <div className="flex-1 p-5 pt-6 lg:p-7 lg:pt-8">
               <p className="font-mono text-sm lg:text-base leading-relaxed text-brand-text">
