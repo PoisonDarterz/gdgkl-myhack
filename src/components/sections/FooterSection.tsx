@@ -50,34 +50,35 @@ export function FooterSection() {
       <div className="px-0 pt-4 pb-2 overflow-hidden">
         <a href="#" className="block">
           <div className="flex flex-col">
-            {/* Copy 1: full brightness */}
+            {/* Copy 1: full brightness — solid fill so ghost copies don't bleed through */}
             <p
               style={{
-                WebkitTextStroke: "3px white",
-                color: "transparent",
+                color: "white",
                 fontFamily: "'Google Sans', sans-serif",
               }}
               className="text-[12vw] font-bold tracking-tighter leading-none uppercase text-center opacity-100"
             >
               REGISTER NOW
             </p>
-            {/* Copy 2: medium opacity, slightly offset */}
+            {/* Copy 2: medium opacity, peeking below */}
             <p
               style={{
-                WebkitTextStroke: "3px white",
+                WebkitTextStroke: "2px white",
+                color: "transparent",
                 fontFamily: "'Google Sans', sans-serif",
-                marginTop: "-0.55em",
+                marginTop: "-0.35em",
               }}
               className="text-[12vw] font-bold tracking-tighter leading-none uppercase text-center opacity-40"
             >
               REGISTER NOW
             </p>
-            {/* Copy 3: low opacity, further offset for depth */}
+            {/* Copy 3: low opacity, further below for depth */}
             <p
               style={{
-                WebkitTextStroke: "3px white",
+                WebkitTextStroke: "2px white",
+                color: "transparent",
                 fontFamily: "'Google Sans', sans-serif",
-                marginTop: "-0.55em",
+                marginTop: "-0.35em",
               }}
               className="text-[12vw] font-bold tracking-tighter leading-none uppercase text-center opacity-20"
             >
