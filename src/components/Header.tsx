@@ -21,12 +21,12 @@ export function Header() {
         </div>
       </div>
 
-      {/* Right: Instagram link */}
+      {/* Right: Instagram link — hidden on mobile, visible on md+ */}
       <a
-        href="https://instagram.com/gdgkl"
+        href="https://instagram.com/gdg.kl"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-xs font-mono tracking-widest text-white hover:text-white/70 transition-colors uppercase"
+        className="hidden md:block text-xs font-mono tracking-widest text-white hover:text-white/70 transition-colors uppercase"
       >
         {">> CHECK OUT OUR INSTAGRAM <<"}
       </a>

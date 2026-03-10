@@ -161,9 +161,9 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="flex justify-between gap-0 items-stretch w-full px-6 lg:px-8 py-8">
+    <section className="flex flex-col lg:flex-row justify-between gap-0 lg:items-stretch w-full px-6 lg:px-8 py-8">
       {/* Left column */}
-      <div className="flex-1 flex flex-col gap-6 max-w-[50%] h-full justify-between">
+      <div className="flex-1 flex flex-col gap-6 w-full lg:max-w-[50%] h-full justify-between">
         {/* Top group: heading + description */}
         <div className="flex flex-col gap-6">
           {/* Heading row: icon + h1 + KUALA LUMPUR inline */}
@@ -175,18 +175,19 @@ export function HeroSection() {
               height={80}
               aria-hidden="true"
             />
-            <h1 className="font-display text-8xl leading-none text-brand-text">
+            <h1 className="font-display text-4xl sm:text-6xl lg:text-8xl leading-none text-brand-text">
               Build With AI
             </h1>
-            <span className="font-retro text-xl tracking-widest text-brand-text uppercase self-end pb-2">
+            <span className="font-retro text-base sm:text-xl tracking-widest text-brand-text uppercase self-end pb-2">
               KUALA LUMPUR
             </span>
           </div>
 
           {/* Description with glitch text */}
-          <p className="font-mono text-base text-brand-muted max-w-lg">
+          <p className="font-mono text-base sm:text-xl text-brand-muted max-w-lg">
             Gain real-world experience with Google&apos;s latest AI tools &amp;
-            models and{" "}
+            models and
+            <br />
             <span className="bg-brand-text text-white px-2 py-1">
               {glitchText}
             </span>
@@ -224,8 +225,8 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Right column: card (signal + system log) + stats + recap — all equal height */}
-      <div className="w-[420px] shrink-0 flex flex-col h-full justify-between">
+      {/* Right column: card (signal + system log) + stats  — all equal height */}
+      <div className="w-full lg:w-105 lg:shrink-0 flex flex-col h-full justify-between mt-6 lg:mt-0">
 
         {/* Section A — Twin towers + CTA content */}
         <div className="border border-brand-text flex">
@@ -251,11 +252,11 @@ export function HeroSection() {
             </p>
 
             {/* CTA row: arrows left, REGISTER NOW right */}
-            <div className="flex flex-row items-center justify-between px-3 pb-3">
+            <div className="flex flex-row items-center justify-between mt-4 px-8 pb-3">
               <p className="font-mono text-brand-text text-sm">→ → →</p>
               <a
                 href="#"
-                className="inline-block bg-[#8CFF81] text-black font-bold font-mono text-xs tracking-widest uppercase px-4 py-2 hover:bg-green-700 transition-colors"
+                className="inline-block bg-[#8CFF81] text-black font-bold font-mono text-md tracking-widest uppercase px-4 py-2 hover:bg-green-700 transition-colors"
               >
                 REGISTER NOW
               </a>
@@ -264,7 +265,7 @@ export function HeroSection() {
         </div>
 
         {/* Section B — System log */}
-        <div className="border-t border-l border-r border-brand-text px-4 py-3">
+        <div className="px-4 py-3">
           <p className="font-mono text-xs text-brand-text font-semibold mb-1">
             [ SYSTEM LOG ]
           </p>
@@ -280,21 +281,21 @@ export function HeroSection() {
         </div>
 
         {/* Section C — Inline stats with SVG icons */}
-        <div className="border border-brand-text px-4 py-4 flex flex-col gap-4">
+        <div className="py-4 flex flex-col gap-4">
           {/* Stat row 1: globe + 2,258 */}
           <div className="flex flex-row items-center gap-4">
             <Image
               src="/images/earth.svg"
               alt="Globe"
-              width={80}
-              height={80}
+              width={120}
+              height={120}
               className="shrink-0"
             />
             <div className="flex flex-col">
-              <span className="font-display text-5xl leading-none text-brand-text">
+              <span className="font-display text-4xl sm:text-6xl lg:text-7xl leading-none text-brand-text">
                 {events.toLocaleString()}
               </span>
-              <span className="font-mono text-xs text-brand-muted tracking-widest uppercase mt-1">
+              <span className="font-mono text-lg text-brand-muted tracking-widest uppercase mt-1">
                 global events organized
               </span>
             </div>
@@ -305,34 +306,20 @@ export function HeroSection() {
             <Image
               src="/images/people.svg"
               alt="People"
-              width={80}
-              height={80}
+              width={120}
+              height={120}
               className="shrink-0"
             />
             <div className="flex flex-col">
-              <span className="font-display text-5xl leading-none text-brand-text">
+              <span className="font-display text-4xl sm:text-6xl lg:text-7xl leading-none text-brand-text">
                 {devs.toLocaleString()}
               </span>
-              <span className="font-mono text-xs text-brand-muted tracking-widest uppercase mt-1">
+              <span className="font-mono text-lg text-brand-muted tracking-widest uppercase mt-1">
                 developers trained
               </span>
             </div>
           </div>
         </div>
-
-        {/* Section D — Recap video placeholder */}
-        <div
-          className="border border-brand-text flex-1 flex items-center justify-center min-h-[80px]"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(45deg, #e0e0e0 0px, #e0e0e0 1px, transparent 1px, transparent 8px)",
-          }}
-        >
-          <span className="font-mono text-xs text-brand-muted tracking-widest uppercase bg-background px-2 py-1">
-            [ RECAP VIDEO ]
-          </span>
-        </div>
-
       </div>
     </section>
   );
