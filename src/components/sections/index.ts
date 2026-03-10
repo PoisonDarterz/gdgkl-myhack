@@ -5,5 +5,4 @@ export { StatsSection } from "./StatsSection";
 export { TimelineSection } from "./TimelineSection";
 export { PartnersSection } from "./PartnersSection";
 export { FAQSection } from "./FAQSection";
-export { RegisterCTASection } from "./RegisterCTASection";
 export { FooterSection } from "./FooterSection";

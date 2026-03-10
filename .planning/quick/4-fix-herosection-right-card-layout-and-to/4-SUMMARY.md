@@ -17,6 +17,7 @@ key-files:
 ## What Was Done
 
 Fixed the HeroSection right card to match Figma specifications:
+
 1. Replaced Next.js `<Image>` with native `<img>` for twin-towers using `h-full w-auto` — towers now fill card height naturally (~130px), width follows aspect ratio (~70px)
 2. Reduced card right content padding from `p-5` to `p-3` and gap from `gap-3` to `gap-2` for tighter layout
 3. Set fixed width `w-[240px]` on right content div, removed `justify-between` and `min-w-[200px]` to prevent vertical stretching
@@ -38,6 +39,7 @@ None — plan executed exactly as written.
 ## Technical Details
 
 **Changed Elements:**
+
 - Twin towers: `<Image width={100} height={160} />` → `<img className="h-full w-auto block shrink-0" />`
 - Right content: `gap-3 p-5 justify-between min-w-[200px]` → `gap-2 p-3 w-[240px]`
 - Badge: `self-start` → `text-center` (full-width)
@@ -48,6 +50,7 @@ None — plan executed exactly as written.
 ## Verification
 
 Build passed with no TypeScript errors:
+
 ```
 ✓ Compiled successfully in 2.6s
 ```
@@ -69,11 +72,13 @@ Total time: 1 min
 Verifying deliverables:
 
 **File check:**
+
 ```bash
 [ -f "src/components/sections/HeroSection.tsx" ] && echo "FOUND: src/components/sections/HeroSection.tsx" || echo "MISSING: src/components/sections/HeroSection.tsx"
 ```
 
 **Commit check:**
+
 ```bash
 git log --oneline --all | grep -q "e032b7a" && echo "FOUND: e032b7a" || echo "MISSING: e032b7a"
 ```

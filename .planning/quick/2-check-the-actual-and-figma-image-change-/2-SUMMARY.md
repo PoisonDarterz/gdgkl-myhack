@@ -16,14 +16,15 @@
 ## Objective
 
 Fix three visual discrepancies in HeroSection between the Figma design and the actual rendered output:
+
 1. Excessive vertical whitespace due to `py-20` padding
 2. Oversized Twin Towers illustration (260px height)
 3. Missing bold+italic weight on "HANDS-ON AI TRAINING NEAR YOU." text
 
 ## Tasks Executed
 
-| Task | Name                                                         | Status   | Commit  |
-| ---- | ------------------------------------------------------------ | -------- | ------- |
+| Task | Name                                                        | Status   | Commit  |
+| ---- | ----------------------------------------------------------- | -------- | ------- |
 | 1    | Fix HeroSection proportions and text styling to match Figma | Complete | fa175b1 |
 
 ## Changes Made
@@ -31,6 +32,7 @@ Fix three visual discrepancies in HeroSection between the Figma design and the a
 ### Modified Files
 
 **src/components/sections/HeroSection.tsx**
+
 - Changed section padding from `py-20` to `py-8` for compact layout (80px → 32px total vertical padding)
 - Resized Twin Towers image from `width={160} height={260}` to `width={100} height={160}` for proper card proportions
 - Added `font-bold italic` to "HANDS-ON AI TRAINING NEAR YOU." paragraph className
@@ -52,6 +54,7 @@ None.
 ## Key Files
 
 **Modified:**
+
 - `src/components/sections/HeroSection.tsx`
 
 ## Technical Decisions
@@ -65,6 +68,7 @@ None.
 ## Impact
 
 The hero section now visually matches the Figma reference:
+
 - Compact banner-height section instead of tall vertical block
 - Twin Towers illustration proportionally sized within card
 - Training text has bold+italic weight matching Figma design

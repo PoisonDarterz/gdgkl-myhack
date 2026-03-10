@@ -71,6 +71,7 @@ Visual reference — Actual: e:/Programming/Projects/myhack/public/temp/actual.p
        Reason: Figma clearly shows this text as heavier weight and slanted.
 
     Do NOT change anything else — layout structure, other classes, file imports, or other text content must remain identical.
+
   </action>
   <verify>
     Run the dev server and visually inspect the hero section at localhost:3000.

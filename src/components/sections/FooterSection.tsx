@@ -60,7 +60,7 @@ export function FooterSection() {
                     paintOrder: "stroke fill",
                     fontFamily: "'Google Sans', sans-serif",
                   }}
-                  className="text-[14vw] font-black tracking-tighter leading-none uppercase text-center opacity-100 relative z-3"
+                  className="text-[13.7vw] font-black tracking-tighter leading-none uppercase text-center opacity-100 relative z-3"
                 >
                   REGISTER NOW
                 </p>
@@ -74,7 +74,7 @@ export function FooterSection() {
                     fontFamily: "'Google Sans', sans-serif",
                     marginTop: "-0.75em",
                   }}
-                  className="text-[14vw] font-black tracking-tighter leading-none uppercase text-center opacity-40 relative z-2"
+                  className="text-[13.7vw] font-black tracking-tighter leading-none uppercase text-center opacity-40 relative z-2"
                 >
                   REGISTER NOW
                 </p>
@@ -88,7 +88,7 @@ export function FooterSection() {
                     fontFamily: "'Google Sans', sans-serif",
                     marginTop: "-0.75em",
                   }}
-                  className="text-[14vw] font-black tracking-tighter leading-none uppercase text-center opacity-20 relative z-1"
+                  className="text-[13.7vw] font-black tracking-tighter leading-none uppercase text-center opacity-20 relative z-1"
                 >
                   REGISTER NOW
                 </p>

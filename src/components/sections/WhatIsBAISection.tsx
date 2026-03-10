@@ -2,24 +2,15 @@
 
 import { useState, useEffect, useRef } from "react";
 
-const LOG_LINES = [
-  "> INITIALIZING BUILD WITH AI PROGRAM...",
-  "# BUILD WITH AI (BAI) IS A GOOGLE DEVELOPER GROUP INITIATIVE",
-  "# CONNECTING LOCAL DEVELOPER COMMUNITIES TO GOOGLE AI TOOLS",
-  "# FORMAT: HANDS-ON WORKSHOPS + REAL PROJECTS",
-  "# PARTICIPANTS GAIN EXPERIENCE WITH GEMINI, VERTEX AI, AND MORE",
-  "# GLOBAL REACH: 2,258 EVENTS. 178,000 DEVELOPERS TRAINED.",
-  "> STATUS: ACTIVE — KUALA LUMPUR NODE ONLINE",
-];
+const FULL_TEXT =
+  "Build with AI is a global series of community-led events focused on helping developers learn how to create safe, secure, and scalable solutions using Google's latest AI models and Cloud technology. These events go beyond simple presentations, offering hands-on workshops and technical sessions where you can actually build with the tools.";
 
 export function WhatIsBAISection() {
-  const [visibleLines, setVisibleLines] = useState<string[]>([]);
-  const [currentLineText, setCurrentLineText] = useState("");
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [displayedText, setDisplayedText] = useState("");
+  const [animating, setAnimating] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
-  // IntersectionObserver trigger
   useEffect(() => {
     const el = sectionRef.current;
     if (!el || hasAnimated) return;
@@ -29,84 +20,61 @@ export function WhatIsBAISection() {
         if (entry.isIntersecting) {
           observer.disconnect();
           setHasAnimated(true);
-          setIsAnimating(true);
+          setAnimating(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
     observer.observe(el);
     return () => observer.disconnect();
   }, [hasAnimated]);
 
-  // Typewriter animation logic
   useEffect(() => {
-    if (!isAnimating) return;
+    if (!animating) return;
 
-    let lineIndex = 0;
     let charIndex = 0;
-
-    const typeNextChar = () => {
-      if (lineIndex >= LOG_LINES.length) {
-        setIsAnimating(false);
-        return;
-      }
-      const currentLine = LOG_LINES[lineIndex];
-      if (charIndex <= currentLine.length) {
-        setCurrentLineText(currentLine.slice(0, charIndex));
-        charIndex++;
-        setTimeout(typeNextChar, 30);
+    const timer = setInterval(() => {
+      charIndex++;
+      if (charIndex > FULL_TEXT.length) {
+        clearInterval(timer);
+        setAnimating(false);
       } else {
-        // Line complete — commit it to visibleLines, pause, then next line
-        setVisibleLines((prev) => [...prev, currentLine]);
-        setCurrentLineText("");
-        lineIndex++;
-        charIndex = 0;
-        setTimeout(typeNextChar, 150);
+        setDisplayedText(FULL_TEXT.slice(0, charIndex));
       }
-    };
+    }, 18);
 
-    typeNextChar();
-  }, [isAnimating]);
+    return () => clearInterval(timer);
+  }, [animating]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="w-full bg-background py-16 lg:py-24"
-    >
-      <div className="max-w-2xl mx-auto px-4">
-        {/* Section heading */}
-        <h2 className="font-mono text-brand-muted uppercase tracking-widest text-xs mb-8">
-          WHAT IS BUILD WITH AI?
-        </h2>
+    <section className="p-6 lg:p-8 pt-8 lg:pt-10">
+      {/* Bordered box with legend-style title */}
+      <div ref={sectionRef} className="border border-brand-text relative">
+        {/* Title overlapping the top border */}
+        <span className="absolute top-0 left-4 -translate-y-1/2 bg-background px-1 font-mono text-xs font-bold tracking-wider uppercase">
+          // WHAT IS BUILD WITH AI?
+        </span>
 
-        {/* Terminal block */}
-        <div className="border border-brand-text bg-background font-mono text-brand-text">
-          {/* Window chrome (title bar) */}
-          <div className="flex items-center gap-2 px-4 py-2 border-b border-brand-text">
-            {/* Traffic light dots */}
-            <span className="w-3 h-3 rounded-full bg-red-400 inline-block" />
-            <span className="w-3 h-3 rounded-full bg-yellow-400 inline-block" />
-            <span className="w-3 h-3 rounded-full bg-green-400 inline-block" />
-            {/* Title */}
-            <span className="ml-2 text-xs text-brand-muted tracking-widest">
-              build-with-ai.sh
-            </span>
+        {/* Content row: text + hatched pattern */}
+        <div className="flex">
+          {/* Left: paragraph */}
+          <div className="flex-1 p-5 pt-6">
+            <p className="font-mono text-sm leading-relaxed text-brand-text">
+              {displayedText}
+              {animating && (
+                <span className="animate-pulse ml-0.5">|</span>
+              )}
+            </p>
           </div>
 
-          {/* Terminal body */}
-          <div className="p-6 min-h-[200px]">
-            {visibleLines.map((line, index) => (
-              <p key={index} className="text-sm font-mono leading-relaxed">
-                {line}
-              </p>
-            ))}
-            {isAnimating && currentLineText && (
-              <p className="text-sm font-mono leading-relaxed">
-                {currentLineText}
-                <span className="animate-pulse">|</span>
-              </p>
-            )}
-          </div>
+          {/* Right: diagonal hatch block */}
+          <div
+            className="w-24 lg:w-32 shrink-0 border-l border-brand-text"
+            style={{
+              backgroundImage:
+                "repeating-linear-gradient(45deg, #282828 0px, #282828 2px, transparent 2px, transparent 10px)",
+            }}
+          />
         </div>
       </div>
     </section>

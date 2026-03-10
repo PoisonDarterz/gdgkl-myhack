@@ -12,14 +12,14 @@ Match the figma target: compact right-side card (~130px tall), twin towers image
 
 ## Diff Analysis (actual vs figma)
 
-| Element | Actual (broken) | Figma (target) |
-|---|---|---|
-| Twin towers image | Renders oversized (~200px wide, card very tall) | Small, fills card height with auto width (~70px wide) |
-| Card height | ~350px (way too tall) | ~125-130px (compact) |
-| Right content padding | `p-5` (too much) | Tight, ~`p-3` |
-| Right content spacing | `justify-between` over large height = stretched | Tight stacked, no stretch |
-| SIGNAL RECEIVED badge | `self-start` (partial width) | Full-width across right panel |
-| REGISTER NOW button | Not full-width | Full-width across right panel |
+| Element               | Actual (broken)                                 | Figma (target)                                        |
+| --------------------- | ----------------------------------------------- | ----------------------------------------------------- |
+| Twin towers image     | Renders oversized (~200px wide, card very tall) | Small, fills card height with auto width (~70px wide) |
+| Card height           | ~350px (way too tall)                           | ~125-130px (compact)                                  |
+| Right content padding | `p-5` (too much)                                | Tight, ~`p-3`                                         |
+| Right content spacing | `justify-between` over large height = stretched | Tight stacked, no stretch                             |
+| SIGNAL RECEIVED badge | `self-start` (partial width)                    | Full-width across right panel                         |
+| REGISTER NOW button   | Not full-width                                  | Full-width across right panel                         |
 
 ## Tasks
 
