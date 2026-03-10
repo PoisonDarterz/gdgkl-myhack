@@ -77,7 +77,7 @@ Plans:
 
 Plans:
 - [x] 04-01-PLAN.md — TimelineSection (6 event entries, date columns, type badge colors) + PartnersSection (Google Diamond + tier rows)
-- [ ] 04-02-PLAN.md — FAQSection accordion (multi-open, smooth height animation, chevron rotation)
+- [x] 04-02-PLAN.md — FAQSection accordion (multi-open, smooth height animation, chevron rotation)
 - [ ] 04-03-PLAN.md — Production build check + visual verification checkpoint for all three sections
 
 ### Phase 5: CTA + Footer
@@ -101,5 +101,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Foundation | 2/2 | Complete   | 2026-03-08 |
 | 2. Hero + Noise | 2/2 | Complete   | 2026-03-08 |
 | 3. Mid Sections | 2/3 | In Progress|  |
-| 4. Event Sections | 1/3 | In Progress | - |
+| 4. Event Sections | 2/3 | In Progress | - |
 | 5. CTA + Footer | 0/? | Not started | - |
