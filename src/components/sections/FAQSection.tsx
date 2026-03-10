@@ -47,8 +47,6 @@ export function FAQSection() {
         <span className="bg-brand-text text-white font-[family-name:var(--font-instrument-serif)] text-5xl font-black tracking-widest uppercase px-4 py-2 shrink-0">
           FAQ
         </span>
-        <span className="font-mono text-sm text-brand-muted tracking-widest shrink-0">{`>>>`}</span>
-        <div className="flex-1 border-t border-dashed border-brand-muted/60" />
       </div>
       {/* accordion list */}
       <div className="border border-brand-text">
@@ -56,18 +54,18 @@ export function FAQSection() {
           <div key={i} className="border-b border-brand-muted/30 last:border-b-0">
             <button
               onClick={() => toggle(i)}
-              className="w-full flex justify-between items-center p-4 hover:bg-brand-text/5 text-left cursor-pointer"
+              className="w-full flex justify-start items-center p-4 hover:bg-brand-text/5 text-left cursor-pointer"
             >
-              <span className="font-mono text-sm font-bold text-brand-text">{item.q}</span>
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                className={`w-4 h-4 shrink-0 ml-3 transition-transform duration-300 ${openItems.has(i) ? "rotate-180" : ""}`}
+                className={`w-4 h-4 shrink-0 mr-3 transition-transform duration-300 ${openItems.has(i) ? "rotate-180" : ""}`}
               >
                 <polyline points="6 9 12 15 18 9" />
               </svg>
+              <span className="font-mono text-base font-bold text-brand-text flex-1">{item.q}</span>
             </button>
             <div
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
