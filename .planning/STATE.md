@@ -125,9 +125,10 @@ None yet.
 | 11  | replace static landmarks row with animated LandmarksRow cycling 3 KL building SVGs | 2026-03-10 | 8d111e1 | [11-add-animated-city-landmark-icons-row-bel](./quick/11-add-animated-city-landmark-icons-row-bel/) |
 | 12  | fix LandmarksRow overlap and update icon sequence with union separators | 2026-03-10 | 80e648d | [12-fix-landmarks-row-overlap-and-update-ico](./quick/12-fix-landmarks-row-overlap-and-update-ico/) |
 | 13  | replace small pill section titles with dark bg large bold white text across BENEFITS, TIMELINE, PARTNERS, FAQ | 2026-03-10 | d9d9b51 | [13-for-the-title-refer-to-image-need-to-use](./quick/13-for-the-title-refer-to-image-need-to-use/) |
+| 14  | increase section title size to text-5xl and switch to Instrument Serif font | 2026-03-10 | 335e0e1 | [14-section-titles-make-bigger-and-use-font-](./quick/14-section-titles-make-bigger-and-use-font-/) |
 
 ## Session Continuity
 
 Last session: 2026-03-10
-Stopped at: Completed quick-13 — section title dark bg style applied to BENEFITS, TIMELINE, PARTNERS, FAQ
+Stopped at: Completed quick-14 — section title size increased to text-5xl with Instrument Serif font
 Resume file: None
