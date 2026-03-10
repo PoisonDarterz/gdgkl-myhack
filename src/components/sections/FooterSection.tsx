@@ -46,15 +46,14 @@ export function FooterSection() {
         </div>
       </div>
 
-      {/* Zone 2: giant outlined REGISTER NOW full-width with depth effect */}
-      <div className="border-t border-white/20 px-4 pt-4 pb-2 overflow-hidden">
+      {/* Zone 2: giant filled REGISTER NOW full-width with depth effect */}
+      <div className="border-t border-white/20 px-0 pt-4 pb-2 overflow-hidden">
         <a href="#" className="block">
           <div className="flex flex-col">
             {/* Copy 1: full brightness */}
             <p
               style={{
-                WebkitTextStroke: "2px white",
-                color: "transparent",
+                color: "white",
                 fontFamily: "var(--font-google-sans)",
               }}
               className="text-[12vw] font-black tracking-tighter leading-none uppercase text-center opacity-100"
@@ -64,8 +63,7 @@ export function FooterSection() {
             {/* Copy 2: medium opacity, slightly offset */}
             <p
               style={{
-                WebkitTextStroke: "2px white",
-                color: "transparent",
+                color: "white",
                 fontFamily: "var(--font-google-sans)",
                 marginTop: "-0.55em",
               }}
@@ -76,8 +74,7 @@ export function FooterSection() {
             {/* Copy 3: low opacity, further offset for depth */}
             <p
               style={{
-                WebkitTextStroke: "2px white",
-                color: "transparent",
+                color: "white",
                 fontFamily: "var(--font-google-sans)",
                 marginTop: "-0.55em",
               }}
