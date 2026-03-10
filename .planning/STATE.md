@@ -144,9 +144,10 @@ None yet.
 | 21  | fix --font-google-sans is not defined — replace with literal font name in FooterSection | 2026-03-10 | 6ce6750 | [21-fix-font-google-sans-is-not-defined-by-l](./quick/21-fix-font-google-sans-is-not-defined-by-l/) |
 | 22  | fix REGISTER NOW depth effect — solid fill copy1 so ghost copies don't bleed through letters | 2026-03-10 | 2c9ead5 | [22-fix-register-now-depth-effect-letters-ov](./quick/22-fix-register-now-depth-effect-letters-ov/) |
 | 23  | make footer REGISTER NOW depth effect outline-only on all three copies | 2026-03-10 | 7f83689 | [23-footer-register-now-instead-of-transpare](./quick/23-footer-register-now-instead-of-transpare/) |
+| 25  | fix REGISTER NOW z-index not working — add relative to all three depth effect paragraphs | 2026-03-10 | a62e100 | [25-fix-register-now-z-index-not-working-cha](./quick/25-fix-register-now-z-index-not-working-cha/) |
 
 ## Session Continuity
 
 Last session: 2026-03-10
-Stopped at: Completed quick-23 — footer REGISTER NOW all copies outline-only with color transparent
+Stopped at: Completed quick-25 — add relative to REGISTER NOW depth effect paragraphs to fix z-index
 Resume file: None
