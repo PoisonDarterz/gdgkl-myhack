@@ -99,6 +99,8 @@ Recent decisions affecting current work:
 - [04-01]: Tier rows decrease visually in box size: Gold w-32 h-16 → Silver w-24 h-12 → Bronze w-20 h-10
 - [Phase 04-event-sections]: FAQSection uses useState<Set<number>> for multi-open accordion — no auto-close behavior
 - [Phase 04-event-sections]: FAQSection height animation via max-h-0/max-h-48 Tailwind transition — no external accordion library
+- [quick-15]: FAQ chevron repositioned to left via SVG-before-span flex order; justify-start + flex-1 on span fills remaining width
+- [quick-15]: FAQ question text increased from text-sm to text-base for larger, more readable titles
 
 ### Pending Todos
 
@@ -126,9 +128,10 @@ None yet.
 | 12  | fix LandmarksRow overlap and update icon sequence with union separators | 2026-03-10 | 80e648d | [12-fix-landmarks-row-overlap-and-update-ico](./quick/12-fix-landmarks-row-overlap-and-update-ico/) |
 | 13  | replace small pill section titles with dark bg large bold white text across BENEFITS, TIMELINE, PARTNERS, FAQ | 2026-03-10 | d9d9b51 | [13-for-the-title-refer-to-image-need-to-use](./quick/13-for-the-title-refer-to-image-need-to-use/) |
 | 14  | increase section title size to text-5xl and switch to Instrument Serif font | 2026-03-10 | 335e0e1 | [14-section-titles-make-bigger-and-use-font-](./quick/14-section-titles-make-bigger-and-use-font-/) |
+| 15  | move FAQ accordion chevron to left side and increase question title to text-base | 2026-03-10 | 09e838a | [15-faq-accordion-move-arrow-icon-to-left-si](./quick/15-faq-accordion-move-arrow-icon-to-left-si/) |
 
 ## Session Continuity
 
 Last session: 2026-03-10
-Stopped at: Completed quick-14 — section title size increased to text-5xl with Instrument Serif font
+Stopped at: Completed quick-15 — FAQ chevron moved to left, question text increased to text-base
 Resume file: None
