@@ -10,7 +10,7 @@ const BUILDINGS = [
 ];
 
 const UnionIcon = () => (
-  <div className="flex items-center justify-center w-10 h-10">
+  <div className="flex items-center justify-center w-5 h-5 sm:w-10 sm:h-10">
     <Image
       src="/images/union.svg"
       alt="separator"
@@ -41,11 +41,11 @@ export function LandmarksRow() {
   }, []);
 
   return (
-    <div className="min-h-32 sm:min-h-50 flex items-center justify-around w-full mt-6 border-brand-muted/40">
+    <div className="min-h-16 sm:min-h-32 flex items-center justify-around w-full mt-6 border-brand-muted/40">
       <UnionIcon />
 
       <div
-        className="transition-opacity duration-150 w-12.5 flex items-end justify-center overflow-hidden"
+        className="transition-opacity duration-150 w-7 sm:w-12.5 flex items-end justify-center overflow-hidden"
         style={{ opacity: visible ? 1 : 0 }}
       >
         <Image
@@ -60,7 +60,7 @@ export function LandmarksRow() {
       <UnionIcon />
 
       <div
-        className="transition-opacity duration-150 w-12.5 flex items-end justify-center overflow-hidden"
+        className="transition-opacity duration-150 w-7 sm:w-12.5 flex items-end justify-center overflow-hidden"
         style={{ opacity: visible ? 1 : 0 }}
       >
         <Image
@@ -75,7 +75,7 @@ export function LandmarksRow() {
       <UnionIcon />
 
       <div
-        className="transition-opacity duration-150 w-12.5 flex items-end justify-center overflow-hidden"
+        className="transition-opacity duration-150 w-7 sm:w-12.5 flex items-end justify-center overflow-hidden"
         style={{ opacity: visible ? 1 : 0 }}
       >
         <Image
