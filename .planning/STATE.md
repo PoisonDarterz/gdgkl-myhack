@@ -103,6 +103,9 @@ Recent decisions affecting current work:
 - [quick-15]: FAQ question text increased from text-sm to text-base for larger, more readable titles
 - [quick-16]: Header is a server component imported in layout.tsx — renders on all pages without client JS
 - [quick-16]: Footer REGISTER NOW font-family set via inline style to avoid Tailwind font-black + font-[var()] CSS conflict
+- [quick-18]: Google_Sans from next/font/google is available but weight 900 is not — max weight is 700
+- [quick-18]: Header uses px-6 directly on header element (no inner max-w container) to match Figma edge-to-edge layout
+- [quick-18]: REGISTER NOW depth effect uses 3 stacked p tags with marginTop -0.55em and decreasing opacity (100/40/20)
 
 ### Pending Todos
 
@@ -133,9 +136,10 @@ None yet.
 | 15  | move FAQ accordion chevron to left side and increase question title to text-base | 2026-03-10 | 09e838a | [15-faq-accordion-move-arrow-icon-to-left-si](./quick/15-faq-accordion-move-arrow-icon-to-left-si/) |
 | 16  | create Header navbar and Footer with GDG logo box, policy links, outlined REGISTER NOW | 2026-03-10 | 87d19d8 | [16-create-header-and-footer-components-from](./quick/16-create-header-and-footer-components-from/) |
 | 17  | fix invalid font-[var()] Tailwind class causing CSS parse error | 2026-03-10 | bae300b | [17-fix-invalid-font-var-tailwind-class-caus](./quick/17-fix-invalid-font-var-tailwind-class-caus/) |
+| 18  | fix header logo and footer layout with Google Sans depth effect | 2026-03-10 | 8acfd03 | [18-fix-header-logo-and-footer-layout-with-g](./quick/18-fix-header-logo-and-footer-layout-with-g/) |
 
 ## Session Continuity
 
 Last session: 2026-03-10
-Stopped at: Completed quick-16 — Header navbar and FooterSection with outlined REGISTER NOW built
+Stopped at: Completed quick-18 — Header gdg logo, footer gdg logo + vertical links + REGISTER NOW depth effect
 Resume file: None
