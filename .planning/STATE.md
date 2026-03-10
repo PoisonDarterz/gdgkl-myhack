@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 Phase: 3 of 5 (Mid Sections)
 Plan: 2 of 3 in current phase
 Status: Completed
-Last activity: 2026-03-09 - Completed quick task 9: add RECAP VIDEO card to right side of BenefitsSection
+Last activity: 2026-03-10 - Completed quick task 12: fix LandmarksRow overlap and update icon sequence with union separators
 
 Progress: [███░░░░░░░] 30%
 
@@ -113,9 +113,10 @@ None yet.
 | 9   | add RECAP VIDEO card to right side of BenefitsSection as 2-column layout | 2026-03-09 | 12839b8 | [9-add-recap-video-card-to-right-side-of-be](./quick/9-add-recap-video-card-to-right-side-of-be/) |
 | 10  | move city landmarks row to full-width below benefits+video two-column layout | 2026-03-09 | 6191eea | [10-fix-benefits-section-layout-benefits-lef](./quick/10-fix-benefits-section-layout-benefits-lef/) |
 | 11  | replace static landmarks row with animated LandmarksRow cycling 3 KL building SVGs | 2026-03-10 | 8d111e1 | [11-add-animated-city-landmark-icons-row-bel](./quick/11-add-animated-city-landmark-icons-row-bel/) |
+| 12  | fix LandmarksRow overlap and update icon sequence with union separators | 2026-03-10 | 80e648d | [12-fix-landmarks-row-overlap-and-update-ico](./quick/12-fix-landmarks-row-overlap-and-update-ico/) |
 
 ## Session Continuity
 
 Last session: 2026-03-10
-Stopped at: Completed quick-11 — Replace static landmarks row with animated LandmarksRow component
+Stopped at: Completed quick-12 — Fix LandmarksRow overlap and update icon sequence with union separators
 Resume file: None
