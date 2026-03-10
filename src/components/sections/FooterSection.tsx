@@ -35,7 +35,7 @@ export function FooterSection() {
             <div className="w-4 h-4 bg-white" />
           </div>
           {/* Policy links stacked vertically */}
-          <div className="flex flex-col gap-2 text-xs font-mono tracking-widest text-white/70 uppercase items-end">
+          <div className="flex flex-col gap-2 text-xs font-mono tracking-widest text-white/70 uppercase items-start sm:items-end">
             <a href="#" className="hover:text-white transition-colors">
               Privacy Policy
             </a>
