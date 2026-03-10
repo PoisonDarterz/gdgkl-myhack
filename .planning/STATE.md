@@ -104,6 +104,8 @@ Recent decisions affecting current work:
 - [quick-16]: Header is a server component imported in layout.tsx — renders on all pages without client JS
 - [quick-16]: Footer REGISTER NOW font-family set via inline style to avoid Tailwind font-black + font-[var()] CSS conflict
 - [quick-18]: Google_Sans from next/font/google is available but weight 900 is not — max weight is 700
+- [quick-20]: Google Sans loaded via CDN link tag in <head> instead of next/font/google — CDN version exposes weights 100-900
+- [quick-20]: --font-sans set to literal 'Google Sans', sans-serif in @theme inline — no CSS variable indirection needed since CDN font name is stable
 - [quick-18]: Header uses px-6 directly on header element (no inner max-w container) to match Figma edge-to-edge layout
 - [quick-18]: REGISTER NOW depth effect uses 3 stacked p tags with marginTop -0.55em and decreasing opacity (100/40/20)
 
@@ -138,9 +140,10 @@ None yet.
 | 17  | fix invalid font-[var()] Tailwind class causing CSS parse error | 2026-03-10 | bae300b | [17-fix-invalid-font-var-tailwind-class-caus](./quick/17-fix-invalid-font-var-tailwind-class-caus/) |
 | 18  | fix header logo and footer layout with Google Sans depth effect | 2026-03-10 | 8acfd03 | [18-fix-header-logo-and-footer-layout-with-g](./quick/18-fix-header-logo-and-footer-layout-with-g/) |
 | 19  | make footer REGISTER NOW solid white fill and full-width | 2026-03-10 | 6055570 | [19-the-footer-register-now-to-be-bold-and-t](./quick/19-the-footer-register-now-to-be-bold-and-t/) |
+| 20  | load Google Sans from CDN to unlock weight 900 | 2026-03-10 | dd7b350 | [20-use-google-sans-font-from-fonts-google-c](./quick/20-use-google-sans-font-from-fonts-google-c/) |
 
 ## Session Continuity
 
 Last session: 2026-03-10
-Stopped at: Completed quick-19 — Footer REGISTER NOW solid white fill and full-width
+Stopped at: Completed quick-20 — Google Sans CDN font with full weight range
 Resume file: None
