@@ -27,9 +27,9 @@ export function FooterSection() {
         </div>
 
         {/* Right: decorative squares + policy links stacked vertically */}
-        <div className="flex flex-col items-end gap-4">
+        <div className="flex flex-col items-end gap-8">
           {/* Three white squares (barcode design) */}
-          <div className="flex gap-2">
+          <div className="flex gap-6">
             <div className="w-4 h-4 bg-white" />
             <div className="w-4 h-4 bg-white" />
             <div className="w-4 h-4 bg-white" />
@@ -47,38 +47,39 @@ export function FooterSection() {
       </div>
 
       {/* Zone 2: giant filled REGISTER NOW full-width with depth effect */}
-      <div className="border-t border-white/20 px-0 pt-4 pb-2 overflow-hidden">
+      <div className="px-0 pt-4 pb-2 overflow-hidden">
         <a href="#" className="block">
           <div className="flex flex-col">
             {/* Copy 1: full brightness */}
             <p
               style={{
-                color: "white",
-                fontFamily: "var(--font-google-sans)",
+                WebkitTextStroke: "3px white",
+                color: "transparent",
+                fontFamily: "'Google Sans', sans-serif",
               }}
-              className="text-[12vw] font-black tracking-tighter leading-none uppercase text-center opacity-100"
+              className="text-[12vw] font-bold tracking-tighter leading-none uppercase text-center opacity-100"
             >
               REGISTER NOW
             </p>
             {/* Copy 2: medium opacity, slightly offset */}
             <p
               style={{
-                color: "white",
-                fontFamily: "var(--font-google-sans)",
+                WebkitTextStroke: "3px white",
+                fontFamily: "'Google Sans', sans-serif",
                 marginTop: "-0.55em",
               }}
-              className="text-[12vw] font-black tracking-tighter leading-none uppercase text-center opacity-40"
+              className="text-[12vw] font-bold tracking-tighter leading-none uppercase text-center opacity-40"
             >
               REGISTER NOW
             </p>
             {/* Copy 3: low opacity, further offset for depth */}
             <p
               style={{
-                color: "white",
-                fontFamily: "var(--font-google-sans)",
+                WebkitTextStroke: "3px white",
+                fontFamily: "'Google Sans', sans-serif",
                 marginTop: "-0.55em",
               }}
-              className="text-[12vw] font-black tracking-tighter leading-none uppercase text-center opacity-20"
+              className="text-[12vw] font-bold tracking-tighter leading-none uppercase text-center opacity-20"
             >
               REGISTER NOW
             </p>
