@@ -74,12 +74,12 @@ export function PartnersSection() {
                 {sponsor.label}
               </span>
             </div>
-            <div className="flex-1 flex items-center justify-center p-6">
+            <div className="flex-1 flex items-center justify-center p-6 bg-gray-50/60 backdrop-blur-sm">
               {sponsor.img ? (
                 <img
                   src={sponsor.img}
                   alt={sponsor.name}
-                  className="max-h-16 w-auto max-w-full object-contain"
+                  className="max-h-16 w-auto max-w-full object-contain drop-shadow-sm"
                 />
               ) : (
                 googleLogo
