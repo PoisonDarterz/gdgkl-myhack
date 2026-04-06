@@ -1,10 +1,9 @@
 const events = [
-  { month: "JAN", day: "24", name: "GEMINI API WORKSHOP", description: "Hands-on session building with the Gemini API — from first call to a working prototype.", type: "workshop" },
-  { month: "JAN", day: "26", name: "VERTEX AI WORKSHOP", description: "Explore Vertex AI capabilities and deployment patterns for production-ready AI applications.", type: "workshop" },
-  { month: "MAR", day: "31", name: "MEETUP #1", description: "Learn skills alongside your local developer community.", type: "meetup" },
-  { month: "APR", day: "15", name: "MYHACK OPENING KEYNOTE", description: "Join us in the kickoff event to kick start MyHack!", type: "hackathon" },
-  { month: "APR", day: "16", name: "MYHACK CLOSING", description: "Join us in the closing day of MyHack and win prizes.", type: "hackathon" },
-  { month: "APR", day: "15", name: "MEETUP #2", description: "Learn skills alongside your local developer community.", type: "meetup" },
+  { month: "APR", day: "9", name: "MEETUP #1", description: "Kick off Build with AI 2026 with GDG KL! Explore cutting-edge GenAI: Gemini 3, Veo 3 & more at Google Malaysia.", type: "meetup" },
+  { month: "APR", day: "25", name: "WORKSHOP", description: "Hands-on session at Sunway University — build with Gemini 3 and Veo 3. Bring your own laptop.", type: "workshop" },
+  { month: "MAY", day: "5", name: "MEETUP #2", description: "Dive deeper into GenAI: Gemini 3, Veo 3, Nano Banana & Antigravity on Google Cloud at Google Malaysia.", type: "meetup" },
+  { month: "MAY", day: "16", name: "MYHACK OPENING", description: "24-hour hackathon begins at Sunway University. Build impactful AI solutions with Gemini 3.1 and Veo.", type: "hackathon" },
+  { month: "MAY", day: "17", name: "MYHACK CLOSING", description: "Showcase your project. Top teams win a guaranteed consultation with Cradle Fund VC partner.", type: "hackathon" },
 ] as const;
 
 const typeHeaderStyles: Record<string, string> = {
