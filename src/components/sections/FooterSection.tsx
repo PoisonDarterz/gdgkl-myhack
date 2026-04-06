@@ -48,7 +48,7 @@ export function FooterSection() {
 
       {/* Zone 2: giant filled REGISTER NOW full-width with depth effect */}
       <div className="px-0 pt-4 pb-2 overflow-hidden">
-        <a href="#" className="block">
+        <a href="https://forms.gle/GZ1xhZG68RoPJZhQ6" className="block">
           <div className="flex flex-col">
             <div>
               <div>
