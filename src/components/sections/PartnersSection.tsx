@@ -1,10 +1,12 @@
 import React from "react";
 
 const marqueeSponsors = [
-  { label: "DIAMOND SPONSOR", name: "GOOGLE" },
-  { label: "GOLD SPONSOR",    name: "SPONSOR" },
-  { label: "SILVER SPONSOR",  name: "SPONSOR" },
-  { label: "DIAMOND SPONSOR", name: "GOOGLE" },
+  { label: "OFFICIAL SPONSOR", name: "GOOGLE" },
+  { label: "GOLD SPONSOR",     name: "DEVOTEAM" },
+  { label: "SILVER SPONSOR",   name: "MONEYLION" },
+  { label: "VENUE SPONSOR",    name: "SUNWAY UNIVERSITY" },
+  { label: "VENUE SPONSOR",    name: "KL42" },
+  { label: "MAIN PARTNER",     name: "CRADLE FUNDS" },
 ];
 
 // Doubled for seamless infinite loop
@@ -12,7 +14,7 @@ const marqueeItems = [...marqueeSponsors, ...marqueeSponsors];
 
 const gridSponsors: { tier: string; tierColor: string; logo: React.ReactNode }[] = [
   {
-    tier: "GOOGLE",
+    tier: "OFFICIAL SPONSOR",
     tierColor: "bg-[#34A853]",
     logo: (
       <p className="font-sans text-5xl font-black tracking-tight select-none">
@@ -25,8 +27,31 @@ const gridSponsors: { tier: string; tierColor: string; logo: React.ReactNode }[]
       </p>
     ),
   },
-  { tier: "", tierColor: "", logo: null },
-  { tier: "", tierColor: "", logo: null },
+  {
+    tier: "GOLD SPONSOR",
+    tierColor: "bg-amber-500",
+    logo: <p className="font-mono text-lg font-bold uppercase tracking-widest text-brand-text">DEVOTEAM</p>,
+  },
+  {
+    tier: "SILVER SPONSOR",
+    tierColor: "bg-slate-400",
+    logo: <p className="font-mono text-lg font-bold uppercase tracking-widest text-brand-text">MONEYLION</p>,
+  },
+  {
+    tier: "VENUE SPONSOR",
+    tierColor: "bg-blue-600",
+    logo: <p className="font-mono text-lg font-bold uppercase tracking-widest text-brand-text">SUNWAY UNIVERSITY</p>,
+  },
+  {
+    tier: "VENUE SPONSOR",
+    tierColor: "bg-blue-600",
+    logo: <p className="font-mono text-lg font-bold uppercase tracking-widest text-brand-text">KL42</p>,
+  },
+  {
+    tier: "MAIN PARTNER",
+    tierColor: "bg-purple-700",
+    logo: <p className="font-mono text-lg font-bold uppercase tracking-widest text-brand-text">CRADLE FUNDS</p>,
+  },
 ];
 
 export function PartnersSection() {
