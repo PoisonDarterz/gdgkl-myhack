@@ -74,7 +74,7 @@ export function PartnersSection() {
                 {sponsor.label}
               </span>
             </div>
-            <div className="flex-1 flex items-center justify-center p-6 bg-gray-800/90 backdrop-blur-sm">
+            <div className="flex-1 flex items-center justify-center p-6 bg-gray-200/80 backdrop-blur-sm">
               {sponsor.img ? (
                 <img
                   src={sponsor.img}
