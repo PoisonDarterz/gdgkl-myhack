@@ -255,7 +255,7 @@ export function HeroSection() {
             <div className="flex flex-row items-center justify-between mt-4 px-8 pb-3">
               <p className="font-mono text-brand-text text-sm">→ → →</p>
               <a
-                href="https://forms.gle/GZ1xhZG68RoPJZhQ6"
+                href="https://forms.gle/zi6YknjSZosmJEVL9"
                 className="inline-block bg-[#8CFF81] text-black font-bold font-mono text-md tracking-widest uppercase px-4 py-2 hover:bg-green-700 transition-colors"
               >
                 REGISTER NOW
