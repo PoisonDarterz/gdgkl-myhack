@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 Phase: 4 of 5 (Event Sections)
 Plan: 3 of 3 in current phase
 Status: Checkpoint — awaiting human visual verification (04-03 Task 2)
-Last activity: 2026-04-06 - Completed quick task 260406-w4p: update sponsor list with 6 sponsors
+Last activity: 2026-04-09 - Completed quick task 260409-frw: update the links
 
 Progress: [██████░░░░] 60%
 
@@ -153,6 +153,7 @@ None yet.
 | 30  | make benefit section icons smaller on mobile viewport                                                         | 2026-03-10 | d6826bc | [30-for-the-benefits-section-make-the-image-](./quick/30-for-the-benefits-section-make-the-image-/) |
 | 260406-vzf | update timeline section with real Build with AI 2026 KL event dates                               | 2026-04-06 | 0721a42 | [260406-vzf-update-timeline-section-with-real-build-](./quick/260406-vzf-update-timeline-section-with-real-build-/) |
 | 260406-w4p | update sponsor list with 6 sponsors                                                               | 2026-04-06 | 11d106a | [260406-w4p-update-the-sponsor-list](./quick/260406-w4p-update-the-sponsor-list/) |
+| 260409-frw | update the links                                                                                  | 2026-04-09 | 8b18566 | [260409-frw-update-the-links](./quick/260409-frw-update-the-links/) |
 
 ## Session Continuity
 
