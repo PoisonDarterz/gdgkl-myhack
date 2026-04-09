@@ -1,10 +1,19 @@
-const events = [
-  { month: "APR", day: "9", name: "MEETUP #1", description: "Kick off Build with AI 2026 with GDG KL! Explore cutting-edge GenAI: Gemini 3, Veo 3 & more at Google Malaysia.", type: "meetup" },
+type TimelineEvent = {
+  month: string;
+  day: string;
+  name: string;
+  description: string;
+  type: string;
+  link?: string;
+};
+
+const events: TimelineEvent[] = [
+  { month: "APR", day: "9", name: "MEETUP #1", description: "Kick off Build with AI 2026 with GDG KL! Explore cutting-edge GenAI: Gemini 3, Veo 3 & more at Google Malaysia.", type: "meetup", link: "https://gdg.community.dev/e/mgkk2e/" },
   { month: "APR", day: "25", name: "WORKSHOP", description: "Hands-on session at Sunway University — build with Gemini 3 and Veo 3. Bring your own laptop.", type: "workshop" },
   { month: "MAY", day: "5", name: "MEETUP #2", description: "Dive deeper into GenAI: Gemini 3, Veo 3, Nano Banana & Antigravity on Google Cloud at Google Malaysia.", type: "meetup" },
-  { month: "MAY", day: "16", name: "MYHACK OPENING", description: "24-hour hackathon begins at Sunway University. Build impactful AI solutions with Gemini 3.1 and Veo.", type: "hackathon" },
-  { month: "MAY", day: "17", name: "MYHACK CLOSING", description: "Showcase your project. Top teams win a guaranteed consultation with Cradle Fund VC partner.", type: "hackathon" },
-] as const;
+  { month: "MAY", day: "16", name: "MYHACK OPENING", description: "24-hour hackathon begins at Sunway University. Build impactful AI solutions with Gemini 3.1 and Veo.", type: "hackathon", link: "https://forms.gle/7C1S7w2gjMVKfdgj9" },
+  { month: "MAY", day: "17", name: "MYHACK CLOSING", description: "Showcase your project. Top teams win a guaranteed consultation with Cradle Fund VC partner.", type: "hackathon", link: "https://forms.gle/7C1S7w2gjMVKfdgj9" },
+];
 
 const typeHeaderStyles: Record<string, string> = {
   workshop:  "bg-[#FF9800] text-white",
@@ -54,6 +63,18 @@ export function TimelineSection() {
                   <p className="font-mono text-[10px] text-brand-muted leading-relaxed">
                     {event.description}
                   </p>
+                  {event.link && (
+                    <a
+                      href={event.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`font-mono text-[10px] font-bold uppercase tracking-widest mt-1.5 ${
+                        event.type === "meetup" ? "text-[#2196F3]" : "text-[#D32F2F]"
+                      }`}
+                    >
+                      Register →
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
