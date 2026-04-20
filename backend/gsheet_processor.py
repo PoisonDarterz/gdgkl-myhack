@@ -1,8 +1,8 @@
 import csv
 import io
 from utils import get_public_gsheet_csv
-from CEO_main import CEO_main
-from CTO_main import CTO_main
+from CEO_main import CEO_main  # BusinessAnalysis/CEO_main.py
+from CTO_main import CTO_main  # AISoftwareEngineer/CTO_main.py
 from HeadJudge_main import HeadJudge_main
 from db_connector import save_evaluation_to_db
 

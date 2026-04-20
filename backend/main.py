@@ -3,12 +3,12 @@ import sys
 
 # Add backend to sys.path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'backend'))
-sys.path.append(os.path.join(os.path.dirname(__file__), 'backend', 'CEO'))
-sys.path.append(os.path.join(os.path.dirname(__file__), 'backend', 'CTO'))
+sys.path.append(os.path.join(os.path.dirname(__file__), 'backend', 'BusinessAnalysis'))
+sys.path.append(os.path.join(os.path.dirname(__file__), 'backend', 'AISoftwareEngineer'))
 sys.path.append(os.path.join(os.path.dirname(__file__), 'backend', 'HeadJudge'))
 
-from backend.CEO.CEO_main import CEO_main
-from backend.CTO.CTO_main import CTO_main
+from backend.BusinessAnalysis.CEO_main import CEO_main
+from backend.AISoftwareEngineer.CTO_main import CTO_main
 from backend.HeadJudge.HeadJudge_main import HeadJudge_main
 from backend.utils import get_public_gdoc_text
 from backend.gsheet_processor import process_gsheet_submissions

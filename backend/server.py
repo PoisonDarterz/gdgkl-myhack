@@ -13,14 +13,14 @@ from pydantic import BaseModel
 
 # Add current directory and subdirectories to path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'CEO'))
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'CTO'))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'BusinessAnalysis'))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'AISoftwareEngineer'))
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'HeadJudge'))
 
 from gsheet_processor import process_gsheet_submissions
 from utils import get_public_gdoc_text, get_public_gsheet_csv
-from CEO.CEO_main import CEO_main
-from CTO.CTO_main import CTO_main
+from BusinessAnalysis.CEO_main import CEO_main
+from AISoftwareEngineer.CTO_main import CTO_main
 from HeadJudge.HeadJudge_main import HeadJudge_main
 from db_connector import save_evaluation_to_db, supabase
 
