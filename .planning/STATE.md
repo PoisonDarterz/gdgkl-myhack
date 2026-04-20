@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 Phase: 4 of 5 (Event Sections)
 Plan: 3 of 3 in current phase
 Status: Checkpoint — awaiting human visual verification (04-03 Task 2)
-Last activity: 2026-04-20 - Completed quick task 31: use .venv in backend, install all required packages and create requirements.txt
+Last activity: 2026-04-20 - Completed quick task 32: Refactor backend AI agent roles — CTO prompt file + Business Analysis/AI Software Engineer personas
 
 Progress: [██████░░░░] 60%
 
@@ -152,6 +152,7 @@ None yet.
 
 | 30  | make benefit section icons smaller on mobile viewport                                                         | 2026-03-10 | d6826bc | [30-for-the-benefits-section-make-the-image-](./quick/30-for-the-benefits-section-make-the-image-/) |
 | 31  | use .venv in backend, install all required packages and create requirements.txt                               | 2026-04-20 | b957204 | [260420-31-backend-venv-setup-requirements](./quick/260420-31-backend-venv-setup-requirements/)     |
+| 32  | Refactor backend AI agent roles — CTO prompt file + Business Analysis/AI Software Engineer personas          | 2026-04-20 | 892eaaa | [260420-32-cto-prompt-file-and-role-persona-updates](./quick/260420-32-cto-prompt-file-and-role-persona-updates/) |
 
 ## Session Continuity
 
