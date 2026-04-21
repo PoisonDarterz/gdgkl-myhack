@@ -750,13 +750,22 @@ export default function JudgePage() {
                               View Details
                             </button>
                           )}
-                          {(row.status === 'pending' || row.status === 'error') && (
+                          {row.status === 'pending' && (
                             <button
                               onClick={() => runTeam(row.teamName)}
                               disabled={runningAll}
                               className="px-3 py-1.5 bg-black text-white rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-gray-800 transition-all disabled:opacity-50"
                             >
                               Run
+                            </button>
+                          )}
+                          {row.status === 'error' && (
+                            <button
+                              onClick={() => runTeam(row.teamName)}
+                              disabled={runningAll}
+                              className="px-3 py-1.5 bg-red-600 text-white rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-red-700 transition-all disabled:opacity-50"
+                            >
+                              Retry
                             </button>
                           )}
                           {row.status === 'running' && (
