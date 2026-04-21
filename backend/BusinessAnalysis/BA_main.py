@@ -1,6 +1,7 @@
 import os
 import sys
 import re
+from concurrent.futures import ThreadPoolExecutor
 
 # Ensure backend directory is in path if running from within subfolders
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -31,12 +32,14 @@ def BA_main(project_content):
     for attempt in range(1, MAX_RETRIES + 1):
         print(f"\n[BA] Attempt {attempt}/{MAX_RETRIES}")
 
-        print("[BA] Model 1 Running...")
-        report_ba_1 = run_BAModel1_evaluator(project_content)
-        print(f"\nReport from BA Model 1:\n{report_ba_1}...")
+        print("[BA] Model 1 + Model 2 running in parallel...")
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            f1 = pool.submit(run_BAModel1_evaluator, project_content)
+            f2 = pool.submit(run_BAModel2_evaluator, project_content)
+            report_ba_1 = f1.result()
+            report_ba_2 = f2.result()
 
-        print("\n[BA] Model 2 Running...")
-        report_ba_2 = run_BAModel2_evaluator(project_content)
+        print(f"\nReport from BA Model 1:\n{report_ba_1}...")
         print(f"\nReport from BA Model 2:\n{report_ba_2}...")
 
         # Extract scores and check discrepancy

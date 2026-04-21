@@ -1,18 +1,17 @@
 import os
 import sys
+from concurrent.futures import ThreadPoolExecutor
 
-# Add backend to sys.path
-sys.path.append(os.path.join(os.path.dirname(__file__), 'backend'))
-sys.path.append(os.path.join(os.path.dirname(__file__), 'backend', 'BusinessAnalysis'))
-sys.path.append(os.path.join(os.path.dirname(__file__), 'backend', 'AISoftwareEngineer'))
-sys.path.append(os.path.join(os.path.dirname(__file__), 'backend', 'HeadJudge'))
+# Add backend directory (this file's own directory) to sys.path
+_backend_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, _backend_dir)
 
-from backend.BusinessAnalysis.BA_main import BA_main
-from backend.AISoftwareEngineer.AI_SE_main import AI_SE_main
-from backend.HeadJudge.HeadJudge_main import HeadJudge_main
-from backend.utils import get_public_gdoc_text
-from backend.gsheet_processor import process_gsheet_submissions
-from backend.db_connector import save_evaluation_to_db
+from BusinessAnalysis.BA_main import BA_main
+from AISoftwareEngineer.AI_SE_main import AI_SE_main
+from HeadJudge.HeadJudge_main import HeadJudge_main
+from utils import get_public_gdoc_text
+from gsheet_processor import process_gsheet_submissions
+from db_connector import save_evaluation_to_db
 
 class DualLogger:
     def __init__(self, filename):
@@ -63,11 +62,12 @@ def main():
         
         print("[+] Content fetched successfully.")
         
-        # Phase 1: Run BA Evaluation
-        ba_output = BA_main(project_content)
-
-        # Phase 2: Run AI SE Evaluation
-        ai_se_output = AI_SE_main(project_content)
+        # Phase 1+2: Run BA and AI SE concurrently
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            ba_future = pool.submit(BA_main, project_content)
+            ai_se_future = pool.submit(AI_SE_main, project_content)
+            ba_output = ba_future.result()
+            ai_se_output = ai_se_future.result()
 
         # Phase 3: Run Head Judge (Final Verdict)
         final_verdict = HeadJudge_main(project_content, ba_output, ai_se_output)

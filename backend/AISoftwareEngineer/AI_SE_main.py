@@ -1,6 +1,7 @@
 import os
 import sys
 import re
+from concurrent.futures import ThreadPoolExecutor
 
 # Ensure backend directory is in path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -30,12 +31,14 @@ def AI_SE_main(project_content):
     for attempt in range(1, MAX_RETRIES + 1):
         print(f"\n[AI SE] Attempt {attempt}/{MAX_RETRIES}")
 
-        print("\n[AI SE Agent A] Evaluating Technicality...")
-        report_ai_se_1 = run_AI_SE_Model1_evaluator(project_content)
-        print(f"{report_ai_se_1}...")
+        print("\n[AI SE] Agent A (Technicality) + Agent B (Innovation) running in parallel...")
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            f1 = pool.submit(run_AI_SE_Model1_evaluator, project_content)
+            f2 = pool.submit(run_AI_SE_Model2_evaluator, project_content)
+            report_ai_se_1 = f1.result()
+            report_ai_se_2 = f2.result()
 
-        print("\n[AI SE Agent B] Evaluating Innovation...")
-        report_ai_se_2 = run_AI_SE_Model2_evaluator(project_content)
+        print(f"{report_ai_se_1}...")
         print(f"{report_ai_se_2}...")
 
         # Extract scores and check discrepancy
