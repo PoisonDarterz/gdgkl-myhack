@@ -131,14 +131,14 @@ def process_gsheet_submissions(sheet_url):
         print(f"[*] Evaluating {team_name}...")
         
         try:
-            # Phase 1: Run CEO Evaluation
-            ceo_output = CEO_main(project_content)
-            
-            # Phase 2: Run CTO Evaluation
-            cto_output = CTO_main(project_content)
+            # Phase 1: Run BA Evaluation
+            ba_output = CEO_main(project_content)
+
+            # Phase 2: Run AI SE Evaluation
+            ai_se_output = CTO_main(project_content)
 
             # Phase 3: Run Head Judge (Final Verdict)
-            final_verdict = HeadJudge_main(project_content, ceo_output, cto_output)
+            final_verdict = HeadJudge_main(project_content, ba_output, ai_se_output)
 
             # Phase 4: Save to Supabase (isolated so DB errors don't break the batch)
             try:

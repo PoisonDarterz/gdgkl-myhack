@@ -1,7 +1,7 @@
 import os
 from google import genai
 from google.genai import types
-from CEO_prompt import ceo_system_instruction_1_2, ceo_system_instruction_3 
+from CEO_prompt import ba_system_instruction_1_2, ba_system_instruction_3
 
 def run_CEOModel1_evaluator(submission_text):
     """Initializes Gemini 2.0 Pro and evaluates the submission."""
@@ -16,7 +16,7 @@ def run_CEOModel1_evaluator(submission_text):
         response = client.models.generate_content(
             model=MODEL_ID,
             config=types.GenerateContentConfig(
-                system_instruction=ceo_system_instruction_1_2,
+                system_instruction=ba_system_instruction_1_2,
                 temperature=0.1
             ),
             contents=f"Evaluate this project submission:\n\n{submission_text}"
@@ -38,7 +38,7 @@ def run_CEOModel2_evaluator(submission_text):
         response = client.models.generate_content(
             model=MODEL_ID,
             config=types.GenerateContentConfig(
-                system_instruction=ceo_system_instruction_1_2,
+                system_instruction=ba_system_instruction_1_2,
                 temperature=0.1
             ),
             contents=f"Evaluate this project submission:\n\n{submission_text}"
@@ -73,14 +73,14 @@ REPORT 2 (FROM AGENT B):
 {report_2}
 
 ---
-Based on the two reports above and the original submission, provide the Final Resonated CEO Evaluation in the requested JSON format.
+Based on the two reports above and the original submission, provide the Final Resonated Business Analysis Evaluation in the requested JSON format.
 """
 
     try:
         response = client.models.generate_content(
             model=MODEL_ID,
             config=types.GenerateContentConfig(
-                system_instruction=ceo_system_instruction_3,
+                system_instruction=ba_system_instruction_3,
                 temperature=0.1, 
                 response_mime_type="application/json" 
             ),

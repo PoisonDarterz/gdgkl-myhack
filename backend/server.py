@@ -165,7 +165,7 @@ def get_results():
 def download_csv():
     """
     Download all evaluation data as a CSV file.
-    Flattens nested CEO/CTO findings into a single row per evaluation.
+    Flattens nested BA/AI SE findings into a single row per evaluation.
     """
     import csv
     import io
@@ -202,11 +202,11 @@ def download_csv():
         # 3. CSV headers
         headers = [
             "Project Title", "Final Score", "Head Judge Verdict",
-            "CEO Verdict", "CEO Total Raw", "CEO Weighted Final",
-            "CTO Verdict", "CTO Total Raw", "CTO Weighted Final",
+            "BA Verdict", "BA Total Raw", "BA Weighted Final",
+            "AI SE Verdict", "AI SE Total Raw", "AI SE Weighted Final",
             "Executive Summary",
-            "CEO Strengths", "CEO Risks",
-            "CTO Strengths", "CTO Vulnerabilities",
+            "BA Strengths", "BA Risks",
+            "AI SE Strengths", "AI SE Vulnerabilities",
             "Category Scores",
             "Documentation Link", "Created At"
         ]
@@ -218,18 +218,18 @@ def download_csv():
 
         for e in evals:
             eid = e["id"]
-            ceo_list = ceo_map.get(eid, [{}])
-            cto_list = cto_map.get(eid, [{}])
+            ba_list = ceo_map.get(eid, [{}])
+            ai_se_list = cto_map.get(eid, [{}])
             cats = cat_map.get(eid, [])
 
-            ceo = ceo_list[0] if ceo_list else {}
-            cto = cto_list[0] if cto_list else {}
+            ba = ba_list[0] if ba_list else {}
+            ai_se = ai_se_list[0] if ai_se_list else {}
 
             # Flatten strengths/risks into comma-separated strings
-            ceo_strengths = "; ".join(ceo.get("strengths", []) or [])
-            ceo_risks = "; ".join(ceo.get("risks", []) or [])
-            cto_strengths = "; ".join(cto.get("strengths", []) or [])
-            cto_vulns = "; ".join(cto.get("vulnerabilities", []) or [])
+            ba_strengths = "; ".join(ba.get("strengths", []) or [])
+            ba_risks = "; ".join(ba.get("risks", []) or [])
+            ai_se_strengths = "; ".join(ai_se.get("strengths", []) or [])
+            ai_se_vulns = "; ".join(ai_se.get("vulnerabilities", []) or [])
 
             # Flatten category scores
             cat_summary = "; ".join(
@@ -240,17 +240,17 @@ def download_csv():
                 e.get("project_title", ""),
                 e.get("final_score", ""),
                 e.get("head_judge_verdict", ""),
-                ceo.get("verdict", ""),
-                ceo.get("total_raw", ""),
-                ceo.get("weighted_final", ""),
-                cto.get("verdict", ""),
-                cto.get("total_raw", ""),
-                cto.get("weighted_final", ""),
+                ba.get("verdict", ""),
+                ba.get("total_raw", ""),
+                ba.get("weighted_final", ""),
+                ai_se.get("verdict", ""),
+                ai_se.get("total_raw", ""),
+                ai_se.get("weighted_final", ""),
                 e.get("summary", ""),
-                ceo_strengths,
-                ceo_risks,
-                cto_strengths,
-                cto_vulns,
+                ba_strengths,
+                ba_risks,
+                ai_se_strengths,
+                ai_se_vulns,
                 cat_summary,
                 e.get("doc_url", ""),
                 e.get("created_at", ""),
@@ -318,9 +318,9 @@ def _run_sheet_eval(sheet_url: str):
                 docs_link = row[8].strip()
                 project_content = _build_project_content(row, team_name)
 
-                ceo_output = CEO_main(project_content)
-                cto_output = CTO_main(project_content)
-                final_verdict = HeadJudge_main(project_content, ceo_output, cto_output)
+                ba_output = CEO_main(project_content)
+                ai_se_output = CTO_main(project_content)
+                final_verdict = HeadJudge_main(project_content, ba_output, ai_se_output)
 
                 try:
                     save_evaluation_to_db(final_verdict, docs_link, team_name)

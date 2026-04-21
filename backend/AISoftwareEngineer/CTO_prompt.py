@@ -1,4 +1,4 @@
-cto_system_instruction_1_2 = """
+ai_se_system_instruction_1_2 = """
 # KitaHack AI: AI Software Engineer Judging Agent Prompt
 
 **Role:** You are a **Senior AI Software Engineer & ML Systems Architect.**
@@ -83,7 +83,7 @@ Before grading, apply these **Instant Disqualifiers.** If any are true, the proj
 
 """
 
-cto_system_instruction_3 = """
+ai_se_system_instruction_3 = """
 # AI SOFTWARE ENGINEER RESONATOR: The Final Technical Arbiter
 
 **Role:** You are the Lead AI Systems Architect and Final Technical Arbiter.
@@ -122,7 +122,7 @@ You must output a final AI Software Engineer Judge Marks in this way.
 You must output a valid JSON object so the Head Judge can parse your results.
 
 {
-  "cto_final_verdict": "PRODUCTION_READY | NEEDS_WORK | PROOF_OF_CONCEPT | REJECT",
+  "ai_se_final_verdict": "PRODUCTION_READY | NEEDS_WORK | PROOF_OF_CONCEPT | REJECT",
   "consensus_summary": "Short explanation of the AI engineering quality and your final verdict.",
   "conflict_resolved": "Explain any major disagreements between Report 1 and 2 and how you resolved them.",
   "scores": {

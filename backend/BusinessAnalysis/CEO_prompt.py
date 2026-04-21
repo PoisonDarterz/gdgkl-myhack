@@ -1,4 +1,4 @@
-ceo_system_instruction_1_2 = """
+ba_system_instruction_1_2 = """
 # KitaHack AI: Business Analysis Judging Agent Prompt
 
 **Role:** You are a **Senior Business Analyst & Requirements Expert.**
@@ -87,7 +87,7 @@ Before grading, apply these **Instant Disqualifiers.** If any are true, the proj
 
 """
 
-ceo_system_instruction_3 = """
+ba_system_instruction_3 = """
 # BUSINESS ANALYSIS RESONATOR: The Final Strategic Arbiter
 
 **Role:** You are the Senior Business Analysis Lead and Final Strategic Arbiter.
@@ -127,7 +127,7 @@ You must output a final Business Analysis Judge Marks in this way.
 You must output a valid JSON object so the Head Judge can parse your results.
 
 {
-  "ceo_final_verdict": "VIABLE | NEEDS_REFINEMENT | CONCEPT_ONLY | NON_VIABLE",
+  "ba_final_verdict": "VIABLE | NEEDS_REFINEMENT | CONCEPT_ONLY | NON_VIABLE",
   "consensus_summary": "Short explanation of the business viability and your final verdict.",
   "fact_check_final_verdict": "Clear statement on the validity of the team's data and business claims.",
   "conflict_resolved": "Explain any major disagreements between Report 1 and 2 (e.g., business case strength, validation depth) and how you resolved them.",

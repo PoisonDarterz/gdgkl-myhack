@@ -1,7 +1,7 @@
 import os
 from google import genai
 from google.genai import types
-from CTO_prompt import cto_system_instruction_1_2, cto_system_instruction_3
+from CTO_prompt import ai_se_system_instruction_1_2, ai_se_system_instruction_3
 
 def run_CTOModel1_evaluator(submission_text):
     """Initializes Gemini and evaluates the submission."""
@@ -16,7 +16,7 @@ def run_CTOModel1_evaluator(submission_text):
         response = client.models.generate_content(
             model=MODEL_ID,
             config=types.GenerateContentConfig(
-                system_instruction=cto_system_instruction_1_2,
+                system_instruction=ai_se_system_instruction_1_2,
                 temperature=0.2
             ),
             contents=f"Evaluate this project submission:\n\n{submission_text}"
@@ -39,7 +39,7 @@ def run_CTOModel2_evaluator(submission_text):
         response = client.models.generate_content(
             model=MODEL_ID,
             config=types.GenerateContentConfig(
-                system_instruction=cto_system_instruction_1_2,
+                system_instruction=ai_se_system_instruction_1_2,
                 temperature=0.2
             ),
             contents=f"Evaluate this project submission:\n\n{submission_text}"
@@ -80,7 +80,7 @@ Based on the two reports above and the original submission, provide the Final Re
         response = client.models.generate_content(
             model=MODEL_ID,
             config=types.GenerateContentConfig(
-                system_instruction=cto_system_instruction_3,
+                system_instruction=ai_se_system_instruction_3,
                 temperature=0.1,
                 response_mime_type="application/json"
             ),

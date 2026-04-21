@@ -7,16 +7,16 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from utils import get_public_gdoc_text
 
-# Per-category weightage: (CEO_weight, CTO_weight)
-# "70/30 CTO" means CTO gets 70%, CEO gets 30%
-# "70/30 CEO" means CEO gets 70%, CTO gets 30%
+# Per-category weightage: (BA_weight, AI_SE_weight)
+# "70/30 AI SE" means AI SE gets 70%, BA gets 30%
+# "70/30 BA" means BA gets 70%, AI SE gets 30%
 CATEGORY_WEIGHTS = {
-    # Business-focused (CEO dominant 70/30)
+    # Business-focused (BA dominant 70/30)
     "originality_creativity": (0.70, 0.30),
     "problem_solution_fit": (0.70, 0.30),
     "scalability_profitability": (0.70, 0.30),
     "deployment_readiness": (0.70, 0.30),
-    # Technical-focused (CTO dominant 30/70)
+    # Technical-focused (AI SE dominant 30/70)
     "google_tech_integration": (0.30, 0.70),
     "ai_implementation_quality": (0.30, 0.70),
     "demo_ui_ux": (0.30, 0.70),
@@ -48,20 +48,20 @@ def _get_verdict(final_score):
         return "ELIMINATED"
 
 
-def HeadJudge_main(project_content, ceo_output, cto_output):
+def HeadJudge_main(project_content, ba_output, ai_se_output):
     """
     Orchestrates the Head Judge evaluation using manual calculation.
-    Merges all judging criteria from CEO and CTO into a comprehensive JSON report.
-    
+    Merges all judging criteria from BA and AI SE into a comprehensive JSON report.
+
     Per-category weighting is applied based on which judge has domain expertise:
-    - CTO-dominant (70/30): problem_sdg, ai_engineering, ai_innovation, architecture
-    - CEO-dominant (70/30): user_validation, implementation, scalability, completeness
-    
+    - AI SE-dominant (70/30): problem_sdg, ai_engineering, ai_innovation, architecture
+    - BA-dominant (70/30): user_validation, implementation, scalability, completeness
+
     Args:
         project_content: The original project submission text.
-        ceo_output: The CEO Resonator's final JSON string.
-        cto_output: The CTO Resonator's final JSON string.
-    
+        ba_output: The Business Analysis Resonator's final JSON string.
+        ai_se_output: The AI Software Engineer Resonator's final JSON string.
+
     Returns:
         The final Head Judge verdict as a comprehensive JSON string.
     """
@@ -70,30 +70,30 @@ def HeadJudge_main(project_content, ceo_output, cto_output):
     print("=" * 60)
 
     try:
-        # Parse CEO and CTO outputs
-        ceo_data = json.loads(ceo_output)
-        cto_data = json.loads(cto_output)
+        # Parse BA and AI SE outputs
+        ba_data = json.loads(ba_output)
+        ai_se_data = json.loads(ai_se_output)
 
         # Extract individual category scores
-        ceo_scores = ceo_data.get("scores", {})
-        cto_scores = cto_data.get("scores", {})
+        ba_scores = ba_data.get("scores", {})
+        ai_se_scores = ai_se_data.get("scores", {})
 
         # --- Per-Category Weighted Calculation ---
         weighted_categories = {}
         total_weighted_raw = 0
 
-        for cat, (ceo_w, cto_w) in CATEGORY_WEIGHTS.items():
-            ceo_val = ceo_scores.get(cat, 0)
-            cto_val = cto_scores.get(cat, 0)
-            weighted_score = round((ceo_val * ceo_w) + (cto_val * cto_w), 2)
+        for cat, (ba_w, ai_se_w) in CATEGORY_WEIGHTS.items():
+            ba_val = ba_scores.get(cat, 0)
+            ai_se_val = ai_se_scores.get(cat, 0)
+            weighted_score = round((ba_val * ba_w) + (ai_se_val * ai_se_w), 2)
             total_weighted_raw += weighted_score
 
-            dominant = "CTO" if cto_w > ceo_w else "CEO"
+            dominant = "AI SE" if ai_se_w > ba_w else "BA"
             weighted_categories[cat] = {
-                "ceo_score": ceo_val,
-                "cto_score": cto_val,
-                "ceo_weight": f"{int(ceo_w * 100)}%",
-                "cto_weight": f"{int(cto_w * 100)}%",
+                "ba_score": ba_val,
+                "ai_se_score": ai_se_val,
+                "ba_weight": f"{int(ba_w * 100)}%",
+                "ai_se_weight": f"{int(ai_se_w * 100)}%",
                 "dominant_judge": dominant,
                 "weighted_score": weighted_score,
                 "max": CATEGORY_MAX[cat]
@@ -104,8 +104,8 @@ def HeadJudge_main(project_content, ceo_output, cto_output):
         verdict = _get_verdict(final_score)
 
         # Also extract the overall weighted finals for reference
-        ceo_weighted_final = ceo_data.get("weighted_final", 0)
-        cto_weighted_final = cto_data.get("weighted_final", 0)
+        ba_weighted_final = ba_data.get("weighted_final", 0)
+        ai_se_weighted_final = ai_se_data.get("weighted_final", 0)
 
         # --- Build Comprehensive JSON Report ---
         final_verdict_data = {
@@ -113,31 +113,31 @@ def HeadJudge_main(project_content, ceo_output, cto_output):
             "final_weighted_total": final_score,
             "calculation_breakdown": {
                 "method": "Per-category weighted scoring",
-                "formula": "For each category: (CEO_score * CEO_weight) + (CTO_score * CTO_weight)",
+                "formula": "For each category: (BA_score * BA_weight) + (AI_SE_score * AI_SE_weight)",
                 "final_formula": f"final_score = (total_weighted_raw / {TOTAL_MAX}) * 100",
                 "total_weighted_raw": round(total_weighted_raw, 2),
                 "total_max": TOTAL_MAX,
             },
             "per_category_weighted_scores": weighted_categories,
-            "ceo_evaluation": {
-                "verdict": ceo_data.get("ceo_final_verdict", "N/A"),
-                "consensus_summary": ceo_data.get("consensus_summary", "N/A"),
-                "fact_check": ceo_data.get("fact_check_final_verdict", "N/A"),
-                "scores": ceo_scores,
-                "total_raw": ceo_data.get("total_raw", 0),
-                "weighted_final": ceo_weighted_final,
-                "strengths": ceo_data.get("top_3_strategic_strengths", []),
-                "risks": ceo_data.get("critical_market_risks", [])
+            "ba_evaluation": {
+                "verdict": ba_data.get("ba_final_verdict", "N/A"),
+                "consensus_summary": ba_data.get("consensus_summary", "N/A"),
+                "fact_check": ba_data.get("fact_check_final_verdict", "N/A"),
+                "scores": ba_scores,
+                "total_raw": ba_data.get("total_raw", 0),
+                "weighted_final": ba_weighted_final,
+                "strengths": ba_data.get("top_3_business_strengths", []),
+                "risks": ba_data.get("critical_business_risks", [])
             },
-            "cto_evaluation": {
-                "verdict": cto_data.get("cto_final_verdict", "N/A"),
-                "consensus_summary": cto_data.get("consensus_summary", "N/A"),
-                "conflict_resolved": cto_data.get("conflict_resolved", "N/A"),
-                "scores": cto_scores,
-                "total_raw": cto_data.get("total_raw", 0),
-                "weighted_final": cto_weighted_final,
-                "strengths": cto_data.get("top_3_strengths", []),
-                "vulnerabilities": cto_data.get("critical_vulnerabilities", [])
+            "ai_se_evaluation": {
+                "verdict": ai_se_data.get("ai_se_final_verdict", "N/A"),
+                "consensus_summary": ai_se_data.get("consensus_summary", "N/A"),
+                "conflict_resolved": ai_se_data.get("conflict_resolved", "N/A"),
+                "scores": ai_se_scores,
+                "total_raw": ai_se_data.get("total_raw", 0),
+                "weighted_final": ai_se_weighted_final,
+                "strengths": ai_se_data.get("top_3_ai_engineering_strengths", []),
+                "vulnerabilities": ai_se_data.get("critical_ai_engineering_gaps", [])
             },
             "executive_summary": (
                 f"Per-category weighted raw total: {total_weighted_raw:.2f}/{TOTAL_MAX}. "
@@ -150,9 +150,9 @@ def HeadJudge_main(project_content, ceo_output, cto_output):
         final_verdict = json.dumps(final_verdict_data, indent=2)
 
     except json.JSONDecodeError as e:
-        error_msg = f"Error parsing CEO/CTO JSON output: {str(e)}"
+        error_msg = f"Error parsing BA/AI SE JSON output: {str(e)}"
         print(error_msg)
-        final_verdict = json.dumps({"error": error_msg, "ceo_raw": ceo_output, "cto_raw": cto_output})
+        final_verdict = json.dumps({"error": error_msg, "ba_raw": ba_output, "ai_se_raw": ai_se_output})
     except Exception as e:
         error_msg = f"Error in HeadJudge manual calculation: {str(e)}"
         print(error_msg)
@@ -168,5 +168,5 @@ def HeadJudge_main(project_content, ceo_output, cto_output):
 
 if __name__ == "__main__":
     # For testing purposes only
-    print("Head Judge requires CEO and CTO outputs. Run via main.py or specialized test script.")
+    print("Head Judge requires BA and AI SE outputs. Run via main.py or specialized test script.")
 

@@ -35,35 +35,35 @@ def save_evaluation_to_db(final_verdict_json_str, doc_url, team_name):
         evaluation_id = res.data[0]["id"]
         print(f"[DB] Created evaluation record with ID: {evaluation_id}")
 
-        # 2. Insert into ceo_findings
-        ceo = data.get("ceo_evaluation", {})
-        ceo_data = {
+        # 2. Insert into ceo_findings (table name unchanged — DB schema)
+        ba = data.get("ba_evaluation", {})
+        ba_data = {
             "evaluation_id": evaluation_id,
-            "verdict": ceo.get("verdict", "N/A"),
-            "consensus_summary": ceo.get("consensus_summary", ""),
-            "fact_check_verdict": ceo.get("fact_check", "N/A"),
-            "scores": ceo.get("scores", {}),
-            "total_raw": ceo.get("total_raw", 0),
-            "weighted_final": ceo.get("weighted_final", 0),
-            "strengths": ceo.get("strengths", []),
-            "risks": ceo.get("risks", [])
+            "verdict": ba.get("verdict", "N/A"),
+            "consensus_summary": ba.get("consensus_summary", ""),
+            "fact_check_verdict": ba.get("fact_check", "N/A"),
+            "scores": ba.get("scores", {}),
+            "total_raw": ba.get("total_raw", 0),
+            "weighted_final": ba.get("weighted_final", 0),
+            "strengths": ba.get("strengths", []),
+            "risks": ba.get("risks", [])
         }
-        supabase.table("ceo_findings").insert(ceo_data).execute()
+        supabase.table("ceo_findings").insert(ba_data).execute()
 
-        # 3. Insert into cto_findings
-        cto = data.get("cto_evaluation", {})
-        cto_data = {
+        # 3. Insert into cto_findings (table name unchanged — DB schema)
+        ai_se = data.get("ai_se_evaluation", {})
+        ai_se_data = {
             "evaluation_id": evaluation_id,
-            "verdict": cto.get("verdict", "N/A"),
-            "consensus_summary": cto.get("consensus_summary", ""),
-            "conflict_resolved": cto.get("conflict_resolved", "N/A"),
-            "scores": cto.get("scores", {}),
-            "total_raw": cto.get("total_raw", 0),
-            "weighted_final": cto.get("weighted_final", 0),
-            "strengths": cto.get("strengths", []),
-            "vulnerabilities": cto.get("vulnerabilities", [])
+            "verdict": ai_se.get("verdict", "N/A"),
+            "consensus_summary": ai_se.get("consensus_summary", ""),
+            "conflict_resolved": ai_se.get("conflict_resolved", "N/A"),
+            "scores": ai_se.get("scores", {}),
+            "total_raw": ai_se.get("total_raw", 0),
+            "weighted_final": ai_se.get("weighted_final", 0),
+            "strengths": ai_se.get("strengths", []),
+            "vulnerabilities": ai_se.get("vulnerabilities", [])
         }
-        supabase.table("cto_findings").insert(cto_data).execute()
+        supabase.table("cto_findings").insert(ai_se_data).execute()
 
         # 4. Insert into category_scores
         category_scores = data.get("per_category_weighted_scores", {})
@@ -72,10 +72,10 @@ def save_evaluation_to_db(final_verdict_json_str, doc_url, team_name):
             category_entries.append({
                 "evaluation_id": evaluation_id,
                 "category_name": cat_name,
-                "ceo_score": details.get("ceo_score", 0),
-                "cto_score": details.get("cto_score", 0),
-                "ceo_weight": details.get("ceo_weight", "0%"),
-                "cto_weight": details.get("cto_weight", "0%"),
+                "ceo_score": details.get("ba_score", 0),
+                "cto_score": details.get("ai_se_score", 0),
+                "ceo_weight": details.get("ba_weight", "0%"),
+                "cto_weight": details.get("ai_se_weight", "0%"),
                 "dominant_judge": details.get("dominant_judge", "N/A"),
                 "weighted_score": details.get("weighted_score", 0),
                 "max_score": details.get("max", 0)
@@ -85,16 +85,16 @@ def save_evaluation_to_db(final_verdict_json_str, doc_url, team_name):
 
         # 5. Insert into qualitative_insights
         insights = []
-        # CEO Strengths & Risks
-        for s in ceo.get("strengths", []):
-            insights.append({"evaluation_id": evaluation_id, "agent_type": "CEO", "point_type": "strength", "content": s})
-        for r in ceo.get("risks", []):
-            insights.append({"evaluation_id": evaluation_id, "agent_type": "CEO", "point_type": "risk", "content": r})
-        # CTO Strengths & Vulnerabilities
-        for s in cto.get("strengths", []):
-            insights.append({"evaluation_id": evaluation_id, "agent_type": "CTO", "point_type": "strength", "content": s})
-        for v in cto.get("vulnerabilities", []):
-            insights.append({"evaluation_id": evaluation_id, "agent_type": "CTO", "point_type": "vulnerability", "content": v})
+        # BA Strengths & Risks
+        for s in ba.get("strengths", []):
+            insights.append({"evaluation_id": evaluation_id, "agent_type": "BA", "point_type": "strength", "content": s})
+        for r in ba.get("risks", []):
+            insights.append({"evaluation_id": evaluation_id, "agent_type": "BA", "point_type": "risk", "content": r})
+        # AI SE Strengths & Vulnerabilities
+        for s in ai_se.get("strengths", []):
+            insights.append({"evaluation_id": evaluation_id, "agent_type": "AI SE", "point_type": "strength", "content": s})
+        for v in ai_se.get("vulnerabilities", []):
+            insights.append({"evaluation_id": evaluation_id, "agent_type": "AI SE", "point_type": "vulnerability", "content": v})
             
         if insights:
             supabase.table("qualitative_insights").insert(insights).execute()
