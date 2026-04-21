@@ -6,6 +6,7 @@ import os
 import sys
 import json
 import asyncio
+from concurrent.futures import ThreadPoolExecutor
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
@@ -18,7 +19,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'AISoft
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'HeadJudge'))
 
 from gsheet_processor import process_gsheet_submissions
-from utils import get_public_gdoc_text, get_public_gsheet_csv
+from utils import get_public_gdoc_text, get_public_gsheet_csv, get_github_readme, get_google_slides_text
 from BusinessAnalysis.BA_main import BA_main
 from AISoftwareEngineer.AI_SE_main import AI_SE_main
 from HeadJudge.HeadJudge_main import HeadJudge_main
@@ -80,6 +81,42 @@ class JudgeRequest(BaseModel):
 def get_status():
     """Get the current evaluation status."""
     return eval_status
+
+
+# ── POST /setup-db ─────────────────────────────────────────────────
+@app.post("/setup-db")
+def setup_database():
+    """
+    Reads backend/supabase_setup.sql and creates all tables.
+    Safe to re-run — all statements use CREATE TABLE IF NOT EXISTS.
+    Requires SUPABASE_DB_URL in .env.local (Postgres URI from Supabase Dashboard).
+    """
+    import psycopg2
+
+    db_url = os.getenv("SUPABASE_DB_URL", "").strip()
+    if not db_url:
+        raise HTTPException(
+            status_code=500,
+            detail="SUPABASE_DB_URL not set. Add it to .env.local (Supabase Dashboard → Settings → Database → URI).",
+        )
+
+    sql_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "supabase_setup.sql")
+    if not os.path.exists(sql_path):
+        raise HTTPException(status_code=500, detail="supabase_setup.sql not found in backend/.")
+
+    with open(sql_path, "r") as f:
+        sql = f.read()
+
+    try:
+        conn = psycopg2.connect(db_url)
+        conn.autocommit = True
+        cur = conn.cursor()
+        cur.execute(sql)
+        cur.close()
+        conn.close()
+        return {"status": "ok", "message": "All tables created (or already existed)."}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"DB setup error: {str(e)}")
 
 
 # ── POST /judge ─────────────────────────────────────────────────────
@@ -318,8 +355,12 @@ def _run_sheet_eval(sheet_url: str):
                 docs_link = row[8].strip()
                 project_content = _build_project_content(row, team_name)
 
-                ba_output = BA_main(project_content)
-                ai_se_output = AI_SE_main(project_content)
+                with ThreadPoolExecutor(max_workers=2) as pool:
+                    ba_future = pool.submit(BA_main, project_content)
+                    ai_se_future = pool.submit(AI_SE_main, project_content)
+                    ba_output = ba_future.result()
+                    ai_se_output = ai_se_future.result()
+
                 final_verdict = HeadJudge_main(project_content, ba_output, ai_se_output)
 
                 try:
@@ -345,8 +386,11 @@ def _run_sheet_eval(sheet_url: str):
 
 
 def _build_project_content(row, team_name):
-    """Build the structured content string from a sheet row."""
-    return f"""
+    """Build the structured content string from a sheet row, enriched with fetched link content."""
+    github_link = row[6].strip()
+    docs_link = row[8].strip()
+
+    content = f"""
 ### GENERAL INFORMATION
 - TEAM NAME: {team_name}
 - GDGOC CHAPTERS: {row[9].strip()}
@@ -355,9 +399,9 @@ def _build_project_content(row, team_name):
 - GOOGLE AI TECH REQUIREMENT MET: {row[4].strip()}
 
 ### LINKS
-- GITHUB/PROTOTYPE LINK: {row[6].strip()}
+- GITHUB/PROTOTYPE LINK: {github_link}
 - VIDEO LINK: {row[7].strip()}
-- DOCUMENTATION LINK: {row[8].strip()}
+- DOCUMENTATION LINK: {docs_link}
 
 ### PRODUCT & IMPACT
 - REAL-WORLD PROBLEM SOLVED: {row[31].strip()}
@@ -387,3 +431,20 @@ def _build_project_content(row, team_name):
 - FUTURE STEPS & EXPANSION PLAN: {row[48].strip()}
 - SCALABILITY & ARCHITECTURAL ADAPTATION: {row[49].strip()}
 """
+
+    if github_link and "github.com" in github_link:
+        fetched = get_github_readme(github_link)
+        if fetched:
+            content += f"\n\n### GITHUB README (fetched)\n{fetched[:3000]}"
+
+    if docs_link:
+        if "presentation" in docs_link:
+            fetched = get_google_slides_text(docs_link)
+            if fetched:
+                content += f"\n\n### SLIDE DECK CONTENT (fetched)\n{fetched[:3000]}"
+        elif "document" in docs_link:
+            fetched = get_public_gdoc_text(docs_link)
+            if fetched and not fetched.startswith("Error"):
+                content += f"\n\n### DOCUMENTATION CONTENT (fetched)\n{fetched[:3000]}"
+
+    return content

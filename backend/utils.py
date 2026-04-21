@@ -1,4 +1,5 @@
 import re
+import base64
 import requests
 import os
 from dotenv import load_dotenv
@@ -46,3 +47,40 @@ def extract_gsheet_id(url):
     """Helper to extract Google Sheet ID from URL."""
     match = re.search(r"/d/([a-zA-Z0-9-_]+)", url)
     return match.group(1) if match else None
+
+
+def get_github_readme(url):
+    """Fetches README content from a public GitHub repo URL. Returns text or None."""
+    match = re.search(r"github\.com/([^/]+)/([^/?\s#]+)", url)
+    if not match:
+        return None
+    owner, repo = match.group(1), match.group(2).rstrip(".git")
+    api_url = f"https://api.github.com/repos/{owner}/{repo}/readme"
+    try:
+        resp = requests.get(
+            api_url,
+            headers={"Accept": "application/vnd.github.v3+json"},
+            timeout=10,
+        )
+        if resp.status_code == 200:
+            content = resp.json().get("content", "")
+            return base64.b64decode(content).decode("utf-8", errors="ignore")
+    except Exception:
+        pass
+    return None
+
+
+def get_google_slides_text(url):
+    """Exports plain text from a public Google Slides presentation. Returns text or None."""
+    match = re.search(r"/presentation/d/([a-zA-Z0-9-_]+)", url)
+    if not match:
+        return None
+    pres_id = match.group(1)
+    export_url = f"https://docs.google.com/presentation/d/{pres_id}/export/txt"
+    try:
+        resp = requests.get(export_url, timeout=10)
+        if resp.status_code == 200:
+            return resp.text
+    except Exception:
+        pass
+    return None
