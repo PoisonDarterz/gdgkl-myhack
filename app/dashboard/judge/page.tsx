@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
+import Link from 'next/link'
 import { createClient } from '@/src/lib/supabase/client'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -342,6 +343,9 @@ export default function JudgePage() {
   const [runningAll, setRunningAll] = useState(false)
   const [runProgress, setRunProgress] = useState<{ current: number; total: number } | null>(null)
   const [selectedEval, setSelectedEval] = useState<EvaluationDetail | null>(null)
+  const [resetState, setResetState] = useState<'idle' | 'loading' | 'done' | 'error'>('idle')
+  const [resetMsg, setResetMsg] = useState<string | null>(null)
+  const [csvState, setCsvState] = useState<'idle' | 'loading'>('idle')
 
   // ── Load Sheet ──────────────────────────────────────────────────────────────
 
@@ -515,10 +519,85 @@ export default function JudgePage() {
     setRunProgress(null)
   }, [runningAll, rows, runTeam])
 
+  // ── Reset DB ────────────────────────────────────────────────────────────────
+
+  const handleResetDb = useCallback(async () => {
+    if (!window.confirm('This will permanently delete all evaluations and jobs. Are you sure?')) return
+    setResetState('loading')
+    setResetMsg(null)
+    try {
+      const supabase = createClient()
+      const { data, error } = await supabase.functions.invoke('reset-db', { method: 'POST' })
+      if (error) throw new Error(error.message)
+      setResetState('done')
+      setResetMsg(data?.message ?? 'Database cleared.')
+      setRows([])
+    } catch (err) {
+      setResetState('error')
+      setResetMsg(err instanceof Error ? err.message : String(err))
+    }
+  }, [])
+
+  // ── Download CSV ────────────────────────────────────────────────────────────
+
+  const handleDownloadCsv = useCallback(async () => {
+    setCsvState('loading')
+    try {
+      const supabase = createClient()
+      const { data, error } = await supabase.functions.invoke('download-csv', {
+        method: 'GET',
+      })
+      if (error) throw new Error(error.message)
+      const blob = new Blob([data instanceof Blob ? await data.text() : String(data)], { type: 'text/csv' })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'all_submissions.csv'
+      a.click()
+      URL.revokeObjectURL(url)
+    } catch (err) {
+      alert(`CSV download failed: ${err instanceof Error ? err.message : String(err)}`)
+    }
+    setCsvState('idle')
+  }, [])
+
   // ─── Render ─────────────────────────────────────────────────────────────────
 
   return (
     <div className="min-h-screen bg-[#F5F5F5] text-black p-6 md:p-10 font-mono max-w-[1440px] mx-auto">
+
+      {/* Action Toolbar */}
+      <section className="bg-white border border-black/10 rounded-2xl shadow-sm p-4 mb-6 flex flex-wrap items-center gap-3">
+        <Link
+          href="/dashboard/results"
+          className="px-5 py-2.5 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-700 transition-all text-xs uppercase tracking-widest"
+        >
+          Results
+        </Link>
+        <button
+          onClick={handleDownloadCsv}
+          disabled={csvState === 'loading'}
+          className="px-5 py-2.5 bg-white border border-black/20 text-black font-bold rounded-xl hover:bg-gray-50 transition-all disabled:opacity-50 text-xs uppercase tracking-widest flex items-center gap-2"
+        >
+          {csvState === 'loading' ? (
+            <><span className="w-3.5 h-3.5 border-2 border-black/20 border-t-black rounded-full animate-spin" />Downloading...</>
+          ) : 'Download CSV'}
+        </button>
+        <button
+          onClick={handleResetDb}
+          disabled={resetState === 'loading'}
+          className="px-5 py-2.5 bg-red-50 border border-red-200 text-red-700 font-bold rounded-xl hover:bg-red-100 transition-all disabled:opacity-50 text-xs uppercase tracking-widest flex items-center gap-2 ml-auto"
+        >
+          {resetState === 'loading' ? (
+            <><span className="w-3.5 h-3.5 border-2 border-red-300 border-t-red-600 rounded-full animate-spin" />Resetting...</>
+          ) : 'Reset DB'}
+        </button>
+        {resetMsg && (
+          <p className={`w-full text-xs font-bold ${resetState === 'error' ? 'text-red-600' : 'text-green-700'}`}>
+            {resetMsg}
+          </p>
+        )}
+      </section>
 
       {/* Sheet Input */}
       <section className="bg-white border border-black/10 rounded-2xl shadow-sm p-6 md:p-8 mb-6">
