@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 Phase: 4 of 5 (Event Sections)
 Plan: 3 of 3 in current phase
 Status: Checkpoint — awaiting human visual verification (04-03 Task 2)
-Last activity: 2026-04-21 - Completed quick task 260421-sfe: Convert backend to Supabase Edge Functions in backend_functions/
+Last activity: 2026-04-21 - Completed quick task 260421-jtp: Update judge function to accept optional team_name param for filtering
 
 Progress: [██████░░░░] 60%
 
@@ -156,6 +156,7 @@ None yet.
 | 260421-qwo | Fix Head Judge CEO/CTO references to use BA/AI SE naming | 2026-04-21 | d134ee7 | [260421-qwo-fix-head-judge-ba-ai-se](./quick/260421-qwo-fix-head-judge-ba-ai-se/) |
 | 260421-bpl | Organise backend code, add /setup-db API, parallelise judging, fetch GitHub/slide content | 2026-04-21 | 2ffd110 | [260421-bpl-backend-organise-parallel-links](./quick/260421-bpl-backend-organise-parallel-links/) |
 | 260421-sfe | Convert backend to Supabase Edge Functions in backend_functions/ | 2026-04-21 | 4339d89 | [260421-sfe-backend-functions-supabase-edge](./quick/260421-sfe-backend-functions-supabase-edge/) |
+| 260421-jtp | Update judge function to accept optional team_name param for filtering | 2026-04-21 | 316962c | [260421-jtp-judge-team-param](./quick/260421-jtp-judge-team-param/) |
 
 ## Session Continuity
 
