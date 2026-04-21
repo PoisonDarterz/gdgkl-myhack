@@ -74,3 +74,17 @@ Authorization: Bearer {{anonKey}}
 Accept: text/csv
 
 ###
+
+### ─────────────────────────────────────────
+### POST /reset-db — Clear all data from all tables
+### DESTRUCTIVE: removes all evaluations, findings,
+### scores, insights, and jobs. Tables remain intact.
+### ─────────────────────────────────────────
+
+POST {{baseUrl}}/reset-db
+Authorization: Bearer {{anonKey}}
+Content-Type: application/json
+
+{}
+
+###
