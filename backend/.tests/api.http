@@ -1,0 +1,24 @@
+@baseUrl = http://localhost:8000
+
+### Check evaluation status
+GET {{baseUrl}}/status
+
+###
+
+### Start judging — replace with your public Google Sheets URL
+POST {{baseUrl}}/judge
+Content-Type: application/json
+
+{
+  "sheet_url": "https://docs.google.com/spreadsheets/d/1jqx2C8IOz2UFSN02yKBSkjS8zGs3-eNnvoxLoFZyba4/edit?usp=sharing"
+}
+
+###
+
+### Get all results from Supabase
+GET {{baseUrl}}/results
+
+###
+
+### Download all results as CSV
+GET {{baseUrl}}/download-csv
