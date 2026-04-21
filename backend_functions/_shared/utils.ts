@@ -141,28 +141,54 @@ export async function buildProjectContent(
   return content
 }
 
-// Parse CSV string into array of rows (handles quoted fields)
+// Parse CSV string into array of rows.
+// Character-by-character to correctly handle quoted fields that contain newlines,
+// escaped double quotes (""), and \r\n line endings from Google Sheets exports.
 export function parseCsv(csvText: string): string[][] {
   const rows: string[][] = []
-  const lines = csvText.split('\n')
-  for (const line of lines) {
-    if (!line.trim()) continue
-    const row: string[] = []
-    let inQuotes = false
-    let current = ''
-    for (let i = 0; i < line.length; i++) {
-      const ch = line[i]
+  let row: string[] = []
+  let current = ''
+  let inQuotes = false
+
+  for (let i = 0; i < csvText.length; i++) {
+    const ch = csvText[i]
+    const next = csvText[i + 1]
+
+    if (inQuotes) {
+      if (ch === '"' && next === '"') {
+        current += '"'
+        i++ // skip second quote of escaped pair
+      } else if (ch === '"') {
+        inQuotes = false
+      } else {
+        current += ch // newlines inside quotes are part of the field
+      }
+    } else {
       if (ch === '"') {
-        inQuotes = !inQuotes
-      } else if (ch === ',' && !inQuotes) {
+        inQuotes = true
+      } else if (ch === ',') {
         row.push(current)
         current = ''
+      } else if (ch === '\r' && next === '\n') {
+        row.push(current)
+        current = ''
+        if (row.some((c) => c.trim())) rows.push(row)
+        row = []
+        i++ // skip \n of \r\n pair
+      } else if (ch === '\n') {
+        row.push(current)
+        current = ''
+        if (row.some((c) => c.trim())) rows.push(row)
+        row = []
       } else {
         current += ch
       }
     }
-    row.push(current)
-    rows.push(row)
   }
+
+  // flush last field/row
+  row.push(current)
+  if (row.some((c) => c.trim())) rows.push(row)
+
   return rows
 }

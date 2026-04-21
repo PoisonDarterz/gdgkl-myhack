@@ -28,7 +28,7 @@ Deno.serve(async (req) => {
       .single()
 
     if (error && error.code !== 'PGRST116') {
-      throw error
+      throw new Error(error.message ?? JSON.stringify(error))
     }
 
     if (!data) {
@@ -57,7 +57,7 @@ Deno.serve(async (req) => {
       { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
     )
   } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err)
+    const msg = err instanceof Error ? err.message : (err as any)?.message ?? JSON.stringify(err)
     return new Response(JSON.stringify({ error: msg }), {
       status: 500,
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },

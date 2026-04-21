@@ -13,8 +13,8 @@ CREATE TABLE IF NOT EXISTS evaluations (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now())
 );
 
--- 2. ceo_findings Table
-CREATE TABLE IF NOT EXISTS ceo_findings (
+-- 2. ba_findings Table
+CREATE TABLE IF NOT EXISTS ba_findings (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     evaluation_id UUID REFERENCES evaluations(id) ON DELETE CASCADE,
     verdict TEXT,
@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS ceo_findings (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now())
 );
 
--- 3. cto_findings Table
-CREATE TABLE IF NOT EXISTS cto_findings (
+-- 3. ai_se_findings Table
+CREATE TABLE IF NOT EXISTS ai_se_findings (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     evaluation_id UUID REFERENCES evaluations(id) ON DELETE CASCADE,
     verdict TEXT,
@@ -48,10 +48,10 @@ CREATE TABLE IF NOT EXISTS category_scores (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     evaluation_id UUID REFERENCES evaluations(id) ON DELETE CASCADE,
     category_name TEXT,
-    ceo_score NUMERIC,
-    cto_score NUMERIC,
-    ceo_weight TEXT,
-    cto_weight TEXT,
+    ba_score NUMERIC,
+    ai_se_score NUMERIC,
+    ba_weight TEXT,
+    ai_se_weight TEXT,
     dominant_judge TEXT,
     weighted_score NUMERIC,
     max_score NUMERIC,

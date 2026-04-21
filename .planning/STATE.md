@@ -155,7 +155,7 @@ None yet.
 | 32  | Refactor backend AI agent roles — CTO prompt file + Business Analysis/AI Software Engineer personas          | 2026-04-20 | 892eaaa | [260420-32-cto-prompt-file-and-role-persona-updates](./quick/260420-32-cto-prompt-file-and-role-persona-updates/) |
 | 260421-qwo | Fix Head Judge CEO/CTO references to use BA/AI SE naming | 2026-04-21 | d134ee7 | [260421-qwo-fix-head-judge-ba-ai-se](./quick/260421-qwo-fix-head-judge-ba-ai-se/) |
 | 260421-bpl | Organise backend code, add /setup-db API, parallelise judging, fetch GitHub/slide content | 2026-04-21 | 2ffd110 | [260421-bpl-backend-organise-parallel-links](./quick/260421-bpl-backend-organise-parallel-links/) |
-| 260421-sfe | Convert backend to Supabase Edge Functions in backend_functions/ | 2026-04-21 | TBD | [260421-sfe-backend-functions-supabase-edge](./quick/260421-sfe-backend-functions-supabase-edge/) |
+| 260421-sfe | Convert backend to Supabase Edge Functions in backend_functions/ | 2026-04-21 | 4339d89 | [260421-sfe-backend-functions-supabase-edge](./quick/260421-sfe-backend-functions-supabase-edge/) |
 
 ## Session Continuity
 

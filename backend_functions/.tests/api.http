@@ -47,7 +47,7 @@ Authorization: Bearer {{anonKey}}
 Content-Type: application/json
 
 {
-  "sheet_url": "https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/edit?usp=sharing"
+  "sheet_url": "https://docs.google.com/spreadsheets/d/1jqx2C8IOz2UFSN02yKBSkjS8zGs3-eNnvoxLoFZyba4/edit?usp=sharing"
 }
 
 ###

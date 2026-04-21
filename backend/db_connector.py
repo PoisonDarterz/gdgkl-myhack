@@ -35,7 +35,7 @@ def save_evaluation_to_db(final_verdict_json_str, doc_url, team_name):
         evaluation_id = res.data[0]["id"]
         print(f"[DB] Created evaluation record with ID: {evaluation_id}")
 
-        # 2. Insert into ceo_findings (table name unchanged — DB schema)
+        # 2. Insert into ba_findings
         ba = data.get("ba_evaluation", {})
         ba_data = {
             "evaluation_id": evaluation_id,
@@ -48,9 +48,9 @@ def save_evaluation_to_db(final_verdict_json_str, doc_url, team_name):
             "strengths": ba.get("strengths", []),
             "risks": ba.get("risks", [])
         }
-        supabase.table("ceo_findings").insert(ba_data).execute()
+        supabase.table("ba_findings").insert(ba_data).execute()
 
-        # 3. Insert into cto_findings (table name unchanged — DB schema)
+        # 3. Insert into ai_se_findings
         ai_se = data.get("ai_se_evaluation", {})
         ai_se_data = {
             "evaluation_id": evaluation_id,
@@ -63,7 +63,7 @@ def save_evaluation_to_db(final_verdict_json_str, doc_url, team_name):
             "strengths": ai_se.get("strengths", []),
             "vulnerabilities": ai_se.get("vulnerabilities", [])
         }
-        supabase.table("cto_findings").insert(ai_se_data).execute()
+        supabase.table("ai_se_findings").insert(ai_se_data).execute()
 
         # 4. Insert into category_scores
         category_scores = data.get("per_category_weighted_scores", {})
@@ -72,10 +72,10 @@ def save_evaluation_to_db(final_verdict_json_str, doc_url, team_name):
             category_entries.append({
                 "evaluation_id": evaluation_id,
                 "category_name": cat_name,
-                "ceo_score": details.get("ba_score", 0),
-                "cto_score": details.get("ai_se_score", 0),
-                "ceo_weight": details.get("ba_weight", "0%"),
-                "cto_weight": details.get("ai_se_weight", "0%"),
+                "ba_score": details.get("ba_score", 0),
+                "ai_se_score": details.get("ai_se_score", 0),
+                "ba_weight": details.get("ba_weight", "0%"),
+                "ai_se_weight": details.get("ai_se_weight", "0%"),
                 "dominant_judge": details.get("dominant_judge", "N/A"),
                 "weighted_score": details.get("weighted_score", 0),
                 "max_score": details.get("max", 0)

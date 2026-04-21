@@ -48,7 +48,7 @@ Deno.serve(async (req) => {
       .select('*')
       .order('created_at', { ascending: false })
 
-    if (evalsError) throw evalsError
+    if (evalsError) throw new Error(evalsError.message ?? JSON.stringify(evalsError))
 
     if (!evals || evals.length === 0) {
       return new Response(JSON.stringify({ error: 'No evaluations found to download.' }), {
@@ -132,7 +132,7 @@ Deno.serve(async (req) => {
       },
     })
   } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err)
+    const msg = err instanceof Error ? err.message : (err as any)?.message ?? JSON.stringify(err)
     return new Response(JSON.stringify({ error: `Error generating CSV: ${msg}` }), {
       status: 500,
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },

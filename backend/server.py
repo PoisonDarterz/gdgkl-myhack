@@ -161,8 +161,8 @@ def get_results():
 
         eval_ids = [e["id"] for e in evals]
 
-        ceo_res = supabase.table("ceo_findings").select("*").in_("evaluation_id", eval_ids).execute()
-        cto_res = supabase.table("cto_findings").select("*").in_("evaluation_id", eval_ids).execute()
+        ba_res = supabase.table("ba_findings").select("*").in_("evaluation_id", eval_ids).execute()
+        ai_se_res = supabase.table("ai_se_findings").select("*").in_("evaluation_id", eval_ids).execute()
         cat_res = supabase.table("category_scores").select("*").in_("evaluation_id", eval_ids).execute()
         ins_res = supabase.table("qualitative_insights").select("*").in_("evaluation_id", eval_ids).execute()
 
@@ -175,8 +175,8 @@ def get_results():
                 grouped[eid].append(row)
             return grouped
 
-        ceo_map = group_by_eval_id(ceo_res.data or [])
-        cto_map = group_by_eval_id(cto_res.data or [])
+        ba_map = group_by_eval_id(ba_res.data or [])
+        ai_se_map = group_by_eval_id(ai_se_res.data or [])
         cat_map = group_by_eval_id(cat_res.data or [])
         ins_map = group_by_eval_id(ins_res.data or [])
 
@@ -185,8 +185,8 @@ def get_results():
             eid = e["id"]
             combined.append({
                 **e,
-                "ceo_findings": ceo_map.get(eid, []),
-                "cto_findings": cto_map.get(eid, []),
+                "ba_findings": ba_map.get(eid, []),
+                "ai_se_findings": ai_se_map.get(eid, []),
                 "category_scores": cat_map.get(eid, []),
                 "qualitative_insights": ins_map.get(eid, []),
             })
@@ -218,8 +218,8 @@ def download_csv():
         eval_ids = [e["id"] for e in evals]
 
         # 2. Fetch related data
-        ceo_res = supabase.table("ceo_findings").select("*").in_("evaluation_id", eval_ids).execute()
-        cto_res = supabase.table("cto_findings").select("*").in_("evaluation_id", eval_ids).execute()
+        ba_res = supabase.table("ba_findings").select("*").in_("evaluation_id", eval_ids).execute()
+        ai_se_res = supabase.table("ai_se_findings").select("*").in_("evaluation_id", eval_ids).execute()
         cat_res = supabase.table("category_scores").select("*").in_("evaluation_id", eval_ids).execute()
 
         # Group by evaluation_id
@@ -232,8 +232,8 @@ def download_csv():
                 grouped[eid].append(row)
             return grouped
 
-        ceo_map = group_by_eid(ceo_res.data or [])
-        cto_map = group_by_eid(cto_res.data or [])
+        ba_map = group_by_eid(ba_res.data or [])
+        ai_se_map = group_by_eid(ai_se_res.data or [])
         cat_map = group_by_eid(cat_res.data or [])
 
         # 3. CSV headers
@@ -255,8 +255,8 @@ def download_csv():
 
         for e in evals:
             eid = e["id"]
-            ba_list = ceo_map.get(eid, [{}])
-            ai_se_list = cto_map.get(eid, [{}])
+            ba_list = ba_map.get(eid, [{}])
+            ai_se_list = ai_se_map.get(eid, [{}])
             cats = cat_map.get(eid, [])
 
             ba = ba_list[0] if ba_list else {}

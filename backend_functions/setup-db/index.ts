@@ -1,6 +1,5 @@
-import { supabase } from '../_shared/supabaseClient.ts'
+import postgres from 'npm:postgres'
 
-// SQL to create all required tables (safe to re-run — uses IF NOT EXISTS)
 const SETUP_SQL = `
 CREATE TABLE IF NOT EXISTS evaluations (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -95,27 +94,29 @@ Deno.serve(async (req) => {
     })
   }
 
+  const dbUrl = Deno.env.get('SUPABASE_DB_URL')
+  if (!dbUrl) {
+    return new Response(
+      JSON.stringify({ error: 'SUPABASE_DB_URL secret not set. Add it in Supabase Dashboard → Edge Functions → Secrets.' }),
+      { status: 500, headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
+    )
+  }
+
+  let sql: ReturnType<typeof postgres> | null = null
   try {
-    // Run setup SQL via Supabase RPC (requires exec_sql function) or via postgres extension
-    const { error } = await supabase.rpc('exec_sql', { sql: SETUP_SQL })
-
-    if (error) {
-      // Fallback: try running each statement individually if RPC not available
-      throw new Error(
-        `Setup failed: ${error.message}. ` +
-        'Ensure exec_sql RPC exists or run the SQL manually in Supabase SQL Editor.'
-      )
-    }
-
+    sql = postgres(dbUrl, { ssl: 'require', max: 1 })
+    await sql.unsafe(SETUP_SQL)
     return new Response(
       JSON.stringify({ status: 'ok', message: 'All tables created (or already existed).' }),
       { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
     )
   } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err)
-    return new Response(JSON.stringify({ error: msg }), {
+    const msg = err instanceof Error ? err.message : (err as any)?.message ?? JSON.stringify(err)
+    return new Response(JSON.stringify({ error: `DB setup error: ${msg}` }), {
       status: 500,
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
     })
+  } finally {
+    await sql?.end()
   }
 })

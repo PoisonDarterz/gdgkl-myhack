@@ -15,7 +15,7 @@ async function saveEvaluationToDb(
   const data = JSON.parse(finalVerdictJson)
 
   const { data: evalData, error: evalError } = await supabase
-    .table('evaluations')
+    .from('evaluations')
     .insert({
       doc_url: docUrl,
       project_title: teamName,
@@ -31,7 +31,7 @@ async function saveEvaluationToDb(
   const evaluationId = evalData.id
 
   const ba = data.ba_evaluation ?? {}
-  await supabase.table('ba_findings').insert({
+  await supabase.from('ba_findings').insert({
     evaluation_id: evaluationId,
     verdict: ba.verdict ?? 'N/A',
     consensus_summary: ba.consensus_summary ?? '',
@@ -44,7 +44,7 @@ async function saveEvaluationToDb(
   })
 
   const aiSe = data.ai_se_evaluation ?? {}
-  await supabase.table('ai_se_findings').insert({
+  await supabase.from('ai_se_findings').insert({
     evaluation_id: evaluationId,
     verdict: aiSe.verdict ?? 'N/A',
     consensus_summary: aiSe.consensus_summary ?? '',
@@ -69,7 +69,7 @@ async function saveEvaluationToDb(
     max_score: details.max ?? 0,
   }))
   if (categoryEntries.length > 0) {
-    await supabase.table('category_scores').insert(categoryEntries)
+    await supabase.from('category_scores').insert(categoryEntries)
   }
 
   const insights: Record<string, unknown>[] = []
@@ -86,7 +86,7 @@ async function saveEvaluationToDb(
     insights.push({ evaluation_id: evaluationId, agent_type: 'AI SE', point_type: 'vulnerability', content: v })
   }
   if (insights.length > 0) {
-    await supabase.table('qualitative_insights').insert(insights)
+    await supabase.from('qualitative_insights').insert(insights)
   }
 }
 
@@ -99,16 +99,19 @@ async function runSheetEval(sheetUrl: string, jobId: string): Promise<void> {
   }
 
   try {
+    console.log(`[judge] Job ${jobId} started. Fetching sheet: ${sheetUrl}`)
     await updateJob({ message: 'Fetching Google Sheet...' })
     const csvData = await getPublicGsheetCsv(sheetUrl)
 
     if (csvData.startsWith('Error')) {
+      console.error(`[judge] Failed to fetch sheet: ${csvData}`)
       await updateJob({ running: false, error_detail: csvData })
       return
     }
 
     const allRows = parseCsv(csvData)
     if (allRows.length < 2) {
+      console.error('[judge] Sheet is empty.')
       await updateJob({ running: false, error_detail: 'Google Sheet is empty.' })
       return
     }
@@ -120,6 +123,10 @@ async function runSheetEval(sheetUrl: string, jobId: string): Promise<void> {
       return (row[10] ?? '').trim().length > 0
     })
 
+    const teamNames = validRows.map((r) => (r[10] ?? '').trim())
+    console.log(`[judge] Found ${validRows.length} teams to evaluate:`)
+    teamNames.forEach((name, i) => console.log(`  ${i + 1}. ${name}`))
+
     await updateJob({
       total: validRows.length,
       message: `Found ${validRows.length} submissions. Starting evaluations...`,
@@ -130,34 +137,46 @@ async function runSheetEval(sheetUrl: string, jobId: string): Promise<void> {
     for (let idx = 0; idx < validRows.length; idx++) {
       const row = validRows[idx]
       const teamName = (row[10] ?? '').trim()
+      const position = `[${idx + 1}/${validRows.length}]`
+
+      console.log(`\n${position} ▶ Starting: ${teamName}`)
       await updateJob({ message: `Evaluating ${teamName}... (${idx + 1}/${validRows.length})` })
 
+      const teamStart = Date.now()
       try {
         const docsLink = (row[8] ?? '').trim()
         const projectContent = await buildProjectContent(row, teamName)
 
-        // Run BA and AI SE in parallel
+        console.log(`${position} Running BA + AI SE in parallel for: ${teamName}`)
         const [baOutput, aiSeOutput] = await Promise.all([
           runBAEvaluation(projectContent),
           runAISEEvaluation(projectContent),
         ])
 
+        console.log(`${position} Running HeadJudge for: ${teamName}`)
         const finalVerdict = headJudgeMain(baOutput, aiSeOutput)
 
         try {
           await saveEvaluationToDb(finalVerdict, docsLink, teamName)
+          const elapsed = ((Date.now() - teamStart) / 1000).toFixed(1)
+          console.log(`${position} ✓ Saved: ${teamName} (${elapsed}s)`)
         } catch (dbErr) {
-          console.warn(`[DB WARNING] Failed to save ${teamName}:`, dbErr)
+          const msg = dbErr instanceof Error ? dbErr.message : JSON.stringify(dbErr)
+          console.warn(`${position} ⚠ DB save failed for ${teamName}: ${msg}`)
         }
 
         completedTeams.push(teamName)
       } catch (e) {
-        console.error(`Error evaluating ${teamName}:`, e)
+        const msg = e instanceof Error ? e.message : String(e)
+        console.error(`${position} ✗ Error evaluating ${teamName}: ${msg}`)
         completedTeams.push(`${teamName} (ERROR)`)
       }
 
       await updateJob({ progress: idx + 1, completed_teams: completedTeams })
     }
+
+    const errors = completedTeams.filter((t) => t.endsWith('(ERROR)')).length
+    console.log(`\n[judge] ✓ All done. ${validRows.length - errors}/${validRows.length} succeeded, ${errors} errors.`)
 
     await updateJob({
       running: false,
@@ -165,7 +184,8 @@ async function runSheetEval(sheetUrl: string, jobId: string): Promise<void> {
       completed_teams: completedTeams,
     })
   } catch (e) {
-    const msg = e instanceof Error ? e.message : String(e)
+    const msg = e instanceof Error ? e.message : (e as any)?.message ?? String(e)
+    console.error(`[judge] Fatal error: ${msg}`)
     await updateJob({ running: false, error_detail: msg, message: `Error: ${msg}` })
   }
 }
