@@ -1,9 +1,14 @@
 import csv
 import io
-from utils import get_public_gsheet_csv
-from BA_main import BA_main  # BusinessAnalysis/BA_main.py
-from AI_SE_main import AI_SE_main  # AISoftwareEngineer/AI_SE_main.py
-from HeadJudge_main import HeadJudge_main
+import os
+import sys
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+from utils import get_public_gsheet_csv, get_github_readme, get_google_slides_text, get_public_gdoc_text
+from BusinessAnalysis.BA_main import BA_main
+from AISoftwareEngineer.AI_SE_main import AI_SE_main
+from HeadJudge.HeadJudge_main import HeadJudge_main
 from db_connector import save_evaluation_to_db
 
 def process_gsheet_submissions(sheet_url):
@@ -128,8 +133,29 @@ def process_gsheet_submissions(sheet_url):
 - SCALABILITY & ARCHITECTURAL ADAPTATION: {scalability_architecture}
 """
 
+        # Optionally enrich with fetched content from links
+        github_content = ""
+        doc_content = ""
+
+        if github_link and "github.com" in github_link:
+            fetched = get_github_readme(github_link)
+            if fetched:
+                github_content = f"\n\n### GITHUB README (fetched)\n{fetched[:3000]}"
+
+        if docs_link:
+            if "presentation" in docs_link:
+                fetched = get_google_slides_text(docs_link)
+                if fetched:
+                    doc_content = f"\n\n### SLIDE DECK CONTENT (fetched)\n{fetched[:3000]}"
+            elif "document" in docs_link:
+                fetched = get_public_gdoc_text(docs_link)
+                if fetched and not fetched.startswith("Error"):
+                    doc_content = f"\n\n### DOCUMENTATION CONTENT (fetched)\n{fetched[:3000]}"
+
+        project_content += github_content + doc_content
+
         print(f"[*] Evaluating {team_name}...")
-        
+
         try:
             # Phase 1: Run BA Evaluation
             ba_output = BA_main(project_content)
