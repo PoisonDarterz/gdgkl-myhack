@@ -5,6 +5,7 @@ import { getPublicGsheetCsv, buildProjectContent, parseCsv } from '../_shared/ut
 
 interface JudgeRequest {
   sheet_url: string
+  team_name?: string
 }
 
 async function saveEvaluationToDb(
@@ -90,7 +91,7 @@ async function saveEvaluationToDb(
   }
 }
 
-async function runSheetEval(sheetUrl: string, jobId: string): Promise<void> {
+async function runSheetEval(sheetUrl: string, jobId: string, teamNameFilter?: string): Promise<void> {
   const updateJob = async (fields: Record<string, unknown>) => {
     await supabase
       .from('evaluation_jobs')
@@ -120,7 +121,11 @@ async function runSheetEval(sheetUrl: string, jobId: string): Promise<void> {
     const validRows = allRows.slice(1).filter((row) => {
       if (!row.some((cell) => cell.trim())) return false
       while (row.length < 51) row.push('')
-      return (row[10] ?? '').trim().length > 0
+      if ((row[10] ?? '').trim().length === 0) return false
+      if (teamNameFilter) {
+        return (row[10] ?? '').trim().toLowerCase() === teamNameFilter.toLowerCase()
+      }
+      return true
     })
 
     const teamNames = validRows.map((r) => (r[10] ?? '').trim())
@@ -236,11 +241,14 @@ Deno.serve(async (req) => {
     }
 
     // Create a new job record
+    const startMessage = body.team_name
+      ? `Starting evaluation for team: ${body.team_name}...`
+      : 'Starting evaluation...'
     const { data: newJob, error: insertError } = await supabase
       .from('evaluation_jobs')
       .insert({
         running: true,
-        message: 'Starting evaluation...',
+        message: startMessage,
         progress: 0,
         total: 0,
         completed_teams: [],
@@ -254,7 +262,7 @@ Deno.serve(async (req) => {
     }
 
     // Run evaluation in background — does not block the response
-    EdgeRuntime.waitUntil(runSheetEval(body.sheet_url, newJob.id))
+    EdgeRuntime.waitUntil(runSheetEval(body.sheet_url, newJob.id, body.team_name))
 
     return new Response(
       JSON.stringify({
