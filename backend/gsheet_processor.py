@@ -1,8 +1,8 @@
 import csv
 import io
 from utils import get_public_gsheet_csv
-from CEO_main import CEO_main  # BusinessAnalysis/CEO_main.py
-from CTO_main import CTO_main  # AISoftwareEngineer/CTO_main.py
+from BA_main import BA_main  # BusinessAnalysis/BA_main.py
+from AI_SE_main import AI_SE_main  # AISoftwareEngineer/AI_SE_main.py
 from HeadJudge_main import HeadJudge_main
 from db_connector import save_evaluation_to_db
 
@@ -132,10 +132,10 @@ def process_gsheet_submissions(sheet_url):
         
         try:
             # Phase 1: Run BA Evaluation
-            ba_output = CEO_main(project_content)
+            ba_output = BA_main(project_content)
 
             # Phase 2: Run AI SE Evaluation
-            ai_se_output = CTO_main(project_content)
+            ai_se_output = AI_SE_main(project_content)
 
             # Phase 3: Run Head Judge (Final Verdict)
             final_verdict = HeadJudge_main(project_content, ba_output, ai_se_output)

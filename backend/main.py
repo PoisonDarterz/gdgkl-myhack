@@ -7,8 +7,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'backend', 'BusinessAnal
 sys.path.append(os.path.join(os.path.dirname(__file__), 'backend', 'AISoftwareEngineer'))
 sys.path.append(os.path.join(os.path.dirname(__file__), 'backend', 'HeadJudge'))
 
-from backend.BusinessAnalysis.CEO_main import CEO_main
-from backend.AISoftwareEngineer.CTO_main import CTO_main
+from backend.BusinessAnalysis.BA_main import BA_main
+from backend.AISoftwareEngineer.AI_SE_main import AI_SE_main
 from backend.HeadJudge.HeadJudge_main import HeadJudge_main
 from backend.utils import get_public_gdoc_text
 from backend.gsheet_processor import process_gsheet_submissions
@@ -64,10 +64,10 @@ def main():
         print("[+] Content fetched successfully.")
         
         # Phase 1: Run BA Evaluation
-        ba_output = CEO_main(project_content)
+        ba_output = BA_main(project_content)
 
         # Phase 2: Run AI SE Evaluation
-        ai_se_output = CTO_main(project_content)
+        ai_se_output = AI_SE_main(project_content)
 
         # Phase 3: Run Head Judge (Final Verdict)
         final_verdict = HeadJudge_main(project_content, ba_output, ai_se_output)

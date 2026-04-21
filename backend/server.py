@@ -19,8 +19,8 @@ sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'HeadJu
 
 from gsheet_processor import process_gsheet_submissions
 from utils import get_public_gdoc_text, get_public_gsheet_csv
-from BusinessAnalysis.CEO_main import CEO_main
-from AISoftwareEngineer.CTO_main import CTO_main
+from BusinessAnalysis.BA_main import BA_main
+from AISoftwareEngineer.AI_SE_main import AI_SE_main
 from HeadJudge.HeadJudge_main import HeadJudge_main
 from db_connector import save_evaluation_to_db, supabase
 
@@ -318,8 +318,8 @@ def _run_sheet_eval(sheet_url: str):
                 docs_link = row[8].strip()
                 project_content = _build_project_content(row, team_name)
 
-                ba_output = CEO_main(project_content)
-                ai_se_output = CTO_main(project_content)
+                ba_output = BA_main(project_content)
+                ai_se_output = AI_SE_main(project_content)
                 final_verdict = HeadJudge_main(project_content, ba_output, ai_se_output)
 
                 try:
