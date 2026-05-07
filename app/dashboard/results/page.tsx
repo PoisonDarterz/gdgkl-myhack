@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClient } from '@/src/lib/supabase/client'
+
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL ?? 'http://localhost:8000'
 
 interface Evaluation {
   id: string
@@ -123,10 +124,10 @@ export default function ResultsPage() {
       setLoading(true)
       setError(null)
       try {
-        const supabase = createClient()
-        const { data, error: fnError } = await supabase.functions.invoke('results', { method: 'GET' })
-        if (fnError) throw new Error(fnError.message)
-        setEvaluations(data?.evaluations ?? [])
+        const res = await fetch(`${BACKEND_URL}/results`)
+        if (!res.ok) throw new Error(`HTTP ${res.status}`)
+        const data = await res.json()
+        setEvaluations(data.evaluations ?? [])
       } catch (err) {
         setError(err instanceof Error ? err.message : String(err))
       }

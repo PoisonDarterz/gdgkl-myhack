@@ -2,7 +2,8 @@
 
 import { useState, useCallback } from 'react'
 import Link from 'next/link'
-import { createClient } from '@/src/lib/supabase/client'
+
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL ?? 'http://localhost:8000'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -74,6 +75,15 @@ interface QualitativeInsight {
   content: string
 }
 
+interface BackendStatus {
+  running: boolean
+  message: string
+  progress: number
+  total: number
+  completed_teams: string[]
+  error: string | null
+}
+
 // ─── CSV Parser ──────────────────────────────────────────────────────────────
 
 function parseCsv(text: string): string[][] {
@@ -118,7 +128,6 @@ function parseCsv(text: string): string[][] {
     }
   }
 
-  // Last cell/row
   row.push(cell)
   if (row.some((c) => c.trim())) rows.push(row)
 
@@ -388,7 +397,6 @@ export default function JudgePage() {
         return
       }
 
-      // Skip header row, filter rows with a team name at col 10
       const teamRows: TeamRow[] = []
       allRows.slice(1).forEach((row, idx) => {
         while (row.length < 51) row.push('')
@@ -420,104 +428,97 @@ export default function JudgePage() {
     setLoading(false)
   }, [sheetUrl])
 
-  // ── Run single team ─────────────────────────────────────────────────────────
+  // ── Run judging via backend ─────────────────────────────────────────────────
+  // The backend runs all teams in the sheet at once. Calling this for a single
+  // team still triggers the full sheet evaluation; progress is tracked via /status.
 
-  const runTeam = useCallback(async (teamName: string): Promise<void> => {
-    const supabase = createClient()
+  const runJudge = useCallback(async () => {
+    if (runningAll) return
 
-    // Update status to running
+    setRunningAll(true)
+
+    // Mark all pending/error rows as running
     setRows((prev) =>
-      prev.map((r) => (r.teamName === teamName ? { ...r, status: 'running' } : r))
+      prev.map((r) =>
+        r.status === 'pending' || r.status === 'error' ? { ...r, status: 'running' } : r
+      )
     )
 
     try {
-      // Invoke the judge edge function
-      const { data: invokeData, error: invokeError } = await supabase.functions.invoke('judge', {
-        body: { sheet_url: sheetUrl.trim(), team_name: teamName },
+      const res = await fetch(`${BACKEND_URL}/judge`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sheet_url: sheetUrl.trim() }),
       })
 
-      if (invokeError) {
-        throw new Error(invokeError.message)
+      // 409 means already running — just start polling
+      if (!res.ok && res.status !== 409) {
+        const errData = await res.json().catch(() => ({}))
+        throw new Error(errData.detail ?? `HTTP ${res.status}`)
       }
 
-      const jobId: string | undefined = invokeData?.job_id
+      // Poll /status until done
+      for (let i = 0; i < 240; i++) {
+        await new Promise((r) => setTimeout(r, 2000))
 
-      // Poll evaluation_jobs until running: false
-      let attempts = 0
-      const maxAttempts = 120 // 4 min at 2s intervals
-      while (attempts < maxAttempts) {
-        await new Promise((res) => setTimeout(res, 2000))
-        attempts++
+        const statusRes = await fetch(`${BACKEND_URL}/status`)
+        if (!statusRes.ok) continue
+        const status: BackendStatus = await statusRes.json()
 
-        if (jobId) {
-          const { data: job } = await supabase
-            .from('evaluation_jobs')
-            .select('running, error_detail, completed_teams')
-            .eq('id', jobId)
-            .single()
+        if (status.total > 0) {
+          setRunProgress({ current: status.progress, total: status.total })
+        }
 
-          if (job && !job.running) {
-            const hasError = (job.completed_teams ?? []).some((t: string) =>
-              t.toLowerCase().includes('error')
-            )
-            if (job.error_detail || hasError) {
-              throw new Error(job.error_detail ?? 'Evaluation failed with an error.')
-            }
-            break
-          }
-        } else {
-          // No job_id, wait a bit longer then fetch result
-          if (attempts >= 10) break
+        // Update individual row statuses as teams complete
+        const completedTeams = status.completed_teams ?? []
+        if (completedTeams.length > 0) {
+          setRows((prev) =>
+            prev.map((r) => {
+              const match = completedTeams.find(
+                (t) => t === r.teamName || t.startsWith(r.teamName + ' (')
+              )
+              if (!match) return r
+              const isError = match.includes('(ERROR)')
+              return { ...r, status: isError ? 'error' : 'done' }
+            })
+          )
+        }
+
+        if (!status.running) {
+          if (status.error) throw new Error(status.error)
+          break
         }
       }
 
-      // Fetch evaluation result from DB
-      const { data: evalData, error: evalError } = await supabase
-        .from('evaluations')
-        .select('*, ba_findings(*), ai_se_findings(*), category_scores(*), qualitative_insights(*)')
-        .eq('project_title', teamName)
-        .order('created_at', { ascending: false })
-        .limit(1)
-        .single()
-
-      if (evalError || !evalData) {
-        throw new Error(evalError?.message ?? 'Could not fetch evaluation result.')
-      }
+      // Fetch final results from backend
+      const resultsRes = await fetch(`${BACKEND_URL}/results`)
+      if (!resultsRes.ok) throw new Error(`Failed to fetch results: HTTP ${resultsRes.status}`)
+      const { evaluations } = await resultsRes.json()
 
       setRows((prev) =>
-        prev.map((r) =>
-          r.teamName === teamName
-            ? { ...r, status: 'done', score: evalData.final_score ?? null, evaluation: evalData as EvaluationDetail }
-            : r
-        )
+        prev.map((r) => {
+          const evalData = (evaluations as EvaluationDetail[]).find(
+            (e) => e.project_title === r.teamName
+          )
+          if (!evalData) return r
+          return {
+            ...r,
+            status: 'done',
+            score: evalData.final_score ?? null,
+            evaluation: evalData,
+          }
+        })
       )
     } catch (err) {
-      console.error(`Error evaluating ${teamName}:`, err)
+      console.error('Evaluation error:', err)
       setRows((prev) =>
-        prev.map((r) => (r.teamName === teamName ? { ...r, status: 'error' } : r))
+        prev.map((r) => (r.status === 'running' ? { ...r, status: 'error' } : r))
       )
-    }
-  }, [sheetUrl])
-
-  // ── Run All ─────────────────────────────────────────────────────────────────
-
-  const handleRunAll = useCallback(async () => {
-    if (runningAll || rows.length === 0) return
-
-    const pendingRows = rows.filter((r) => r.status === 'pending' || r.status === 'error')
-    if (pendingRows.length === 0) return
-
-    setRunningAll(true)
-    setRunProgress({ current: 0, total: pendingRows.length })
-
-    for (let i = 0; i < pendingRows.length; i++) {
-      setRunProgress({ current: i + 1, total: pendingRows.length })
-      await runTeam(pendingRows[i].teamName)
     }
 
     setRunningAll(false)
     setRunProgress(null)
-  }, [runningAll, rows, runTeam])
+  }, [runningAll, sheetUrl])
 
   // ── Reset DB ────────────────────────────────────────────────────────────────
 
@@ -526,11 +527,14 @@ export default function JudgePage() {
     setResetState('loading')
     setResetMsg(null)
     try {
-      const supabase = createClient()
-      const { data, error } = await supabase.functions.invoke('reset-db', { method: 'POST' })
-      if (error) throw new Error(error.message)
+      const res = await fetch(`${BACKEND_URL}/reset-db`, { method: 'POST' })
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}))
+        throw new Error(errData.detail ?? `HTTP ${res.status}`)
+      }
+      const data = await res.json()
       setResetState('done')
-      setResetMsg(data?.message ?? 'Database cleared.')
+      setResetMsg(data.message ?? 'Database cleared.')
       setRows([])
     } catch (err) {
       setResetState('error')
@@ -543,12 +547,12 @@ export default function JudgePage() {
   const handleDownloadCsv = useCallback(async () => {
     setCsvState('loading')
     try {
-      const supabase = createClient()
-      const { data, error } = await supabase.functions.invoke('download-csv', {
-        method: 'GET',
-      })
-      if (error) throw new Error(error.message)
-      const blob = new Blob([data instanceof Blob ? await data.text() : String(data)], { type: 'text/csv' })
+      const res = await fetch(`${BACKEND_URL}/download-csv`)
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}))
+        throw new Error(errData.detail ?? `HTTP ${res.status}`)
+      }
+      const blob = await res.blob()
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url
@@ -645,7 +649,7 @@ export default function JudgePage() {
           <section className="bg-white border border-black/10 rounded-2xl shadow-sm p-4 md:p-6 mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4 w-full md:w-auto">
               <button
-                onClick={handleRunAll}
+                onClick={runJudge}
                 disabled={runningAll || rows.every((r) => r.status === 'done')}
                 className="px-6 py-3 bg-black text-white font-bold rounded-xl hover:bg-gray-800 transition-all disabled:opacity-50 disabled:hover:bg-black text-xs uppercase tracking-widest flex items-center gap-2"
               >
@@ -752,7 +756,7 @@ export default function JudgePage() {
                           )}
                           {row.status === 'pending' && (
                             <button
-                              onClick={() => runTeam(row.teamName)}
+                              onClick={runJudge}
                               disabled={runningAll}
                               className="px-3 py-1.5 bg-black text-white rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-gray-800 transition-all disabled:opacity-50"
                             >
@@ -761,7 +765,7 @@ export default function JudgePage() {
                           )}
                           {row.status === 'error' && (
                             <button
-                              onClick={() => runTeam(row.teamName)}
+                              onClick={runJudge}
                               disabled={runningAll}
                               className="px-3 py-1.5 bg-red-600 text-white rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-red-700 transition-all disabled:opacity-50"
                             >

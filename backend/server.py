@@ -119,6 +119,37 @@ def setup_database():
         raise HTTPException(status_code=500, detail=f"DB setup error: {str(e)}")
 
 
+# ── POST /reset-db ─────────────────────────────────────────────────
+@app.post("/reset-db")
+def reset_database():
+    """
+    Truncates evaluations and evaluation_jobs tables with CASCADE.
+    Requires SUPABASE_DB_URL in .env.local.
+    """
+    import psycopg2
+
+    db_url = os.getenv("SUPABASE_DB_URL", "").strip()
+    if not db_url:
+        raise HTTPException(
+            status_code=500,
+            detail="SUPABASE_DB_URL not set.",
+        )
+
+    try:
+        conn = psycopg2.connect(db_url)
+        conn.autocommit = True
+        cur = conn.cursor()
+        cur.execute("TRUNCATE TABLE evaluations, evaluation_jobs CASCADE")
+        cur.close()
+        conn.close()
+        return {
+            "status": "ok",
+            "message": "All tables cleared: evaluations, ba_findings, ai_se_findings, category_scores, qualitative_insights, evaluation_jobs.",
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Reset error: {str(e)}")
+
+
 # ── POST /judge ─────────────────────────────────────────────────────
 @app.post("/judge")
 async def start_judging(req: JudgeRequest):
