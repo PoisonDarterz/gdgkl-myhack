@@ -3,7 +3,7 @@ const CATEGORY_WEIGHTS: Record<string, [number, number]> = {
   originality_creativity:    [0.70, 0.30],
   problem_solution_fit:      [0.70, 0.30],
   scalability_profitability: [0.70, 0.30],
-  deployment_readiness:      [0.70, 0.30],
+  deployment_readiness:      [0.30, 0.70],
   google_tech_integration:   [0.30, 0.70],
   ai_implementation_quality: [0.30, 0.70],
   demo_ui_ux:                [0.30, 0.70],
