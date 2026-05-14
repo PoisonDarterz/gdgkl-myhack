@@ -2,12 +2,12 @@ import os
 import re
 
 files_to_update = [
-    r"d:\gdgkl-myhack\backend\CEO\CEO_prompt.py",
-    r"d:\gdgkl-myhack\backend\CTO\CTO_Model.py",
-    r"d:\gdgkl-myhack\backend\Prompt\CEO_Judge_Prompt.md",
-    r"d:\gdgkl-myhack\backend\Prompt\CEO_Reasonate.md",
-    r"d:\gdgkl-myhack\backend\Prompt\CTO_Judge_Prompt.md",
-    r"d:\gdgkl-myhack\backend\Prompt\CTO_Reasonate.md"
+    r"d:\gdgkl-myhack\backend\BusinessAnalysis\BA_prompt.py",
+    r"d:\gdgkl-myhack\backend\AISoftwareEngineer\AI_SE_Model.py",
+    r"d:\gdgkl-myhack\backend\Prompt\BA_Judge_Prompt.md",
+    r"d:\gdgkl-myhack\backend\Prompt\BA_Reasonate.md",
+    r"d:\gdgkl-myhack\backend\Prompt\AI_SE_Judge_Prompt.md",
+    r"d:\gdgkl-myhack\backend\Prompt\AI_SE_Reasonate.md"
 ]
 
 table_pattern = re.compile(r"\| Category \| Score.*?(?=\| \*\*TOTAL\*\*)", re.DOTALL)
