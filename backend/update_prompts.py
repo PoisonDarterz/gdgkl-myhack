@@ -26,15 +26,14 @@ new_table = """| Category | Score | Justification (Why is this NOT a 10/10?) |
 
 json_scores_pattern = re.compile(r"\"scores\": \{(.*?)\}", re.DOTALL)
 new_json_scores = """"scores": {
-    "originality_creativity": 0,
-    "problem_solution_fit": 0,
-    "scalability_profitability": 0,
-    "deployment_readiness": 0,
     "google_tech_integration": 0,
-    "sdg_relevance": 0,
     "ai_implementation_quality": 0,
     "demo_ui_ux": 0,
-    "ai_model_performance": 0
+    "ai_model_performance": 0,
+    "originality_creativity": 0,
+    "problem_solution_fit": 0,
+    "scalability": 0,
+    "deployment_readiness": 0
   }"""
 
 for fp in files_to_update:

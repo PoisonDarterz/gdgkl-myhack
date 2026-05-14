@@ -1,26 +1,26 @@
 // Per-category weightage: [BA_weight, AI_SE_weight]
 const CATEGORY_WEIGHTS: Record<string, [number, number]> = {
-  originality_creativity:    [0.70, 0.30],
-  problem_solution_fit:      [0.70, 0.30],
-  scalability_profitability: [0.70, 0.30],
-  deployment_readiness:      [0.30, 0.70],
+  // Technical Implementation and Architecture — AI SE dominant (30/70)
   google_tech_integration:   [0.30, 0.70],
   ai_implementation_quality: [0.30, 0.70],
   demo_ui_ux:                [0.30, 0.70],
   ai_model_performance:      [0.30, 0.70],
-  sdg_relevance:             [0.50, 0.50],
+  // Business Innovation and Problem Solving — BA dominant (70/30)
+  originality_creativity:    [0.70, 0.30],
+  problem_solution_fit:      [0.70, 0.30],
+  scalability:               [0.70, 0.30],
+  deployment_readiness:      [0.70, 0.30],
 }
 
 const CATEGORY_MAX: Record<string, number> = {
-  originality_creativity:    10,
-  problem_solution_fit:      10,
-  scalability_profitability: 10,
-  deployment_readiness:       5,
-  google_tech_integration:   10,
-  sdg_relevance:             10,
+  google_tech_integration:   15,
   ai_implementation_quality: 10,
   demo_ui_ux:                10,
   ai_model_performance:       5,
+  originality_creativity:    10,
+  problem_solution_fit:      15,
+  scalability:               10,
+  deployment_readiness:       5,
 }
 
 const TOTAL_MAX = Object.values(CATEGORY_MAX).reduce((a, b) => a + b, 0) // 80

@@ -11,27 +11,28 @@ from utils import get_public_gdoc_text
 # "70/30 AI SE" means AI SE gets 70%, BA gets 30%
 # "70/30 BA" means BA gets 70%, AI SE gets 30%
 CATEGORY_WEIGHTS = {
-    # Business-focused (BA dominant 70/30)
-    "originality_creativity": (0.70, 0.30),
-    "problem_solution_fit": (0.70, 0.30),
-    "scalability_profitability": (0.70, 0.30),
-    "deployment_readiness": (0.70, 0.30),
-    # Technical-focused (AI SE dominant 30/70)
-    "google_tech_integration": (0.30, 0.70),
+    # Technical Implementation and Architecture — AI SE dominant (30/70)
+    "google_tech_integration":   (0.30, 0.70),
     "ai_implementation_quality": (0.30, 0.70),
-    "demo_ui_ux": (0.30, 0.70),
-    "ai_model_performance": (0.30, 0.70),
-    # Shared / Thematic (50/50 blend)
-    "sdg_relevance": (0.50, 0.50),
+    "demo_ui_ux":                (0.30, 0.70),
+    "ai_model_performance":      (0.30, 0.70),
+    # Business Innovation and Problem Solving — BA dominant (70/30)
+    "originality_creativity":    (0.70, 0.30),
+    "problem_solution_fit":      (0.70, 0.30),
+    "scalability":               (0.70, 0.30),
+    "deployment_readiness":      (0.70, 0.30),
 }
 
 # Max possible score per category (from the judging rubric)
 CATEGORY_MAX = {
-    "originality_creativity": 10, "problem_solution_fit": 10,
-    "scalability_profitability": 10, "deployment_readiness": 5,
-    "google_tech_integration": 10, "sdg_relevance": 10,
-    "ai_implementation_quality": 10, "demo_ui_ux": 10,
-    "ai_model_performance": 5,
+    "google_tech_integration":   15,
+    "ai_implementation_quality": 10,
+    "demo_ui_ux":                10,
+    "ai_model_performance":       5,
+    "originality_creativity":    10,
+    "problem_solution_fit":      15,
+    "scalability":               10,
+    "deployment_readiness":       5,
 }
 TOTAL_MAX = sum(CATEGORY_MAX.values())  # 80
 
@@ -54,8 +55,8 @@ def HeadJudge_main(project_content, ba_output, ai_se_output):
     Merges all judging criteria from BA and AI SE into a comprehensive JSON report.
 
     Per-category weighting is applied based on which judge has domain expertise:
-    - AI SE-dominant (70/30): problem_sdg, ai_engineering, ai_innovation, architecture
-    - BA-dominant (70/30): user_validation, implementation, scalability, completeness
+    - AI SE-dominant (30/70): google_tech_integration, ai_implementation_quality, demo_ui_ux, ai_model_performance
+    - BA-dominant (70/30): originality_creativity, problem_solution_fit, scalability, deployment_readiness
 
     Args:
         project_content: The original project submission text.

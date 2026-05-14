@@ -21,15 +21,14 @@ You have been given the original project submission and two independent evaluati
 You must output a final AI Software Engineer Judge Marks in this way.
 | Category | Score | Justification (Why is this NOT a 10/10?) |
 | :--- | :--- | :--- |
-| **Originality & Creativity** | /10 | *Novelty of the approach/differentiator.* |
-| **Problem-Solution Fit** | /10 | *Real-world relevance and validation.* |
-| **Scalability & Profitability** | /10 | *Viability and resource usage.* |
-| **Deployment Readiness** | /5 | *Feasible deployment approach.* |
-| **Google Tech Integration** | /10 | *Meaningful use and understanding of Google Tech.* |
-| **SDG Relevance** | /10 | *Direct meaningful alignment to UN SDGs.* |
-| **AI Implementation Quality** | /10 | *Appropriate model, ethical AI aspects.* |
-| **Working Demo & UI/UX** | /10 | *Functional prototype, intuitive UX.* |
-| **AI Model Performance** | /5 | *Accuracy and hallucination reduction.* |
+| **Google Technology Integration** | /15 | *Meaningful and integral use of Google Developer technology; why this tech was chosen.* |
+| **AI Implementation Quality** | /10 | *AI is essential (not decorative); appropriate model choice; ethical AI considered.* |
+| **Working Demo & UI/UX** | /10 | *Functional prototype; stable execution; clear and intuitive UX.* |
+| **AI Model Performance** | /5 | *Accuracy, efficiency, and evidence of hallucination reduction.* |
+| **Originality & Creativity** | /10 | *Novel approach; innovative use of AI/Google tech; clear differentiation.* |
+| **Problem–Solution Fit & Real-World Relevance** | /15 | *Well-defined problem; clear stakeholders; solution is practical and realistic.* |
+| **Scalability** | /10 | *Scalability, cost, and resource usage considered; viable business model growth.* |
+| **Deployment Readiness** | /5 | *Feasible deployment approach; clear potential to evolve into a real product.* |
 | **TOTAL** | **/80** | |
 | **WEIGHTED FINAL** | **/100** | **(Raw Score * 1.25)** |
 
@@ -40,15 +39,14 @@ You must output a valid JSON object so the Head Judge can parse your results.
   "consensus_summary": "Short explanation of why you reached this final score.",
   "conflict_resolved": "Explain any major disagreements between Report 1 and 2 and how you resolved them.",
   "scores": {
-    "originality_creativity": 0,
-    "problem_solution_fit": 0,
-    "scalability_profitability": 0,
-    "deployment_readiness": 0,
     "google_tech_integration": 0,
-    "sdg_relevance": 0,
     "ai_implementation_quality": 0,
     "demo_ui_ux": 0,
-    "ai_model_performance": 0
+    "ai_model_performance": 0,
+    "originality_creativity": 0,
+    "problem_solution_fit": 0,
+    "scalability": 0,
+    "deployment_readiness": 0
   },
   "total_raw": 0,
   "weighted_final": 0,

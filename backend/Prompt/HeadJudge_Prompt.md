@@ -20,11 +20,16 @@ Your job is twofold:
 
 ## 1. The Weighted Scoring Formula
 
-The final score is composed of 9 categories, scaled to a maximum of 80 raw points, and then multiplied by 1.25 for a 100-point final score.
+The final score is composed of 8 categories across two pillars, scaled to a maximum of 80 raw points, and then multiplied by 1.25 for a 100-point final score.
 
-- The BA and AI SE both evaluate all 9 categories.
+- The BA and AI SE both evaluate all 8 categories.
 - The Head Judge (via script calculation) applies specific weights to each category depending on whether it is Business-focused (BA dominant: 70/30) or Technical-focused (AI SE dominant: 30/70).
-- Shared/Thematic categories (like SDG Relevance) are evenly split (50/50).
+
+**Technical Implementation and Architecture (40 pts) — AI SE dominant (30/70):**
+Google Technology Integration (15), AI Implementation Quality (10), Working Demo & UI/UX (10), AI Model Performance (5)
+
+**Business Innovation and Problem Solving (40 pts) — BA dominant (70/30):**
+Originality & Creativity (10), Problem–Solution Fit & Real-World Relevance (15), Scalability (10), Deployment Readiness (5)
 
 There is no longer an independent AI SE evaluation; the score relies entirely on aggregating the dual-agent metrics.
 
