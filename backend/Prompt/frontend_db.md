@@ -7,12 +7,12 @@ This plan outlines the steps to connect the AI-Judge-KitaHack backend to Supabas
 ### 1.1 Supabase Configuration
 - **Install Dependencies:** `pip install supabase`
 - **Utility Creation:** Create `backend/db_connector.py` to initialize the Supabase client using credentials from `.env`.
-- **Data Mapping:** Create a function `save_to_supabase(ceo_json, cto_json, doc_url, project_title)` that maps the specific agent outputs:
+- **Data Mapping:** Create a function `save_to_supabase(ba_json, ai_se_json, doc_url, project_title)` that maps the specific agent outputs:
     1. **Evaluations Table:** Create a master record for the project and retrieve the `evaluation_id`.
-    2. **CEO Findings:** Map `ceo_final_verdict`, `consensus_summary`, `fact_check_final_verdict`, `conflict_resolved`, and `weighted_final`.
-    3. **CTO Findings:** Map `cto_final_verdict`, `consensus_summary`, `conflict_resolved`, and `weighted_final`.
+    2. **BA Findings:** Map `ba_final_verdict`, `consensus_summary`, `fact_check_final_verdict`, `conflict_resolved`, and `weighted_final`.
+    3. **AI SE Findings:** Map `ai_se_final_verdict`, `consensus_summary`, `conflict_resolved`, and `weighted_final`.
     4. **Category Scores:** Flatten and insert the `scores` objects from both agents (e.g., `problem_sdg`, `ai_innovation`, `scalability`, `architecture`).
-    5. **Qualitative Insights:** Iterate through and store lists from `top_3_strategic_strengths`, `critical_market_risks` (CEO), and `critical_vulnerabilities` (CTO).
+    5. **Qualitative Insights:** Iterate through and store lists from `top_3_strategic_strengths`, `critical_market_risks` (BA), and `critical_vulnerabilities` (AI SE).
 
 ### 1.2 Integration into Workflow
 - **Update `gsheet_processor.py`:** Call `save_to_supabase` immediately after the `HeadJudge` agents return their respective JSON objects for each row.
@@ -38,8 +38,8 @@ To allow the frontend to trigger judging and fetch data:
     - "Start Evaluation" button with loading state.
 - **Stats Overview:** Top cards showing total projects, average score, and verdict distribution.
 - **Results Table:**
-    - Columns: Team Name, Final Score, Verdict, CEO Score, CTO Score.
-    - Filter Toggles: Checkboxes to show/hide specific columns (CEO, CTO, Comments, etc.).
+    - Columns: Team Name, Final Score, Verdict, BA Score, AI SE Score.
+    - Filter Toggles: Checkboxes to show/hide specific columns (BA, AI SE, Comments, etc.).
     - Search: Filter by team name.
 - **Detailed Modal:** Click a row to see the full breakdown (Category scores, Strengths, Risks, Executive Summary).
 

@@ -11,12 +11,12 @@ Create a new endpoint `/download-csv` in `backend/server.py` that fetches all ev
 1.  **Add Endpoint:**
     Define a new GET route `@app.get("/download-csv")`.
 2.  **Fetch Data:**
-    Reuse the logic from `get_results()` to fetch data from `evaluations`, `ceo_findings`, `cto_findings`, and `category_scores`.
+    Reuse the logic from `get_results()` to fetch data from `evaluations`, `ba_findings`, `ai_se_findings`, and `category_scores`.
 3.  **Process Data for CSV:**
     Since CSV is a flat format, nested data needs to be flattened.
     *   **Evaluation Columns:** `id`, `project_title`, `final_score`, `head_judge_verdict`, `summary`, `doc_url`, `created_at`.
-    *   **CEO Findings Columns:** `ceo_verdict`, `ceo_total_raw`, `ceo_weighted_final`.
-    *   **CTO Findings Columns:** `cto_verdict`, `cto_total_raw`, `cto_weighted_final`.
+    *   **BA Findings Columns:** `ba_verdict`, `ba_total_raw`, `ba_weighted_final`.
+    *   **AI SE Findings Columns:** `ai_se_verdict`, `ai_se_total_raw`, `ai_se_weighted_final`.
     *   **Category Scores Columns:** Flattened into `Category_Name_Score` columns if possible, or a string summary of category scores.
     *   **Insights:** Join strengths and risks into single comma-separated text fields.
 4.  **Generate CSV:**
@@ -61,15 +61,15 @@ The CSV should include the following columns at minimum:
 | Project Title | `evaluations.project_title` |
 | Final Score | `evaluations.final_score` |
 | Head Judge Verdict | `evaluations.head_judge_verdict` |
-| CEO Verdict | `ceo_findings.verdict` |
-| CEO Weighted Score | `ceo_findings.weighted_final` |
-| CTO Verdict | `cto_findings.verdict` |
-| CTO Weighted Score | `cto_findings.weighted_final` |
+| BA Verdict | `ba_findings.verdict` |
+| BA Weighted Score | `ba_findings.weighted_final` |
+| AI SE Verdict | `ai_se_findings.verdict` |
+| AI SE Weighted Score | `ai_se_findings.weighted_final` |
 | Executive Summary | `evaluations.summary` |
-| CEO Strengths | `ceo_findings.strengths` (joined string) |
-| CEO Risks | `ceo_findings.risks` (joined string) |
-| CTO Strengths | `cto_findings.strengths` (joined string) |
-| CTO Vulnerabilities | `cto_findings.vulnerabilities` (joined string) |
+| BA Strengths | `ba_findings.strengths` (joined string) |
+| BA Risks | `ba_findings.risks` (joined string) |
+| AI SE Strengths | `ai_se_findings.strengths` (joined string) |
+| AI SE Vulnerabilities | `ai_se_findings.vulnerabilities` (joined string) |
 | Documentation Link | `evaluations.doc_url` |
 | Created At | `evaluations.created_at` |
 
