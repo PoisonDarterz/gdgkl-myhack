@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-03-08)
 Phase: 4 of 5 (Event Sections)
 Plan: 3 of 3 in current phase
 Status: Checkpoint — awaiting human visual verification (04-03 Task 2)
-Last activity: 2026-05-14 - Completed quick task quick-kayinleong-006: replace CEO/CTO with BA/AI SE in all backend prompt files
+Last activity: 2026-05-14 - Completed quick task quick-kayinleong-007: update all backend judge prompts to new 8-category rubric
 
 Progress: [██████░░░░] 60%
 
@@ -160,6 +160,7 @@ None yet.
 | 260421-ldj | Create frontend login page, middleware-protected dashboard, and run judge page with sheet visualizer | 2026-04-21 | d2c1c83 | [260421-login-dashboard-judge](./quick/260421-login-dashboard-judge/) |
 | 260421 | Dashboard judge — show Retry button on failed rows | 2026-04-21 | ff934c1 | [260421-dsh-judge-retry](./quick/260421-dsh-judge-retry/) |
 | quick-kayinleong-006 | Replace CEO/CTO with BA/AI SE in all backend prompt files | 2026-05-14 | abb8230 | [quick-kayinleong-006](./quick/quick-kayinleong-006/) |
+| quick-kayinleong-007 | Update all backend judge prompts to new 8-category rubric | 2026-05-14 | a1d0fe9 | [quick-kayinleong-007](./quick/quick-kayinleong-007/) |
 
 ## Session Continuity
 
