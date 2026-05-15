@@ -139,12 +139,15 @@ def reset_database():
         conn = psycopg2.connect(db_url)
         conn.autocommit = True
         cur = conn.cursor()
-        cur.execute("TRUNCATE TABLE evaluations, evaluation_jobs CASCADE")
+        cur.execute(
+            "TRUNCATE TABLE evaluations, ba_findings, ai_se_findings, "
+            "category_scores, qualitative_insights CASCADE"
+        )
         cur.close()
         conn.close()
         return {
             "status": "ok",
-            "message": "All tables cleared: evaluations, ba_findings, ai_se_findings, category_scores, qualitative_insights, evaluation_jobs.",
+            "message": "All tables cleared: evaluations, ba_findings, ai_se_findings, category_scores, qualitative_insights.",
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Reset error: {str(e)}")
