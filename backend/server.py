@@ -436,9 +436,6 @@ def _build_project_content(row, team_name):
 
 ### PRODUCT & IMPACT
 - REAL-WORLD PROBLEM SOLVED: {row[31].strip()}
-- SUSTAINABLE DEVELOPMENT GOALS (SDGs): {row[5].strip()}
-- DETAILED SDG TARGETS: {row[32].strip()}
-- REASONING BEHIND SDG SELECTION: {row[33].strip()}
 - SUCCESS MEASUREMENT: {row[37].strip()}
 - UNIQUE APPROACH: {row[42].strip()}
 - GROWTH POTENTIAL: {row[43].strip()}

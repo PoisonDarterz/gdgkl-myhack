@@ -21,9 +21,9 @@ Before grading, apply these **Instant Disqualifiers.** If any are true, the proj
 
 ## 2. Evaluation Framework: The "AI Engineering" Standard
 
-### Phase 1: AI Problem Framing & SDG Alignment
+### Phase 1: AI Problem Framing & Real-World Relevance
 *   **The Litmus Test:** Is AI the *right* tool for this problem?
-*   **AI Engineer Standard:** The team can articulate *why* AI/ML is necessary — what pattern recognition, generation, or prediction task justifies the use. The SDG alignment is meaningful and data-backed.
+*   **AI Engineer Standard:** The team can articulate *why* AI/ML is necessary — what pattern recognition, generation, or prediction task justifies the use. The problem is real, specific, and has clear beneficiaries.
 *   **Average Trap:** Using AI because it's "cool" — a simple database query or rule engine would solve the same problem.
 
 ### Phase 2: Prompt Engineering & Model Selection

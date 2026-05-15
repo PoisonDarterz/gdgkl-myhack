@@ -13,47 +13,48 @@ Before proceeding to deep evaluation, every submission must pass these three "Ye
 
 ## II. The Evaluation Workflow: Phase-by-Phase
 
-### Phase 1: Problem Definition & SDG Alignment (Impact Core)
+### Phase 1: Problem Definition & Real-World Relevance
 **What to look for:**
 *   **The Problem:** Is it a clear, real-world issue or a vague concept?
-*   **SDG Integration:** Which UN Sustainable Development Goal is chosen? Is the choice justified?
-*   **The "Why":** Why does this specific problem matter to the team and the community?
+*   **Stakeholders:** Who are the target beneficiaries? Are they clearly identified?
+*   **The "Why":** Why does this specific problem matter, and does the solution directly address it?
 
-**Judge's Expectation:** You should see a direct line between the problem, the chosen SDG target, and the proposed solution.
+**Judge's Expectation:** You should see a direct line between the problem, the identified stakeholders, and the proposed solution. The problem must be real and specific, not contrived.
 
-### Phase 2: User-Centricity & Validation
+### Phase 2: Innovation & Competitive Advantage
 **What to look for:**
-*   **Validation Method:** How did they test it? (Interviews, surveys, beta testing).
-*   **Key Insights:** Three specific takeaways from user feedback.
-*   **Iteration:** Three concrete changes made *because* of that feedback.
+*   **Originality:** Is the approach novel, or is it a generic repackaging of existing tools?
+*   **AI & Google Tech Differentiation:** How does the use of AI and Google technologies create a meaningful advantage?
+*   **Differentiation:** What makes this stand out from existing solutions in the market?
 
-**Judge's Expectation:** Look for "Evidence of Evolution." A project that hasn't changed since day one suggests a lack of user validation.
+**Judge's Expectation:** The best submissions will have a clear "moat" — something a big tech company cannot clone in a weekend.
 
-### Phase 3: AI Integration & Innovation
+### Phase 3: AI Implementation Quality & Model Performance
 **What to look for:**
-*   **AI Implementation:** Which Google AI technology (Gemini, Vertex AI, etc.) is used?
+*   **AI Necessity:** Which Google AI technology (Gemini, Vertex AI, etc.) is used, and is it essential?
 *   **The "Smart" Factor:** Specifically how does AI enhance the solution? Is it just a wrapper, or is it core logic?
 *   **The "Loss" Test:** What would happen if the AI was removed? If the solution still works perfectly, the AI integration is weak.
-*   **Uniqueness:** What differentiates this from existing apps on the Play Store or App Store?
+*   **Responsible AI:** Is there evidence of hallucination mitigation, bias awareness, or privacy considerations?
 
-**Judge's Expectation:** AI should be a force multiplier, not an ornament.
+**Judge's Expectation:** AI should be a force multiplier, not an ornament. Ethical AI considerations should be visible.
 
-### Phase 4: Technical Execution & Architecture
+### Phase 4: Technical Execution & Google Technology Integration
 **What to look for:**
-*   **Google Tech Stack:** Beyond AI, what else (Flutter, Firebase, Cloud, etc.) is used and *why*?
+*   **Google Tech Stack:** Beyond AI, what else (Flutter, Firebase, Cloud, etc.) is used and *why* was it chosen?
 *   **Architecture:** Is the system design logical? (Review the provided diagram/description).
+*   **Working Demo:** Does the prototype run without critical bugs? Is the UX intuitive?
 *   **Technical Honesty:** Look for their "Significant Technical Challenge" and "Trade-offs." A good team knows their technical debt and limitations.
 
 **Judge's Expectation:** A balance between sophisticated architecture and practical implementation.
 
-### Phase 5: Success Metrics & Future Vision
+### Phase 5: Scalability, Business Viability & Deployment Readiness
 **What to look for:**
-*   **Measurability:** How do they define "Success"? (Retention, carbon offset, literacy rate improvement, etc.).
-*   **Analytics:** Are they using Google Analytics or BigQuery to track these?
+*   **Business Model:** Is there a realistic, sustainable business model beyond "Ads"?
 *   **Scalability:** Can the current architecture handle 10x or 100x more users?
-*   **Roadmap:** Clear "Future Steps" for the next 6-12 months.
+*   **Deployment Plan:** Is there a feasible path to cloud deployment (Cloud Run, Firebase Hosting, etc.)?
+*   **Roadmap:** Clear "Future Steps" for the next 6-12 months that show a path to a real product.
 
-**Judge's Expectation:** A visionary yet grounded plan for growth.
+**Judge's Expectation:** A visionary yet grounded plan for growth with a realistic deployment strategy.
 
 ---
 
@@ -70,11 +71,10 @@ Judges must cross-reference the written answers with the following:
 | Submission Section | What you see | What you are judging |
 | :--- | :--- | :--- |
 | **Foundations** | Team name, GDGoC status, Tech check | **Eligibility:** Are they qualified to be here? |
-| **The Hook** | Problem Statement, SDG Targets | **Impact:** Is the problem worth solving? |
-| **The Heart** | User feedback, Insights, Changes | **Validation:** Did they listen to real people? |
-| **The Brain** | Google AI choice, AI "Smartness" | **Innovation:** Is the AI usage meaningful? |
-| **The Skeleton** | Architecture, Challenges, Trade-offs | **Technicality:** Is the code/design robust? |
-| **The Future** | Success metrics, Scalability, Roadmap | **Viability:** Will this exist in a year? |
+| **The Hook** | Problem Statement, Stakeholders, Real-world relevance | **Impact:** Is the problem worth solving? |
+| **The Brain** | Google AI choice, AI "Smartness", Ethical AI | **Innovation:** Is the AI usage meaningful? |
+| **The Skeleton** | Architecture, Challenges, Trade-offs, Google Tech | **Technicality:** Is the code/design robust? |
+| **The Future** | Business model, Scalability, Deployment plan | **Viability:** Will this exist in a year? |
 
 ---
 

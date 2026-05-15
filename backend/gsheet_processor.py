@@ -36,7 +36,7 @@ def process_gsheet_submissions(sheet_url):
     results = []
     
     # Column Indices (0-indexed)
-    # F=5 (SDGs), G=6 (GitHub), H=7 (Video), I=8 (Docs), K=10 (Team Name)
+    # G=6 (GitHub), H=7 (Video), I=8 (Docs), K=10 (Team Name)
     
     for row_idx, row in enumerate(reader, start=2):
         # Skip truly empty rows (all columns are empty or whitespace)
@@ -58,7 +58,6 @@ def process_gsheet_submissions(sheet_url):
         github_link = row[6].strip()
         video_link = row[7].strip()
         docs_link = row[8].strip()
-        sdgs_involvement = row[5].strip()
         gdgoc_members = row[2].strip()
         google_dev_tech_ai = row[3].strip()
         google_ai_tech_check = row[4].strip()
@@ -66,8 +65,6 @@ def process_gsheet_submissions(sheet_url):
 
         # Detailed Project Info
         problem_solving = row[31].strip()
-        sdg_details = row[32].strip()
-        sdg_reasoning = row[33].strip()
         user_validation = row[34].strip()
         user_feedback_insights = row[35].strip()
         changes_from_feedback = row[36].strip()
@@ -106,9 +103,6 @@ def process_gsheet_submissions(sheet_url):
 
 ### PRODUCT & IMPACT
 - REAL-WORLD PROBLEM SOLVED: {problem_solving}
-- SUSTAINABLE DEVELOPMENT GOALS (SDGs): {sdgs_involvement}
-- DETAILED SDG TARGETS: {sdg_details}
-- REASONING BEHIND SDG SELECTION: {sdg_reasoning}
 - SUCCESS MEASUREMENT: {success_measurement}
 - UNIQUE APPROACH: {unique_approach}
 - GROWTH POTENTIAL: {growth_potential}

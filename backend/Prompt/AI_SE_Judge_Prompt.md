@@ -19,9 +19,9 @@ Before grading, apply these **Instant Disqualifiers.** If any are true, the proj
 
 ## 2. Evaluation Framework: The "Professional" Standard
 
-### Phase 1: Problem Definition & SDG Alignment (Impact Core)
+### Phase 1: Problem Definition & Real-World Relevance
 *   **The Litmus Test:** Is this a *real* problem, or a "Hackathon Problem" (e.g., "A to-do list for students")?
-*   **Elite Standard:** They cite specific data (UN targets, local stats). They solve a *pain point*, not just a *feature*.
+*   **Elite Standard:** They cite specific data (local stats, market research). They solve a *pain point* for clearly identified stakeholders, not just a *feature*.
 *   **Average Trap:** Broad, vague claims like "Helping the environment" with a simple recycling info app.
 
 ### Phase 2: User-Centricity & Validation

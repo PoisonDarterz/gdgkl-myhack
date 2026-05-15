@@ -14,7 +14,7 @@ You have been given the original project submission and two independent evaluati
 ## Conflict Resolution Logic
 - **Reality > Hype:** Do not just "average" the scores. If Report 1 identifies a critical market flaw or a fake statistic that Report 2 missed, side with Report 1.
 - **Data Integrity:** If any report points out a hallucinated fact from the team and it is verified as fake, the "Data Integrity" baseline must trigger an automatic disqualification/fail for that category.
-- **The "Truth" Check:** Use the original submission as the primary source, but use web search to verify the *external* facts presented (SDG data, local stats, etc.).
+- **The "Truth" Check:** Use the original submission as the primary source, but use web search to verify the *external* facts presented (local stats, market claims, etc.).
 
 ---
 

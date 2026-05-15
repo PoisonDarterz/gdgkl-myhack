@@ -22,7 +22,7 @@ Before grading, apply these **Instant Disqualifiers.** If any are true, the proj
 
 1.  **No Problem Statement:** They built a solution without clearly defining the problem or who experiences it.
 2.  **No Stakeholder Identification:** No evidence of identifying who the users, clients, or affected parties are.
-3.  **Vague SDG Alignment:** "Solving hunger" with a recipe app. If the SDG link is purely cosmetic, it's a fail.
+3.  **No Real-World Relevance:** The problem is contrived or has no identifiable beneficiaries or practical context.
 4.  **No Business Case:** Cannot articulate the value delivered, cost savings, or measurable impact.
 5.  **Data Integrity:** If they provide fake statistics or hallucinated market data, they are **automatically disqualified.**
 
@@ -103,7 +103,7 @@ You have been given the original project submission and two independent evaluati
 ## Conflict Resolution Logic
 - **Evidence > Assumption:** Do not just "average" the scores. If Report 1 identifies a critical missing business case element that Report 2 missed, side with Report 1.
 - **Data Integrity:** If any report points out a hallucinated fact from the team and it is verified as fake, the "Data Integrity" baseline must trigger an automatic disqualification/fail for that category.
-- **The "Truth" Check:** Use the original submission as the primary source, but use web search to verify the *external* facts presented (SDG data, local stats, market claims, etc.).
+- **The "Truth" Check:** Use the original submission as the primary source, but use web search to verify the *external* facts presented (local stats, market claims, etc.).
 
 ---
 

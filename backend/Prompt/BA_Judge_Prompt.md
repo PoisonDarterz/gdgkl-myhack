@@ -21,7 +21,7 @@ Before grading, apply these **Instant Disqualifiers.** If any are true, the proj
 
 1.  **Solution in Search of a Problem:** They built a cool AI feature, but the problem it "solves" doesn't actually exist or isn't a pain point anyone would pay for.
 2.  **The "Ghost" User:** No evidence of talking to a single human outside their team.
-3.  **Vague SDG Alignment:** "Solving hunger" with a recipe app. If the SDG link is purely cosmetic, it's a fail.
+3.  **No Real-World Relevance:** The problem is contrived or has no identifiable stakeholders or beneficiaries.
 4.  **Zero Presentation Polish:** If they can't sell the vision in 5 minutes, they can't lead a company.
 5.  **Data Integrity:** If they provide fake statistics or hallucinated market data, they are **automatically disqualified.**
 
@@ -29,9 +29,9 @@ Before grading, apply these **Instant Disqualifiers.** If any are true, the proj
 
 ## 2. Evaluation Framework: The "Commercial" Standard
 
-### Phase 1: Problem-Solution Gap & SDG Strategic Fit
+### Phase 1: Problem-Solution Gap & Real-World Relevance
 *   **The Litmus Test:** Does the solution *actually* solve the core of the problem stated?
-*   **BA Standard:** They identify a specific, underserved niche within an SDG. The gap between the "Current State" and "Desired State" is bridged by their technology, not just "magic AI."
+*   **BA Standard:** They identify a specific, underserved niche with clear stakeholders and beneficiaries. The gap between the "Current State" and "Desired State" is bridged by their technology, not just "magic AI."
 *   **Average Trap:** Proposing a massive, world-changing solution that is practically impossible to implement or ignores local cultural/economic context.
 
 ### Phase 2: Market Fit & User Validation

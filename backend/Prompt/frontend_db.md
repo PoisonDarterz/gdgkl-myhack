@@ -11,7 +11,7 @@ This plan outlines the steps to connect the AI-Judge-KitaHack backend to Supabas
     1. **Evaluations Table:** Create a master record for the project and retrieve the `evaluation_id`.
     2. **BA Findings:** Map `ba_final_verdict`, `consensus_summary`, `fact_check_final_verdict`, `conflict_resolved`, and `weighted_final`.
     3. **AI SE Findings:** Map `ai_se_final_verdict`, `consensus_summary`, `conflict_resolved`, and `weighted_final`.
-    4. **Category Scores:** Flatten and insert the `scores` objects from both agents (e.g., `problem_sdg`, `ai_innovation`, `scalability`, `architecture`).
+    4. **Category Scores:** Flatten and insert the `scores` objects from both agents (e.g., `google_tech_integration`, `ai_implementation_quality`, `problem_solution_fit`, `scalability`, `deployment_readiness`).
     5. **Qualitative Insights:** Iterate through and store lists from `top_3_strategic_strengths`, `critical_market_risks` (BA), and `critical_vulnerabilities` (AI SE).
 
 ### 1.2 Integration into Workflow
