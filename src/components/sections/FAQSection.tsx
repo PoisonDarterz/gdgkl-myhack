@@ -9,7 +9,7 @@ const faqItems = [
   },
   {
     q: "How large can teams be?",
-    a: "Teams of 1 to 4 members. Solo participants are welcome and will have opportunities to find teammates during the opening session.",
+    a: "Teams of 1 to 4 members.",
   },
   {
     q: "What should I build?",
@@ -33,7 +33,7 @@ export function FAQSection() {
   const [openItems, setOpenItems] = useState<Set<number>>(new Set());
 
   const toggle = (i: number) => {
-    setOpenItems(prev => {
+    setOpenItems((prev) => {
       const next = new Set(prev);
       next.has(i) ? next.delete(i) : next.add(i);
       return next;
@@ -51,7 +51,10 @@ export function FAQSection() {
       {/* accordion list */}
       <div className="border border-brand-text">
         {faqItems.map((item, i) => (
-          <div key={i} className="border-b border-brand-muted/30 last:border-b-0">
+          <div
+            key={i}
+            className="border-b border-brand-muted/30 last:border-b-0"
+          >
             <button
               onClick={() => toggle(i)}
               className="w-full flex justify-start items-center p-4 hover:bg-brand-text/5 text-left cursor-pointer"
@@ -65,7 +68,9 @@ export function FAQSection() {
               >
                 <polyline points="6 9 12 15 18 9" />
               </svg>
-              <span className="font-mono text-base font-bold text-brand-text flex-1">{item.q}</span>
+              <span className="font-mono text-base font-bold text-brand-text flex-1">
+                {item.q}
+              </span>
             </button>
             <div
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
@@ -73,7 +78,9 @@ export function FAQSection() {
               }`}
             >
               <div className="px-4 pb-4 pt-1">
-                <p className="font-mono text-sm text-brand-muted leading-relaxed">{item.a}</p>
+                <p className="font-mono text-sm text-brand-muted leading-relaxed">
+                  {item.a}
+                </p>
               </div>
             </div>
           </div>
