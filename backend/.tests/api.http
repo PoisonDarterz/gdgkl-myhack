@@ -1,5 +1,8 @@
 @baseUrl = http://localhost:8000
 
+### reset all Supabase tables
+POST {{baseUrl}}/reset-db
+
 ### Create all Supabase tables (safe to re-run — uses IF NOT EXISTS)
 POST {{baseUrl}}/setup-db
 
